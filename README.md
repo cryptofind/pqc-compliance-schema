@@ -42,6 +42,7 @@ How is the PQC compliance policy defined, configured, and communicated to the sc
 #### Hypothesis Question 9
 Are confidence scores assigned to detected cryptographic assets and PQC compliance findings to indicate the reliability of the results?
 
+
 #### Solution
 The Cryptographic Intermediate Representation (CIR) abstracts away syntactic sugar, macro expansions, and wrapper layers, normalizing cryptographic operations into a unified, language-independent representation for consistent cryptographic asset discovery and PQC compliance evaluation.
 
