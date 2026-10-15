@@ -1,5 +1,11 @@
 # pqc-compliance-schema
 
+
+
+
+
+
+
 ## Cryptographic Asset Types
 Post-quantum cryptography compliance Schema
 Algorithms: Aymmetric Algorithms, Asymmetric Algorithms  
@@ -14,6 +20,13 @@ Compliant
 Non-compliant
 Unknown
 hybrid 
+
+
+false negatives
+false positives
+
+
+
 
 
 
