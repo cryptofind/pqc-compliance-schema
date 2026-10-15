@@ -1,0 +1,1352 @@
+{
+"bandit": [
+[
+"a2",
+5,
+"B505 RSA key sizes below 2048 bits are considered breakable. "
+],
+[
+"a8",
+2,
+"B413 The pyCrypto library and its module SHA256 are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library."
+],
+[
+"a8",
+3,
+"B413 The pyCrypto library and its module RSA are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library."
+],
+[
+"a8",
+4,
+"B413 The pyCrypto library and its module pkcs1_15 are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library."
+],
+[
+"c4",
+2,
+"B404 Consider possible security implications associated with the subprocess module."
+],
+[
+"c4",
+5,
+"B607 Starting a process with a partial executable path"
+],
+[
+"c4",
+5,
+"B603 subprocess call - check for execution of untrusted input."
+],
+[
+"d6",
+7,
+"B101 Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+],
+[
+"t1",
+6,
+"B101 Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+]
+],
+"semgrep": [
+[
+"a2",
+5,
+"insufficient-rsa-key-size Detected an insufficient key size for RSA. NIST recommends a key size of 2048 or higher."
+],
+[
+"b3",
+8,
+"non-literal-import Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.im"
+],
+[
+"b5",
+6,
+"non-literal-import Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.im"
+],
+[
+"c1",
+5,
+"jwt-python-exposed-data The object is passed strictly to jwt.encode(...) Make sure that sensitive information is not exposed through JWT token payload."
+],
+[
+"c5",
+5,
+"use-raise-for-status There's an HTTP request made with requests, but the raise_for_status() utility method isn't used. This can result in request errors going u"
+],
+[
+"e3",
+5,
+"insecure-hash-algorithm-sha1 Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a crypt"
+]
+],
+"codeql": [
+[
+"c3",
+8,
+"py/insecure-protocol Insecure SSL/TLS protocol version TLSv1 allowed by [call to ssl.create_default_context](1). Insecure SSL/TLS protocol version TLSv1_1 allow"
+],
+[
+"a2",
+5,
+"py/weak-crypto-key Creation of an RSA key uses [1024](1) bits, which is below 2048 and considered breakable."
+],
+[
+"j4",
+8,
+"java/potentially-weak-cryptographic-algorithm Cryptographic algorithm [ML-KEM-768](1) may not be secure. Consider using a different algorithm."
+],
+[
+"j5",
+6,
+"java/potentially-weak-cryptographic-algorithm Cryptographic algorithm [ML-DSA-65](1) may not be secure. Consider using a different algorithm."
+],
+[
+"j5",
+7,
+"java/potentially-weak-cryptographic-algorithm Cryptographic algorithm [ML-DSA](1) may not be secure. Consider using a different algorithm."
+]
+],
+"qproof": [
+[
+"a1",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a1",
+3,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a1",
+6,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a1",
+7,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a1",
+8,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a2",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a2",
+2,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a2",
+5,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a3",
+1,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"a3",
+6,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"a3",
+7,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"a3",
+7,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a4",
+1,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"a4",
+3,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"a4",
+9,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a5",
+1,
+"qproof/Ed25519 Ed25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying discrete log problem. Replace with ML-DSA-65 (FIPS 204) or S"
+],
+[
+"a5",
+2,
+"qproof/Ed25519 Ed25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying discrete log problem. Replace with ML-DSA-65 (FIPS 204) or S"
+],
+[
+"a6",
+1,
+"qproof/DH Diffie-Hellman detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"a7",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a7",
+7,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a7",
+8,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a8",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a8",
+2,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"a8",
+3,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a8",
+7,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"a8",
+8,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"b1",
+2,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"b2",
+2,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"b4",
+1,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"b4",
+6,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"c1",
+1,
+"qproof/JWT-RS256 JWT RS256 detected \u2014 Uses RSA signatures \u2014 broken by Shor's algorithm. Replace with JWT with ML-DSA signatures or HMAC-SHA256 (HS256) for symme"
+],
+[
+"c1",
+5,
+"qproof/JWT-RS256 JWT RS256 detected \u2014 Uses RSA signatures \u2014 broken by Shor's algorithm. Replace with JWT with ML-DSA signatures or HMAC-SHA256 (HS256) for symme"
+],
+[
+"c2",
+5,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"c2",
+6,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"c2",
+7,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"c2",
+7,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"c4",
+5,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"c6",
+6,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"d2",
+1,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"d2",
+5,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"d3",
+1,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d3",
+4,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d3",
+7,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d3",
+8,
+"qproof/ECDH ECDH detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"d3",
+8,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d3",
+11,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"d3",
+12,
+"qproof/ECDH ECDH detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"d3",
+12,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d7",
+1,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"d8",
+4,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d8",
+7,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d8",
+9,
+"qproof/ECDH ECDH detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"d8",
+9,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"d8",
+10,
+"qproof/ECDH ECDH detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"d8",
+10,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"e1",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"e1",
+1,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"e1",
+1,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"e1",
+1,
+"qproof/DH Diffie-Hellman detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-KEM-768/1024 (FIPS 203)"
+],
+[
+"e1",
+7,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"e1",
+8,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"e2",
+4,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"e2",
+5,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"e2",
+6,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"e3",
+1,
+"qproof/SHA-1 SHA-1 detected \u2014 Collision attacks are practical classically (SHAttered, 2017) \u2014 do not use for security. Replace with SHA-256 or SHA-3-256 (FIPS 1"
+],
+[
+"e3",
+5,
+"qproof/SHA-1 SHA-1 detected \u2014 Collision attacks are practical classically (SHAttered, 2017) \u2014 do not use for security. Replace with SHA-256 or SHA-3-256 (FIPS 1"
+],
+[
+"e4",
+2,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"e4",
+7,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"f1",
+1,
+"qproof/AES-128 AES-128 detected \u2014 Grover's algorithm reduces effective key length to 64-bit, below modern security thresholds. Replace with Upgrade to AES-256-G"
+],
+[
+"f2",
+1,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"f2",
+1,
+"qproof/SHA-384 SHA-384 detected \u2014 Grover reduces preimage resistance to 192-bit \u2014 well above security threshold. Replace with No change needed \u2014 SHA-384 is quan"
+],
+[
+"f2",
+1,
+"qproof/SHA-512 SHA-512 detected \u2014 Grover reduces preimage resistance to 256-bit \u2014 excellent quantum margin. Replace with No change needed \u2014 SHA-512 is quantum-s"
+],
+[
+"f2",
+5,
+"qproof/SHA-256 SHA-256 detected \u2014 Grover reduces preimage resistance to 128-bit \u2014 still above security threshold. Replace with No change needed \u2014 SHA-256 is qua"
+],
+[
+"g1",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"t1",
+1,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"t1",
+2,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"t1",
+5,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"j1",
+3,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"j1",
+6,
+"qproof/RSA RSA detected \u2014 Shor's algorithm factors large integers in polynomial time on a cryptographically relevant quantum computer. Replace with ML-KEM-768/1"
+],
+[
+"j2",
+4,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"j2",
+8,
+"qproof/ECDSA ECDSA detected \u2014 Shor's algorithm solves the elliptic curve discrete logarithm problem. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"j3",
+4,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"j3",
+7,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"j3",
+8,
+"qproof/X25519 X25519 detected \u2014 Based on elliptic curves \u2014 Shor's algorithm breaks the underlying ECDLP. Replace with ML-KEM-768 (FIPS 203)"
+],
+[
+"j5",
+3,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"j5",
+6,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"j5",
+7,
+"qproof/DSA DSA detected \u2014 Shor's algorithm solves the discrete logarithm problem in polynomial time. Replace with ML-DSA-65/87 (FIPS 204) or SLH-DSA (FIPS 205)"
+],
+[
+"j7",
+6,
+"qproof/TLS-1.3 TLS 1.3 detected \u2014 Modern protocol but key exchange (X25519/ECDHE) is vulnerable to Shor's algorithm. Replace with TLS 1.3 with hybrid post-quant"
+]
+],
+"cq-quantum": [
+[
+"j1",
+8,
+"KeyGeneration RSA"
+],
+[
+"j2",
+10,
+"KeyGeneration secp256r1"
+],
+[
+"j3",
+7,
+"KeyGeneration X25519"
+],
+[
+"j4",
+8,
+"KeyGeneration ML-KEM-768"
+],
+[
+"j5",
+6,
+"KeyGeneration DSA"
+],
+[
+"j6",
+13,
+"KeyGeneration RSA"
+],
+[
+"j1",
+12,
+"SignOperation RSA"
+],
+[
+"j2",
+12,
+"SignOperation ECDSA"
+],
+[
+"j5",
+10,
+"SignOperation DSA"
+],
+[
+"j6",
+15,
+"SignOperation RSA"
+],
+[
+"j3",
+11,
+"KeyAgreementOperation X25519"
+],
+[
+"j2",
+8,
+"EllipticCurve secp256r1"
+]
+],
+"pqc-audit": [
+[
+"a1",
+6,
+"RSA-2048 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"2 SHOR CRITICAL"
+],
+[
+"e4",
+7,
+"RSA-2048 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"2 SHOR CRITICAL"
+],
+[
+"t1",
+5,
+"RSA-2048 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"2 SHOR CRITICAL"
+],
+[
+"a2",
+5,
+"RSA-1024 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"1 SHOR CRITICAL"
+],
+[
+"a3",
+6,
+"ECC-P-256 {\"primitive\": \"signature\", \"cryptoFunctions\": [\"keygen\"], \"curve\": \"P-256\", \"nis SHOR CRITICAL"
+],
+[
+"a4",
+7,
+"X25519 {\"primitive\": \"key-agree\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"d3",
+8,
+"X25519 {\"primitive\": \"key-agree\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"d8",
+9,
+"X25519 {\"primitive\": \"key-agree\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"a5",
+5,
+"Ed25519 {\"primitive\": \"signature\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"a6",
+5,
+"Diffie-Hellman-2048 {\"primitive\": \"key-agree\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifie SHOR CRITICAL"
+],
+[
+"a8",
+7,
+"RSA-3072 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"3 SHOR CRITICAL"
+],
+[
+"b1",
+5,
+"RSA {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLevel\": SHOR CRITICAL"
+],
+[
+"b4",
+7,
+"ECC {\"primitive\": \"signature\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"c2",
+5,
+"RSA-3072 {\"primitive\": \"pke\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"3 SHOR CRITICAL"
+],
+[
+"c2",
+6,
+"ECDSA {\"primitive\": \"signature\", \"cryptoFunctions\": [\"keygen\"], \"nistQuantumSecurityLe SHOR CRITICAL"
+],
+[
+"d1",
+5,
+"ML-KEM (ML-KEM-768) {\"primitive\": \"kem\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"M PQC INFO"
+],
+[
+"d3",
+9,
+"ML-KEM (ML-KEM-768) {\"primitive\": \"kem\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"M PQC INFO"
+],
+[
+"d5",
+6,
+"ML-KEM (ML-KEM-768) {\"primitive\": \"kem\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"M PQC INFO"
+],
+[
+"d2",
+5,
+"ML-DSA/SLH-DSA (ML-DSA-65) {\"primitive\": \"signature\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifie PQC INFO"
+],
+[
+"d4",
+5,
+"ML-KEM (ML-KEM-512) {\"primitive\": \"kem\", \"cryptoFunctions\": [\"keygen\"], \"parameterSetIdentifier\": \"M PQC INFO"
+]
+],
+"pqready": [
+[
+"a1",
+null,
+"HIGH SRC-002 RSA primitives imported"
+],
+[
+"b1",
+null,
+"HIGH SRC-002 RSA primitives imported"
+],
+[
+"a8",
+null,
+"HIGH SRC-001 PyCrypto / PyCryptodome import"
+],
+[
+"a8",
+null,
+"HIGH SRC-001 PyCrypto / PyCryptodome import"
+],
+[
+"a8",
+null,
+"HIGH SRC-001 PyCrypto / PyCryptodome import"
+],
+[
+"a2",
+null,
+"HIGH SRC-002 RSA primitives imported"
+],
+[
+"a3",
+null,
+"HIGH SRC-004 Elliptic-curve primitives imported"
+],
+[
+"a3",
+null,
+"HIGH SRC-004 Elliptic-curve key generated"
+],
+[
+"b4",
+null,
+"HIGH SRC-004 Elliptic-curve primitives imported"
+],
+[
+"b4",
+null,
+"HIGH SRC-004 Elliptic-curve key generated"
+],
+[
+"e3",
+null,
+"MEDIUM SRC-005 Use of broken hash algorithm: SHA1"
+],
+[
+"b2",
+null,
+"HIGH SRC-002 RSA primitives imported"
+],
+[
+"e4",
+null,
+"HIGH SRC-002 RSA primitives imported"
+],
+[
+"b3",
+null,
+"LOW SRC-006 Hardcoded weak cipher identifier in config"
+],
+[
+"t1",
+null,
+"HIGH SRC-002 RSA primitives imported"
+]
+],
+"crypto-scanner": [
+[
+"d4",
+5,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"a4",
+3,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"a4",
+7,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"a4",
+9,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"a4",
+9,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"a6",
+2,
+"DH/ECDH critical Diffie-Hellman key exchange detected"
+],
+[
+"a1",
+3,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"a1",
+6,
+"RSA critical RSA key generation detected"
+],
+[
+"a1",
+6,
+"Private Key medium Private key reference in configuration"
+],
+[
+"a1",
+7,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"a1",
+8,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"d2",
+5,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"b1",
+2,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"d1",
+5,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"a8",
+2,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"a8",
+3,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"a8",
+7,
+"RSA critical RSA key generation detected"
+],
+[
+"a8",
+8,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"a2",
+2,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"a2",
+5,
+"RSA critical RSA key generation detected"
+],
+[
+"d8",
+4,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d8",
+7,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d8",
+9,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d8",
+10,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d8",
+10,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"d3",
+4,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d3",
+7,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d3",
+8,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"d3",
+9,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"d3",
+11,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"d3",
+12,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"a3",
+3,
+"ECDSA/ECC critical Elliptic curve cryptography import detected"
+],
+[
+"a3",
+6,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"a3",
+7,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"a3",
+7,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"b4",
+3,
+"ECDSA/ECC critical Elliptic curve cryptography import detected"
+],
+[
+"b4",
+6,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"b4",
+7,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"a7",
+7,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"a7",
+8,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"d5",
+6,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"e3",
+5,
+"SHA-1 high SHA-1 hash function detected"
+],
+[
+"t1",
+2,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"t1",
+5,
+"RSA critical RSA key generation detected"
+],
+[
+"b2",
+2,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"c2",
+6,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"c2",
+7,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"e4",
+2,
+"RSA critical RSA cryptographic library import detected"
+],
+[
+"e4",
+7,
+"RSA critical RSA key generation detected"
+],
+[
+"f2",
+5,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"j4",
+8,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"j4",
+9,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"j5",
+6,
+"DSA critical DSA digital signature algorithm detected"
+],
+[
+"j5",
+6,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"j5",
+7,
+"Post-Quantum low Post-quantum cryptographic algorithm detected"
+],
+[
+"j2",
+5,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"j2",
+7,
+"ECDSA/ECC critical EC key pair generation in Java"
+],
+[
+"j2",
+8,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"j2",
+9,
+"ECDSA/ECC critical Elliptic curve cryptography usage detected"
+],
+[
+"j2",
+9,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"j1",
+6,
+"RSA critical RSA key pair generation in Java"
+],
+[
+"j1",
+9,
+"SHA-256 medium SHA-256 hash function detected"
+],
+[
+"j3",
+5,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"j3",
+7,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+],
+[
+"j3",
+8,
+"ECDH critical Elliptic curve Diffie-Hellman key exchange detected"
+]
+],
+"pqc-posture": [
+[
+"a6",
+5,
+"Diffie-Hellman key_exchange CRITICAL"
+],
+[
+"a1",
+6,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"f1",
+1,
+"AES-128 symmetric MEDIUM"
+],
+[
+"f1",
+6,
+"AES-128 symmetric MEDIUM"
+],
+[
+"a8",
+7,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a2",
+5,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a3",
+1,
+"ECDSA signature CRITICAL"
+],
+[
+"a3",
+6,
+"ECDSA signature CRITICAL"
+],
+[
+"a3",
+7,
+"ECDSA signature CRITICAL"
+],
+[
+"b4",
+7,
+"ECDSA signature CRITICAL"
+],
+[
+"c1",
+1,
+"JWT with RSA/ECDSA protocol HIGH"
+],
+[
+"c1",
+5,
+"JWT with RSA/ECDSA protocol HIGH"
+],
+[
+"e3",
+5,
+"SHA-1 hash HIGH"
+],
+[
+"c2",
+5,
+"SSH RSA/ECDSA Keys key_exchange CRITICAL"
+],
+[
+"c2",
+6,
+"ECDSA signature CRITICAL"
+],
+[
+"c2",
+6,
+"SSH RSA/ECDSA Keys key_exchange CRITICAL"
+],
+[
+"e4",
+7,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"e1",
+1,
+"ECDSA signature LOW"
+],
+[
+"a5",
+1,
+"Ed25519 signature CRITICAL"
+],
+[
+"a5",
+2,
+"Ed25519 signature CRITICAL"
+],
+[
+"a5",
+5,
+"Ed25519 signature CRITICAL"
+],
+[
+"t1",
+5,
+"RSA Key Exchange key_exchange MEDIUM"
+],
+[
+"j2",
+9,
+"ECDSA signature CRITICAL"
+],
+[
+"j1",
+6,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"j1",
+9,
+"RSA Signature signature CRITICAL"
+],
+[
+"j7",
+6,
+"TLS 1.0/1.1 protocol CRITICAL"
+],
+[
+"a6",
+5,
+"Diffie-Hellman key_exchange CRITICAL"
+],
+[
+"a1",
+6,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a8",
+7,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a2",
+5,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a3",
+1,
+"ECDSA signature CRITICAL"
+],
+[
+"a3",
+6,
+"ECDSA signature CRITICAL"
+],
+[
+"a3",
+7,
+"ECDSA signature CRITICAL"
+],
+[
+"b4",
+7,
+"ECDSA signature CRITICAL"
+],
+[
+"c2",
+5,
+"SSH RSA/ECDSA Keys key_exchange CRITICAL"
+],
+[
+"c2",
+6,
+"ECDSA signature CRITICAL"
+],
+[
+"c2",
+6,
+"SSH RSA/ECDSA Keys key_exchange CRITICAL"
+],
+[
+"e4",
+7,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"a5",
+1,
+"Ed25519 signature CRITICAL"
+],
+[
+"a5",
+2,
+"Ed25519 signature CRITICAL"
+],
+[
+"a5",
+5,
+"Ed25519 signature CRITICAL"
+],
+[
+"j2",
+9,
+"ECDSA signature CRITICAL"
+],
+[
+"j1",
+6,
+"RSA Key Exchange key_exchange CRITICAL"
+],
+[
+"j1",
+9,
+"RSA Signature signature CRITICAL"
+],
+[
+"j7",
+6,
+"TLS 1.0/1.1 protocol CRITICAL"
+],
+[
+"c1",
+1,
+"JWT with RSA/ECDSA protocol HIGH"
+]
+],
+"crypto-detector": [],
+"cryptohound": []
+}

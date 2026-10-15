@@ -1,0 +1,4 @@
+# Crypto-agile configuration: the signing algorithm is chosen here, not in code.
+signing:
+  family: rsa
+  key_size: 3072

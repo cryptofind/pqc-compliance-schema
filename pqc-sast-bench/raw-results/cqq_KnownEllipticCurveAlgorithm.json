@@ -1,0 +1,6 @@
+{"#select":{"columns":[
+   {"name":"a","kind":"Entity"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   [{"label":"EllipticCurve","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java","startLine":8,"startColumn":47,"endLine":8,"endColumn":57}},"secp256r1"]]
+ }}

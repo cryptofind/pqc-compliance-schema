@@ -1,0 +1,692 @@
+{
+  "scan_directory": "/home/claude/bench",
+  "scan_timestamp": "2026-10-15T04:43:50.494013",
+  "scanner_version": "0.1.0",
+  "summary": {
+    "total_files_scanned": 44,
+    "total_findings": 65,
+    "critical_count": 41,
+    "high_count": 1,
+    "medium_count": 14,
+    "low_count": 9
+  },
+  "excluded_patterns": [
+    ".mypy_cache",
+    "target",
+    ".hg",
+    ".env",
+    ".output",
+    "*.egg-info",
+    "dist",
+    "__pycache__",
+    ".next",
+    "out",
+    "node_modules",
+    ".nuxt",
+    ".svn",
+    "build",
+    ".pytest_cache",
+    ".idea",
+    ".vscode",
+    "site-packages",
+    "env",
+    "venv",
+    "vendor",
+    ".git",
+    ".tox",
+    "third_party",
+    ".venv"
+  ],
+  "findings": [
+    {
+      "file_path": "/home/claude/bench/cases/d4_mlkem512_param.py",
+      "line_number": 5,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "def establish_low_power(peer_key: bytes):\n    with oqs.KeyEncapsulation(\"ML-KEM-512\") as kem:\n        return kem.encap_secret(peer_key)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a4_x25519_exchange.py",
+      "line_number": 3,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "from cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a4_x25519_exchange.py",
+      "line_number": 7,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "def agree(peer_public_key):\n    ours = X25519PrivateKey.generate()\n    shared = ours.exchange(peer_public_key)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a4_x25519_exchange.py",
+      "line_number": 9,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "    shared = ours.exchange(peer_public_key)\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"session\").derive(shared), ours.public_key()"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a4_x25519_exchange.py",
+      "line_number": 9,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    shared = ours.exchange(peer_public_key)\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"session\").derive(shared), ours.public_key()"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a6_ffdh_exchange.py",
+      "line_number": 2,
+      "algorithm": "DH/ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). DH is vulnerable to quantum attacks.",
+      "context": "\"\"\"Finite-field Diffie-Hellman key agreement for a legacy peer.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import dh\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a1_rsa_keygen_2048.py",
+      "line_number": 3,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "from cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import padding, rsa\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a1_rsa_keygen_2048.py",
+      "line_number": 6,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key generation detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). Document key locations for future rotation.",
+      "context": "def issue_token(claims: bytes) -> bytes:\n    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)\n    return private_key.sign(claims, padding.PSS(mgf=padding.MGF1(hashes.SHA256()),"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a1_rsa_keygen_2048.py",
+      "line_number": 6,
+      "algorithm": "Private Key",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "Private key reference in configuration",
+      "recommendation": "Ensure private keys are stored securely. Document key locations for quantum migration planning.",
+      "context": "def issue_token(claims: bytes) -> bytes:\n    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)\n    return private_key.sign(claims, padding.PSS(mgf=padding.MGF1(hashes.SHA256()),"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a1_rsa_keygen_2048.py",
+      "line_number": 7,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)\n    return private_key.sign(claims, padding.PSS(mgf=padding.MGF1(hashes.SHA256()),\n                                                salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a1_rsa_keygen_2048.py",
+      "line_number": 8,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    return private_key.sign(claims, padding.PSS(mgf=padding.MGF1(hashes.SHA256()),\n                                                salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d2_mldsa65_liboqs.py",
+      "line_number": 5,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "def sign_release(artifact: bytes):\n    with oqs.Signature(\"ML-DSA-65\") as signer:\n        public_key = signer.generate_keypair()"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/b1_rsa_aliased_import.py",
+      "line_number": 2,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "\"\"\"Same operation as a1, written with an aliased module and positional arguments.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa as asym\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d1_mlkem768_liboqs.py",
+      "line_number": 5,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "def establish(peer_encapsulation_key: bytes):\n    with oqs.KeyEncapsulation(\"ML-KEM-768\") as kem:\n        ciphertext, shared_secret = kem.encap_secret(peer_encapsulation_key)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a8_pycryptodome_rsa.py",
+      "line_number": 2,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "\"\"\"Document signing with PyCryptodome RSA-3072 and PKCS#1 v1.5.\"\"\"\nfrom Crypto.Hash import SHA256\nfrom Crypto.PublicKey import RSA"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a8_pycryptodome_rsa.py",
+      "line_number": 3,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "from Crypto.Hash import SHA256\nfrom Crypto.PublicKey import RSA\nfrom Crypto.Signature import pkcs1_15"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a8_pycryptodome_rsa.py",
+      "line_number": 7,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key generation detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). Document key locations for future rotation.",
+      "context": "def sign_document(doc: bytes) -> bytes:\n    key = RSA.generate(3072)\n    return pkcs1_15.new(key).sign(SHA256.new(doc))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a8_pycryptodome_rsa.py",
+      "line_number": 8,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    key = RSA.generate(3072)\n    return pkcs1_15.new(key).sign(SHA256.new(doc))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a2_rsa_keygen_1024.py",
+      "line_number": 2,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "\"\"\"Legacy device enrolment still generates RSA-1024 keys (classically weak control case).\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a2_rsa_keygen_1024.py",
+      "line_number": 5,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key generation detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). Document key locations for future rotation.",
+      "context": "def enrol_device():\n    return rsa.generate_private_key(public_exponent=65537, key_size=1024)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d8_hybrid_pyca.py",
+      "line_number": 4,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "from cryptography.hazmat.primitives.asymmetric.mlkem import MLKEM768PublicKey\nfrom cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d8_hybrid_pyca.py",
+      "line_number": 7,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "\ndef client_share(server_mlkem_pub: MLKEM768PublicKey, server_x25519_pub):\n    kem_secret, ciphertext = server_mlkem_pub.encapsulate()"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d8_hybrid_pyca.py",
+      "line_number": 9,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "    kem_secret, ciphertext = server_mlkem_pub.encapsulate()\n    ecdh_secret = X25519PrivateKey.generate().exchange(server_x25519_pub)\n    key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"X25519MLKEM768\").derive(kem_secret + ecdh_secret)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d8_hybrid_pyca.py",
+      "line_number": 10,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "    ecdh_secret = X25519PrivateKey.generate().exchange(server_x25519_pub)\n    key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"X25519MLKEM768\").derive(kem_secret + ecdh_secret)\n    return ciphertext, key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d8_hybrid_pyca.py",
+      "line_number": 10,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    ecdh_secret = X25519PrivateKey.generate().exchange(server_x25519_pub)\n    key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"X25519MLKEM768\").derive(kem_secret + ecdh_secret)\n    return ciphertext, key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 4,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "from cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 7,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "\ndef hybrid_establish(peer_x25519_public, peer_mlkem_key: bytes):\n    ecdh_secret = X25519PrivateKey.generate().exchange(peer_x25519_public)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 8,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "def hybrid_establish(peer_x25519_public, peer_mlkem_key: bytes):\n    ecdh_secret = X25519PrivateKey.generate().exchange(peer_x25519_public)\n    with oqs.KeyEncapsulation(\"ML-KEM-768\") as kem:"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 9,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "    ecdh_secret = X25519PrivateKey.generate().exchange(peer_x25519_public)\n    with oqs.KeyEncapsulation(\"ML-KEM-768\") as kem:\n        ciphertext, kem_secret = kem.encap_secret(peer_mlkem_key)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 11,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "        ciphertext, kem_secret = kem.encap_secret(peer_mlkem_key)\n    key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None,\n               info=b\"hybrid-x25519-mlkem768\").derive(kem_secret + ecdh_secret)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d3_hybrid_x25519_mlkem768.py",
+      "line_number": 12,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "    key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None,\n               info=b\"hybrid-x25519-mlkem768\").derive(kem_secret + ecdh_secret)\n    return ciphertext, key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a3_ecdsa_p256_sign.py",
+      "line_number": 3,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography import detected",
+      "recommendation": "Plan migration to post-quantum signatures (ML-DSA, SLH-DSA). ECC is vulnerable to Shor's algorithm.",
+      "context": "from cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import ec\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a3_ecdsa_p256_sign.py",
+      "line_number": 6,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "def sign_manifest(manifest: bytes) -> bytes:\n    key = ec.generate_private_key(ec.SECP256R1())\n    return key.sign(manifest, ec.ECDSA(hashes.SHA256()))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a3_ecdsa_p256_sign.py",
+      "line_number": 7,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "    key = ec.generate_private_key(ec.SECP256R1())\n    return key.sign(manifest, ec.ECDSA(hashes.SHA256()))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a3_ecdsa_p256_sign.py",
+      "line_number": 7,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    key = ec.generate_private_key(ec.SECP256R1())\n    return key.sign(manifest, ec.ECDSA(hashes.SHA256()))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/b4_curve_from_env.py",
+      "line_number": 3,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography import detected",
+      "recommendation": "Plan migration to post-quantum signatures (ML-DSA, SLH-DSA). ECC is vulnerable to Shor's algorithm.",
+      "context": "import os\nfrom cryptography.hazmat.primitives.asymmetric import ec\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/b4_curve_from_env.py",
+      "line_number": 6,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "def signing_key():\n    curve = getattr(ec, os.environ.get(\"SIGNING_CURVE\", \"SECP256R1\"))()\n    return ec.generate_private_key(curve)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/b4_curve_from_env.py",
+      "line_number": 7,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "    curve = getattr(ec, os.environ.get(\"SIGNING_CURVE\", \"SECP256R1\"))()\n    return ec.generate_private_key(curve)"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a7_rsa_oaep_loaded_key.py",
+      "line_number": 7,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    partner = serialization.load_pem_public_key(pem)\n    return partner.encrypt(data_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()),\n                                                   algorithm=hashes.SHA256(), label=None))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/a7_rsa_oaep_loaded_key.py",
+      "line_number": 8,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "    return partner.encrypt(data_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()),\n                                                   algorithm=hashes.SHA256(), label=None))"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/d5_kem_secret_misuse.py",
+      "line_number": 6,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "\n_KEM = oqs.KeyEncapsulation(\"ML-KEM-768\")\n_PUBLIC = _KEM.generate_keypair()          # generated once, reused for all sessions"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/e3_sha1_nonsecurity.py",
+      "line_number": 5,
+      "algorithm": "SHA-1",
+      "key_size": null,
+      "risk_level": "high",
+      "description": "SHA-1 hash function detected",
+      "recommendation": "Migrate to SHA-256 or SHA-3. SHA-1 is deprecated due to collision attacks.",
+      "context": "def cache_key(path: str) -> str:\n    return hashlib.sha1(path.encode(), usedforsecurity=False).hexdigest()"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/tests/test_rsa_fixture.py",
+      "line_number": 2,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "\"\"\"Unit-test fixture: RSA key used only in tests.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/tests/test_rsa_fixture.py",
+      "line_number": 5,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key generation detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). Document key locations for future rotation.",
+      "context": "def test_fixture_key():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)\n    assert key.key_size == 2048"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/b2_main.py",
+      "line_number": 2,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "\"\"\"Caller injects the algorithm module into the shared helper.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa as _alg\nfrom b2_keyutil import make_key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/c2_paramiko_ssh_keys.py",
+      "line_number": 6,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "    rsa_key = paramiko.RSAKey.generate(bits=3072)\n    ecdsa_key = paramiko.ECDSAKey.generate()\n    return rsa_key, ecdsa_key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/c2_paramiko_ssh_keys.py",
+      "line_number": 7,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "    ecdsa_key = paramiko.ECDSAKey.generate()\n    return rsa_key, ecdsa_key"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/e4_unreachable_rsa.py",
+      "line_number": 2,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA cryptographic library import detected",
+      "recommendation": "Plan migration to post-quantum algorithms (ML-KEM, ML-DSA). RSA is vulnerable to Shor's algorithm on quantum computers.",
+      "context": "\"\"\"Deprecated code path kept for reference; never called.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/e4_unreachable_rsa.py",
+      "line_number": 7,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key generation detected",
+      "recommendation": "Plan migration to post-quantum key encapsulation (ML-KEM). Document key locations for future rotation.",
+      "context": "def _legacy_key():\n    return rsa.generate_private_key(public_exponent=65537, key_size=2048)\n"
+    },
+    {
+      "file_path": "/home/claude/bench/cases/f2_sha256_digest.py",
+      "line_number": 5,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "def digest(blob: bytes) -> str:\n    return hashlib.sha256(blob).hexdigest()"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J4MlKemJca.java",
+      "line_number": 8,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "    public static SecretKey encapsulate() throws GeneralSecurityException {\n        KeyPair kp = KeyPairGenerator.getInstance(\"ML-KEM-768\").generateKeyPair();\n        KEM kem = KEM.getInstance(\"ML-KEM\");"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J4MlKemJca.java",
+      "line_number": 9,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "        KeyPair kp = KeyPairGenerator.getInstance(\"ML-KEM-768\").generateKeyPair();\n        KEM kem = KEM.getInstance(\"ML-KEM\");\n        KEM.Encapsulated enc = kem.newEncapsulator(kp.getPublic()).encapsulate();"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J5MlDsaJca.java",
+      "line_number": 6,
+      "algorithm": "DSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "DSA digital signature algorithm detected",
+      "recommendation": "Migrate to post-quantum signatures (ML-DSA). DSA is both deprecated and quantum-vulnerable.",
+      "context": "    public static byte[] sign(byte[] data) throws GeneralSecurityException {\n        KeyPair kp = KeyPairGenerator.getInstance(\"ML-DSA-65\").generateKeyPair();\n        Signature s = Signature.getInstance(\"ML-DSA\");"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J5MlDsaJca.java",
+      "line_number": 6,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "    public static byte[] sign(byte[] data) throws GeneralSecurityException {\n        KeyPair kp = KeyPairGenerator.getInstance(\"ML-DSA-65\").generateKeyPair();\n        Signature s = Signature.getInstance(\"ML-DSA\");"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J5MlDsaJca.java",
+      "line_number": 7,
+      "algorithm": "Post-Quantum",
+      "key_size": null,
+      "risk_level": "low",
+      "description": "Post-quantum cryptographic algorithm detected",
+      "recommendation": "Excellent! Post-quantum algorithms are the recommended path forward.",
+      "context": "        KeyPair kp = KeyPairGenerator.getInstance(\"ML-DSA-65\").generateKeyPair();\n        Signature s = Signature.getInstance(\"ML-DSA\");\n        s.initSign(kp.getPrivate());"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java",
+      "line_number": 5,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "/** J2: ECDSA over P-256 through JCA. */\npublic class J2EcdsaSign {\n    public static byte[] sign(byte[] data) throws GeneralSecurityException {"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java",
+      "line_number": 7,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "EC key pair generation in Java",
+      "recommendation": "Plan migration to post-quantum algorithms.",
+      "context": "    public static byte[] sign(byte[] data) throws GeneralSecurityException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"EC\");\n        kpg.initialize(new ECGenParameterSpec(\"secp256r1\"));"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java",
+      "line_number": 8,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"EC\");\n        kpg.initialize(new ECGenParameterSpec(\"secp256r1\"));\n        Signature s = Signature.getInstance(\"SHA256withECDSA\");"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java",
+      "line_number": 9,
+      "algorithm": "ECDSA/ECC",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve cryptography usage detected",
+      "recommendation": "Plan migration to post-quantum digital signatures (ML-DSA).",
+      "context": "        kpg.initialize(new ECGenParameterSpec(\"secp256r1\"));\n        Signature s = Signature.getInstance(\"SHA256withECDSA\");\n        s.initSign(kpg.generateKeyPair().getPrivate());"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java",
+      "line_number": 9,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "        kpg.initialize(new ECGenParameterSpec(\"secp256r1\"));\n        Signature s = Signature.getInstance(\"SHA256withECDSA\");\n        s.initSign(kpg.generateKeyPair().getPrivate());"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J1RsaSign.java",
+      "line_number": 6,
+      "algorithm": "RSA",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "RSA key pair generation in Java",
+      "recommendation": "Plan migration to post-quantum algorithms. Consider hybrid approaches during transition.",
+      "context": "    public static byte[] sign(byte[] data) throws GeneralSecurityException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(2048);"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J1RsaSign.java",
+      "line_number": 9,
+      "algorithm": "SHA-256",
+      "key_size": null,
+      "risk_level": "medium",
+      "description": "SHA-256 hash function detected",
+      "recommendation": "SHA-256 is currently secure. Consider SHA-3 for new implementations as a hedge against future cryptanalysis.",
+      "context": "        KeyPair kp = kpg.generateKeyPair();\n        Signature s = Signature.getInstance(\"SHA256withRSA\");\n        s.initSign(kp.getPrivate());"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J3X25519Agree.java",
+      "line_number": 5,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "/** J3: X25519 key agreement through JCA. */\npublic class J3X25519Agree {\n    public static byte[] agree(PublicKey peer) throws GeneralSecurityException {"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J3X25519Agree.java",
+      "line_number": 7,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "    public static byte[] agree(PublicKey peer) throws GeneralSecurityException {\n        KeyPair kp = KeyPairGenerator.getInstance(\"X25519\").generateKeyPair();\n        KeyAgreement ka = KeyAgreement.getInstance(\"X25519\");"
+    },
+    {
+      "file_path": "/home/claude/bench/java/src/main/java/bench/J3X25519Agree.java",
+      "line_number": 8,
+      "algorithm": "ECDH",
+      "key_size": null,
+      "risk_level": "critical",
+      "description": "Elliptic curve Diffie-Hellman key exchange detected",
+      "recommendation": "Plan migration to ML-KEM for key encapsulation.",
+      "context": "        KeyPair kp = KeyPairGenerator.getInstance(\"X25519\").generateKeyPair();\n        KeyAgreement ka = KeyAgreement.getInstance(\"X25519\");\n        ka.init(kp.getPrivate());"
+    }
+  ]
+}

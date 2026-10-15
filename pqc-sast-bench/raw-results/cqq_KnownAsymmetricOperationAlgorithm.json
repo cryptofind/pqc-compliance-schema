@@ -1,0 +1,16 @@
+{"#select":{"columns":[
+   {"name":"op","kind":"Entity"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   [{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J1RsaSign.java","startLine":8,"startColumn":22,"endLine":8,"endColumn":42}},"RSA"]
+  ,[{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java","startLine":10,"startColumn":20,"endLine":10,"endColumn":40}},"secp256r1"]
+  ,[{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J3X25519Agree.java","startLine":7,"startColumn":22,"endLine":7,"endColumn":77}},"X25519"]
+  ,[{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J4MlKemJca.java","startLine":8,"startColumn":22,"endLine":8,"endColumn":81}},"ML-KEM-768"]
+  ,[{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J5MlDsaJca.java","startLine":6,"startColumn":22,"endLine":6,"endColumn":80}},"DSA"]
+  ,[{"label":"KeyGeneration","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J6ConfigDriven.java","startLine":13,"startColumn":20,"endLine":13,"endColumn":40}},"RSA"]
+  ,[{"label":"SignOperation","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J1RsaSign.java","startLine":12,"startColumn":16,"endLine":12,"endColumn":23}},"RSA"]
+  ,[{"label":"SignOperation","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J2EcdsaSign.java","startLine":12,"startColumn":16,"endLine":12,"endColumn":23}},"ECDSA"]
+  ,[{"label":"SignOperation","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J5MlDsaJca.java","startLine":10,"startColumn":16,"endLine":10,"endColumn":23}},"DSA"]
+  ,[{"label":"SignOperation","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J6ConfigDriven.java","startLine":15,"startColumn":16,"endLine":15,"endColumn":23}},"RSA"]
+  ,[{"label":"KeyAgreementOperation","url":{"uri":"file:///home/claude/bench/java/src/main/java/bench/J3X25519Agree.java","startLine":11,"startColumn":16,"endLine":11,"endColumn":34}},"X25519"]]
+ }}

@@ -1,0 +1,1185 @@
+{
+  "components": [
+    {
+      "bom-ref": "crypto-1-dh",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 2048,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "key-agree"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "DH-2048",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "params = dh.generate_parameters(generator=2, key_size=2048)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "dh"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a6_ffdh_exchange.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Diffie-Hellman relies on the discrete logarithm problem, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "key agreement is exposed to harvest-now-decrypt-later: traffic captured today can be decrypted retroactively; found in first-party source; 2048-bit key (below 112-bit security margin long term)"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "5"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-3-ecdh",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 256,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "curve": "X25519",
+          "primitive": "key-agree"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDH-256",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "ours = X25519PrivateKey.generate()"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdh"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a4_x25519_exchange.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "X25519/X448 ECDH relies on curve discrete log, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "key agreement is exposed to harvest-now-decrypt-later: traffic captured today can be decrypted retroactively; found in first-party source; 256-bit parameter"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "4"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-4-ecdh",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 256,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "curve": "X25519",
+          "primitive": "key-agree"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDH-256",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "ecdh_secret = X25519PrivateKey.generate().exchange(peer_x25519_public)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdh"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/d3_hybrid_x25519_mlkem768.py:8"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "X25519/X448 ECDH relies on curve discrete log, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "key agreement is exposed to harvest-now-decrypt-later: traffic captured today can be decrypted retroactively; found in first-party source; 256-bit parameter"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "4"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-5-ecdh",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 256,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "curve": "X25519",
+          "primitive": "key-agree"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDH-256",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "ecdh_secret = X25519PrivateKey.generate().exchange(server_x25519_pub)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdh"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/d8_hybrid_pyca.py:9"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "X25519/X448 ECDH relies on curve discrete log, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "key agreement is exposed to harvest-now-decrypt-later: traffic captured today can be decrypted retroactively; found in first-party source; 256-bit parameter"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "4"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-15-ecdsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return ec.generate_private_key(curve)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/b4_curve_from_env.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Elliptic-curve discrete log is broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-18-ecdsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "ecdsa_key = paramiko.ECDSAKey.generate()"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "paramiko"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/c2_paramiko_ssh_keys.py:6"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Elliptic-curve discrete log is broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-9-ecdsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return key.sign(manifest, ec.ECDSA(hashes.SHA256()))"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a3_ecdsa_p256_sign.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Elliptic-curve discrete log is broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-8-ecdsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 256,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "curve": "SECP256R1",
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "ECDSA-256",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "key = ec.generate_private_key(ec.SECP256R1())"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "ecdsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a3_ecdsa_p256_sign.py:6"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Elliptic-curve discrete log is broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; 256-bit parameter"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-10-eddsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 256,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "curve": "ED25519",
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "EdDSA-256",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return Ed25519PrivateKey.generate().sign(entry)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "eddsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a5_ed25519_sign.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "Edwards-curve discrete log is broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; 256-bit parameter"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-16-jwt",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "JWT-asymmetric",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return jwt.encode(claims, private_pem, algorithm=\"RS256\")"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "jwt"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "pyjwt"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/c1_jwt_rs256.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "JWT RS*/PS*/ES*/EdDSA algorithms rely on RSA or EC, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-11-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return partner.encrypt(data_key, padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()),"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a7_rsa_oaep_loaded_key.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-13-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return pkcs1_15.new(key).sign(SHA256.new(doc))"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a8_pycryptodome_rsa.py:8"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-14-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "pke"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return asym.generate_private_key(65537, 2048)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/b1_rsa_aliased_import.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "public-key encryption protects confidentiality that breaks retroactively; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-17-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "rsa_key = paramiko.RSAKey.generate(bits=3072)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "paramiko"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/c2_paramiko_ssh_keys.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-7-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "signature"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return private_key.sign(claims, padding.PSS(mgf=padding.MGF1(hashes.SHA256()),"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a1_rsa_keygen_2048.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "signing can be forged once the underlying curve/modulus is broken; found in first-party source; key size not statically determinable"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-0-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 1024,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "pke"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA-1024",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return rsa.generate_private_key(public_exponent=65537, key_size=1024)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a2_rsa_keygen_1024.py:5"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "public-key encryption protects confidentiality that breaks retroactively; found in first-party source; undersized 1024-bit key (weak even classically)"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "5"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-2-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 2048,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "pke"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA-2048",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a1_rsa_keygen_2048.py:6"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "public-key encryption protects confidentiality that breaks retroactively; found in first-party source; 2048-bit key (below 112-bit security margin long term)"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "4"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-6-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 2048,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "pke"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA-2048",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "return rsa.generate_private_key(public_exponent=65537, key_size=2048)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "cryptography"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/e4_unreachable_rsa.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "high"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "public-key encryption protects confidentiality that breaks retroactively; found in first-party source; 2048-bit key (below 112-bit security margin long term)"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "4"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto-12-rsa",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "classicalSecurityLevel": 3072,
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "primitive": "pke"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "RSA-3072",
+      "properties": [
+        {
+          "name": "cryptohound:detection",
+          "value": "source"
+        },
+        {
+          "name": "cryptohound:evidence",
+          "value": "key = RSA.generate(3072)"
+        },
+        {
+          "name": "cryptohound:family",
+          "value": "rsa"
+        },
+        {
+          "name": "cryptohound:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "cryptohound:location",
+          "value": "bench/cases/a8_pycryptodome_rsa.py:7"
+        },
+        {
+          "name": "cryptohound:quantum_reason",
+          "value": "RSA relies on integer factorization, broken by Shor's algorithm."
+        },
+        {
+          "name": "cryptohound:quantum_vulnerable",
+          "value": "true"
+        },
+        {
+          "name": "cryptohound:severity",
+          "value": "medium"
+        },
+        {
+          "name": "cryptohound:severity_reason",
+          "value": "public-key encryption protects confidentiality that breaks retroactively; found in first-party source; 3072-bit key"
+        },
+        {
+          "name": "cryptohound:severity_score",
+          "value": "3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "crypto-0-rsa"
+    },
+    {
+      "ref": "crypto-1-dh"
+    },
+    {
+      "ref": "crypto-10-eddsa"
+    },
+    {
+      "ref": "crypto-11-rsa"
+    },
+    {
+      "ref": "crypto-12-rsa"
+    },
+    {
+      "ref": "crypto-13-rsa"
+    },
+    {
+      "ref": "crypto-14-rsa"
+    },
+    {
+      "ref": "crypto-15-ecdsa"
+    },
+    {
+      "ref": "crypto-16-jwt"
+    },
+    {
+      "ref": "crypto-17-rsa"
+    },
+    {
+      "ref": "crypto-18-ecdsa"
+    },
+    {
+      "ref": "crypto-2-rsa"
+    },
+    {
+      "ref": "crypto-3-ecdh"
+    },
+    {
+      "ref": "crypto-4-ecdh"
+    },
+    {
+      "ref": "crypto-5-ecdh"
+    },
+    {
+      "ref": "crypto-6-rsa"
+    },
+    {
+      "ref": "crypto-7-rsa"
+    },
+    {
+      "ref": "crypto-8-ecdsa"
+    },
+    {
+      "ref": "crypto-9-ecdsa"
+    },
+    {
+      "dependsOn": [
+        "crypto-0-rsa",
+        "crypto-1-dh",
+        "crypto-10-eddsa",
+        "crypto-11-rsa",
+        "crypto-12-rsa",
+        "crypto-13-rsa",
+        "crypto-14-rsa",
+        "crypto-15-ecdsa",
+        "crypto-16-jwt",
+        "crypto-17-rsa",
+        "crypto-18-ecdsa",
+        "crypto-2-rsa",
+        "crypto-3-ecdh",
+        "crypto-4-ecdh",
+        "crypto-5-ecdh",
+        "crypto-6-rsa",
+        "crypto-7-rsa",
+        "crypto-8-ecdsa",
+        "crypto-9-ecdsa"
+      ],
+      "ref": "cryptoscan-target"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "cryptoscan-target",
+      "name": "cryptoscan-target:bench/cases",
+      "type": "application"
+    },
+    "properties": [
+      {
+        "name": "cryptohound:tool_version",
+        "value": "0.1.0"
+      }
+    ],
+    "timestamp": "2026-10-15T04:44:25.530900+00:00"
+  },
+  "serialNumber": "urn:uuid:1be6fb88-de41-4fc1-a2ad-28c5a7a4b29e",
+  "version": 1,
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6"
+}

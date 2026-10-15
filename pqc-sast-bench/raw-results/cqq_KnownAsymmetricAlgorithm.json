@@ -1,0 +1,16 @@
+{"#select":{"columns":[
+   {"name":"a","kind":"Entity"}
+  ,{"kind":"String"}]
+ ,"tuples":[
+   [{"label":"KeyAgreementAlgorithm"},"X25519"]
+  ,[{"label":"KeyAgreementAlgorithm"},"X25519"]
+  ,[{"label":"KeyAgreementAlgorithm"},"ML-KEM-768"]
+  ,[{"label":"KeyOperationAlgorithm"},"RSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"RSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"ECDSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"DSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"DSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"RSA"]
+  ,[{"label":"KeyOperationAlgorithm"},"RSA"]
+  ,[{"label":"EllipticCurve"},"secp256r1"]]
+ }}
