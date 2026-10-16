@@ -1,0 +1,665 @@
+{
+  "schema": "pqc-cbom-benchmark/ground-truth/1",
+  "hypothesis": "H6",
+  "target": "targets/h06_external_config",
+  "question": "What if algorithm selection is driven by configuration files (JSON/YAML/XML/TOML/INI) and environment variables?",
+  "notes": "Run with APP_KEX=X25519 to emulate deploy/docker-compose.yml.  Registry items (status=registry) are capabilities present in code but not selected by the shipped configuration: score them separately as over-approximation.",
+  "policies": [
+    "QR-STRICT",
+    "QR-HYBRID",
+    "CNSA2-LIKE",
+    "IR8547-2031"
+  ],
+  "items": [
+    {
+      "id": "H6-PROBE",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Positive control: direct SHA-512 digest, identical in every target.",
+      "asset": {
+        "name": "SHA-512",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "purpose": "positive control (a miss means the scan itself failed)",
+      "locations": [
+        {
+          "file": "probe.py",
+          "line": 6,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H6-01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "AEAD chosen by config/crypto.json",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "config/crypto.json",
+      "locations": [
+        {
+          "file": "config/crypto.json",
+          "line": 4,
+          "role": "cfg"
+        },
+        {
+          "file": "config/crypto.json",
+          "line": 5,
+          "role": "cfg"
+        },
+        {
+          "file": "config/crypto.json",
+          "line": 6,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 10,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 36,
+          "role": "keygen"
+        },
+        {
+          "file": "services.py",
+          "line": 12,
+          "role": "op"
+        },
+        {
+          "file": "services.py",
+          "line": 14,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H6-02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Signature scheme chosen by config/signing.yaml",
+      "asset": {
+        "name": "ECDSA-P-384-SHA-384",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "curve": "P-384",
+        "hash": "SHA-384",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "config/signing.yaml",
+      "locations": [
+        {
+          "file": "config/signing.yaml",
+          "line": 2,
+          "role": "cfg"
+        },
+        {
+          "file": "config/signing.yaml",
+          "line": 3,
+          "role": "cfg"
+        },
+        {
+          "file": "config/signing.yaml",
+          "line": 4,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 23,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 31,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 42,
+          "role": "keygen"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 43,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 44,
+          "role": "op"
+        },
+        {
+          "file": "services.py",
+          "line": 19,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H6-03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "KDF chosen by config/kdf.xml",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "config/kdf.xml",
+      "locations": [
+        {
+          "file": "config/kdf.xml",
+          "line": 3,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 26,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 31,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 24,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H6-04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Key-transport parameters from config/transport.toml (family checked in code)",
+      "asset": {
+        "name": "RSA-3072-OAEP-SHA-256",
+        "family": "RSA",
+        "primitive": "pke",
+        "key_bits": 3072,
+        "padding": "OAEP",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "config/transport.toml",
+      "locations": [
+        {
+          "file": "config/transport.toml",
+          "line": 2,
+          "role": "cfg"
+        },
+        {
+          "file": "config/transport.toml",
+          "line": 3,
+          "role": "cfg"
+        },
+        {
+          "file": "config/transport.toml",
+          "line": 4,
+          "role": "cfg"
+        },
+        {
+          "file": "config/transport.toml",
+          "line": 5,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 31,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 30,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 32,
+          "role": "keygen"
+        },
+        {
+          "file": "services.py",
+          "line": 33,
+          "role": "padding"
+        },
+        {
+          "file": "services.py",
+          "line": 34,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H6-05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "MAC chosen by config/mac.ini",
+      "asset": {
+        "name": "HMAC-SHA-384",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-384",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "config/mac.ini",
+      "locations": [
+        {
+          "file": "config/mac.ini",
+          "line": 2,
+          "role": "cfg"
+        },
+        {
+          "file": "config/mac.ini",
+          "line": 3,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 27,
+          "role": "def"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 31,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 39,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H6-06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Digest from APP_DIGEST, defaulting to a literal in settings.py",
+      "asset": {
+        "name": "SHA-224",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 224,
+        "quantum": "short-output"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "source": "environment variable with in-code default",
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 31,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 45,
+          "role": "op"
+        },
+        {
+          "file": "settings.py",
+          "line": 35,
+          "role": "def"
+        }
+      ]
+    },
+    {
+      "id": "H6-07",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "KEM from APP_KEM, supplied by the repository's .env file",
+      "asset": {
+        "name": "ML-KEM-1024",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "1024",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": ".env",
+      "locations": [
+        {
+          "file": ".env",
+          "line": 2,
+          "role": "cfg"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 16,
+          "role": "def"
+        },
+        {
+          "file": "services.py",
+          "line": 52,
+          "role": "keygen"
+        },
+        {
+          "file": "services.py",
+          "line": 53,
+          "role": "op"
+        },
+        {
+          "file": "settings.py",
+          "line": 36,
+          "role": "src"
+        }
+      ]
+    },
+    {
+      "id": "H6-08",
+      "status": "active",
+      "runtime": "conditional",
+      "scenario": "Key agreement from APP_KEX, supplied only by deploy/docker-compose.yml",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "source": "deployment manifest",
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 19,
+          "role": "def"
+        },
+        {
+          "file": "deploy/docker-compose.yml",
+          "line": 6,
+          "role": "cfg"
+        },
+        {
+          "file": "services.py",
+          "line": 61,
+          "role": "keygen"
+        },
+        {
+          "file": "services.py",
+          "line": 62,
+          "role": "op"
+        },
+        {
+          "file": "settings.py",
+          "line": 37,
+          "role": "src"
+        }
+      ]
+    },
+    {
+      "id": "H6-09",
+      "status": "unresolved",
+      "runtime": "not-executed",
+      "scenario": "AEAD from APP_SESSION_CIPHER, which no file in the repository defines",
+      "asset": {
+        "name": "unresolved AEAD",
+        "family": "unknown",
+        "primitive": "ae",
+        "quantum": "unknown"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "unknown",
+        "QR-HYBRID": "unknown",
+        "CNSA2-LIKE": "unknown",
+        "IR8547-2031": "unknown"
+      },
+      "source": "runtime environment only",
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 36,
+          "role": "keygen"
+        },
+        {
+          "file": "services.py",
+          "line": 70,
+          "role": "op"
+        },
+        {
+          "file": "services.py",
+          "line": 72,
+          "role": "op"
+        },
+        {
+          "file": "settings.py",
+          "line": 38,
+          "role": "src"
+        }
+      ]
+    },
+    {
+      "id": "H6-I01",
+      "status": "registry",
+      "runtime": "not-executed",
+      "scenario": "Registry entry not selected by the shipped configuration",
+      "asset": {
+        "name": "AES-SIV",
+        "family": "AES",
+        "primitive": "ae",
+        "mode": "SIV",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "unknown",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 11,
+          "role": "registry"
+        }
+      ]
+    },
+    {
+      "id": "H6-I02",
+      "status": "registry",
+      "runtime": "not-executed",
+      "scenario": "Registry entry not selected by the shipped configuration",
+      "asset": {
+        "name": "ChaCha20-Poly1305",
+        "family": "ChaCha20-Poly1305",
+        "primitive": "ae",
+        "key_bits": 256,
+        "quantum": "quantum-resistant",
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 12,
+          "role": "registry"
+        }
+      ]
+    },
+    {
+      "id": "H6-I03",
+      "status": "registry",
+      "runtime": "not-executed",
+      "scenario": "Registry entry not selected by the shipped configuration",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 15,
+          "role": "registry"
+        }
+      ]
+    },
+    {
+      "id": "H6-I04",
+      "status": "registry",
+      "runtime": "not-executed",
+      "scenario": "Registry entry not selected by the shipped configuration",
+      "asset": {
+        "name": "X448",
+        "family": "X448",
+        "primitive": "key-agree",
+        "curve": "Curve448",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 224
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 20,
+          "role": "registry"
+        }
+      ]
+    },
+    {
+      "id": "H6-I05",
+      "status": "registry",
+      "runtime": "not-executed",
+      "scenario": "Registry entry not selected by the shipped configuration",
+      "asset": {
+        "name": "Ed25519",
+        "family": "EdDSA",
+        "primitive": "signature",
+        "curve": "Ed25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "crypto_factory.py",
+          "line": 24,
+          "role": "registry"
+        },
+        {
+          "file": "crypto_factory.py",
+          "line": 45,
+          "role": "registry"
+        }
+      ]
+    }
+  ]
+}

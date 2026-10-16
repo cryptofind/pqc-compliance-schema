@@ -1,0 +1,55 @@
+# Reference PQC-compliance policies used by the benchmark's ground truth (tools/build_ground_truth.py: verdict()).
+# They are research reference points, not official standards.  Per-tool encodings:
+#   cbomkit_opa/*.rego       -> CBOMKit compliance service via Open Policy Agent (also usable with plain `opa eval` on any CBOM)
+#   cryptobom_forge/*.yml    -> cryptobom-forge `cryptocheck` rules (--cryptocheck -r FILE)
+version: 1
+verdicts: [compliant, deprecated, unknown, non-compliant]
+unit_aggregation: >-
+  A unit (function) takes its most severe asset verdict: non-compliant > deprecated > unknown > compliant.
+terms:
+  shor_vulnerable: RSA, DSA, finite-field DH, ECDSA, ECDH, EdDSA (Ed25519, Ed448), X25519, X448 and other elliptic-curve schemes.
+  approved_pqc: ML-KEM (FIPS 203), ML-DSA (FIPS 204), SLH-DSA (FIPS 205), LMS and XMSS (SP 800-208), any parameter set.
+  hybrid: >-
+    A shor_vulnerable algorithm and an approved_pqc algorithm performing the same function in one unit, combined so that
+    the result stays secure if either component is secure (key-establishment secrets fed into one KDF; a composite
+    signature that verifies only when both component signatures verify).
+
+policies:
+  QR-STRICT:
+    summary: Quantum-resistant cryptography only.
+    rules:
+      - {id: S1, applies_to: "shor_vulnerable, in any role, including inside a hybrid", verdict: non-compliant}
+      - {id: S2, applies_to: approved_pqc, verdict: compliant}
+      - {id: S3, applies_to: "AES-128/192/256 (any mode), ChaCha20-Poly1305, XSalsa20-Poly1305, SM4", verdict: compliant}
+      - {id: S4, applies_to: "hashes with output >= 256 bits (SHA-2, SHA-3, BLAKE2b-512, SM3) and HMAC/HKDF built on them", verdict: compliant}
+      - {id: S5, applies_to: "MD5, SHA-1 (also inside HMAC or key derivation), and hash outputs below 256 bits (SHA-224 etc.)", verdict: non-compliant}
+      - {id: S6, applies_to: "algorithm whose identity cannot be determined", verdict: unknown}
+
+  QR-HYBRID:
+    summary: QR-STRICT, except that a shor_vulnerable component of a correctly combined hybrid is permitted (transition policy).
+    inherits: QR-STRICT
+    overrides:
+      - {id: H1, applies_to: "shor_vulnerable component of a hybrid", verdict: compliant}
+      - {id: H2, applies_to: "shor_vulnerable algorithm with no approved_pqc partner for the same function (e.g. classical authentication of a PQC key exchange) or reachable on a fallback/downgrade path", verdict: non-compliant}
+
+  CNSA2-LIKE:
+    summary: Modelled on the NSA CNSA 2.0 algorithm suite.
+    allowed: [ML-KEM-1024, ML-DSA-87, LMS, XMSS, AES-256, SHA-384, SHA-512, HMAC/HKDF over SHA-384 or SHA-512]
+    rules:
+      - {id: C1, applies_to: allowed, verdict: compliant}
+      - {id: C2, applies_to: "everything else, including ML-KEM-512/768, ML-DSA-44/65, SLH-DSA, AES-128/192, ChaCha20-Poly1305, SHA-256, SHA-3", verdict: non-compliant}
+      - {id: C3, applies_to: "shor_vulnerable component of a hybrid whose PQC partner is ML-KEM-1024 or ML-DSA-87", verdict: compliant,
+         note: "Design choice of this reference policy; it is not a statement of NSA policy on hybrids."}
+      - {id: C4, applies_to: "AES with unknown key size; KDF/MAC whose hash is unknown", verdict: unknown}
+
+  IR8547-2031:
+    summary: >-
+      Snapshot of the transition schedule proposed in NIST IR 8547 (initial public draft, November 2024) as it would apply
+      in 2031: quantum-vulnerable schemes at 112-bit classical strength are deprecated after 2030 and all are disallowed
+      after 2035.  Check the final publication before relying on these dates.
+    rules:
+      - {id: N1, applies_to: "shor_vulnerable below 112-bit classical strength (P-192, RSA-1024)", verdict: non-compliant}
+      - {id: N2, applies_to: "shor_vulnerable at 112-bit strength (RSA-2048, P-224, 2048-bit DH)", verdict: deprecated}
+      - {id: N3, applies_to: "shor_vulnerable at >= 128-bit strength (RSA-3072+, P-256+, secp256k1, Brainpool >= 256, Ed25519, X25519, X448)", verdict: compliant}
+      - {id: N4, applies_to: "shor_vulnerable whose strength cannot be determined", verdict: unknown}
+      - {id: N5, applies_to: "approved_pqc, symmetric, hash, MAC and KDF", verdict: "as QR-STRICT S2-S6"}

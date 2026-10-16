@@ -1,0 +1,6 @@
+services:
+  app:
+    build: ..
+    command: python main.py
+    environment:
+      APP_KEX: X25519

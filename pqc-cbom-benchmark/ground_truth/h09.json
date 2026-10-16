@@ -1,0 +1,462 @@
+{
+  "schema": "pqc-cbom-benchmark/ground-truth/1",
+  "hypothesis": "H9",
+  "target": "targets/h09_confidence",
+  "question": "Are confidence scores assigned to detected cryptographic assets and PQC compliance findings?",
+  "notes": "ideal_confidence is an ordinal: 5 = identity certain from literals ... 1 = present but unreachable or dead, 0 = decoy (no cryptography).  Compare any confidence a tool emits (e.g. CycloneDX evidence.identity[].confidence) with this order.",
+  "policies": [
+    "QR-STRICT",
+    "QR-HYBRID",
+    "CNSA2-LIKE",
+    "IR8547-2031"
+  ],
+  "items": [
+    {
+      "id": "H9-PROBE",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Positive control: direct SHA-512 digest, identical in every target.",
+      "asset": {
+        "name": "SHA-512",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "purpose": "positive control (a miss means the scan itself failed)",
+      "locations": [
+        {
+          "file": "probe.py",
+          "line": 6,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: literal parameters at the call",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 5,
+      "evidence": "literal parameters at the call",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 16,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: module-level constant",
+      "asset": {
+        "name": "AES-192-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 192,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 4,
+      "evidence": "module-level constant",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 11,
+          "role": "src"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 20,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C3",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: literal at the only caller, one call away",
+      "asset": {
+        "name": "RSA-3072",
+        "family": "RSA",
+        "primitive": "pke",
+        "key_bits": 3072,
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 4,
+      "evidence": "literal at the only caller, one call away",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 24,
+          "role": "use"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 28,
+          "role": "src"
+        }
+      ]
+    },
+    {
+      "id": "H9-C4a",
+      "status": "active",
+      "runtime": "conditional",
+      "scenario": "Evidence: one of two path-dependent alternatives (taken only with command-line arguments)",
+      "asset": {
+        "name": "SHA-384",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 384,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 3,
+      "evidence": "one of two path-dependent alternatives (taken only with command-line arguments)",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 32,
+          "role": "use"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 33,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H9-C4b",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: one of two path-dependent alternatives (default path)",
+      "asset": {
+        "name": "SHA3-256",
+        "family": "SHA-3",
+        "primitive": "hash",
+        "output_bits": 256,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 3,
+      "evidence": "one of two path-dependent alternatives (default path)",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 32,
+          "role": "use"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 33,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H9-C5",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: class resolved from a string with getattr",
+      "asset": {
+        "name": "BLAKE2b-512",
+        "family": "BLAKE2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 3,
+      "evidence": "class resolved from a string with getattr",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 39,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C6",
+      "status": "unresolved",
+      "runtime": "not-executed",
+      "scenario": "Evidence: curve read from an environment variable with no default",
+      "asset": {
+        "name": "ECDSA-unknown-curve-SHA-256",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "unknown"
+      },
+      "ideal_confidence": 2,
+      "evidence": "curve read from an environment variable with no default",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 48,
+          "role": "keygen"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 49,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H9-C7",
+      "status": "unreachable",
+      "runtime": "not-executed",
+      "scenario": "Evidence: function that is never called",
+      "asset": {
+        "name": "EC-secp256k1",
+        "family": "EC",
+        "primitive": "other",
+        "curve": "secp256k1",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 1,
+      "evidence": "function that is never called",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 53,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C8",
+      "status": "dead-branch",
+      "runtime": "not-executed",
+      "scenario": "Evidence: branch guarded by a constant-false flag",
+      "asset": {
+        "name": "SM4-128-CBC",
+        "family": "SM4",
+        "primitive": "block-cipher",
+        "key_bits": 128,
+        "mode": "CBC",
+        "quantum": "quantum-resistant",
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "ideal_confidence": 1,
+      "evidence": "branch guarded by a constant-false flag",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 12,
+          "role": "src"
+        },
+        {
+          "file": "evidence_ladder.py",
+          "line": 58,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-C9",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Evidence: certain identity, non-security use",
+      "asset": {
+        "name": "MD5",
+        "family": "MD5",
+        "primitive": "hash",
+        "output_bits": 128,
+        "quantum": "classically-broken",
+        "usage": "non-security (usedforsecurity=False)"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "ideal_confidence": 5,
+      "evidence": "certain identity, non-security use",
+      "locations": [
+        {
+          "file": "evidence_ladder.py",
+          "line": 64,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H9-D1",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: log message mentioning a key size and algorithm",
+      "ideal_confidence": 0,
+      "locations": [
+        {
+          "file": "decoys.py",
+          "line": 27,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H9-D2",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: local class named like an algorithm, with a sign() method",
+      "ideal_confidence": 0,
+      "locations": [
+        {
+          "file": "decoys.py",
+          "line": 10,
+          "role": "decoy"
+        },
+        {
+          "file": "decoys.py",
+          "line": 17,
+          "role": "decoy"
+        },
+        {
+          "file": "main.py",
+          "line": 18,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H9-D3",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: list of algorithm names used only for display",
+      "ideal_confidence": 0,
+      "locations": [
+        {
+          "file": "decoys.py",
+          "line": 7,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H9-D4",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: function named after a hash that computes a CRC",
+      "ideal_confidence": 0,
+      "locations": [
+        {
+          "file": "decoys.py",
+          "line": 22,
+          "role": "decoy"
+        },
+        {
+          "file": "main.py",
+          "line": 19,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H9-D5",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: comment naming algorithms",
+      "ideal_confidence": 0,
+      "locations": [
+        {
+          "file": "decoys.py",
+          "line": 30,
+          "role": "decoy"
+        }
+      ]
+    }
+  ]
+}

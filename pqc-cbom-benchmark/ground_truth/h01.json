@@ -1,0 +1,313 @@
+{
+  "schema": "pqc-cbom-benchmark/ground-truth/1",
+  "hypothesis": "H1",
+  "target": "targets/h01_metaprogramming",
+  "question": "What if macros (metaprogramming) are used to inject cryptographic elements into source code?",
+  "notes": "Python has no textual macros; the target uses the closest equivalents.  'def' lines hold the injected identity (templates, specs, declarations); 'use' lines are where the injected code runs; 'anchor' lines are runtime-only witnesses.",
+  "policies": [
+    "QR-STRICT",
+    "QR-HYBRID",
+    "CNSA2-LIKE",
+    "IR8547-2031"
+  ],
+  "items": [
+    {
+      "id": "H1-PROBE",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Positive control: direct SHA-512 digest, identical in every target.",
+      "asset": {
+        "name": "SHA-512",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "purpose": "positive control (a miss means the scan itself failed)",
+      "locations": [
+        {
+          "file": "probe.py",
+          "line": 6,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H1-01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "SEAL(...) macro rewritten into an AEAD call by an AST-transforming decorator.",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "AST macro expansion",
+      "visibility": "string literal (macro template)",
+      "locations": [
+        {
+          "file": "macro_engine.py",
+          "line": 9,
+          "role": "def"
+        },
+        {
+          "file": "macro_engine.py",
+          "line": 21,
+          "role": "def"
+        },
+        {
+          "file": "records.py",
+          "line": 7,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H1-02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "KEM_KEYPAIR() macro rewritten into key generation by an AST-transforming decorator.",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "AST macro expansion",
+      "visibility": "string literal (macro template)",
+      "locations": [
+        {
+          "file": "macro_engine.py",
+          "line": 10,
+          "role": "def"
+        },
+        {
+          "file": "macro_engine.py",
+          "line": 22,
+          "role": "def"
+        },
+        {
+          "file": "records.py",
+          "line": 12,
+          "role": "use"
+        },
+        {
+          "file": "records.py",
+          "line": 13,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H1-03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Helper generated from string.Template and exec'd at import time.",
+      "asset": {
+        "name": "HKDF-SHA-384",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-384",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "exec of generated source",
+      "visibility": "string literals split across template and spec",
+      "locations": [
+        {
+          "file": "codegen.py",
+          "line": 9,
+          "role": "def"
+        },
+        {
+          "file": "codegen.py",
+          "line": 11,
+          "role": "def"
+        },
+        {
+          "file": "codegen.py",
+          "line": 13,
+          "role": "def"
+        },
+        {
+          "file": "codegen.py",
+          "line": 14,
+          "role": "def"
+        },
+        {
+          "file": "main.py",
+          "line": 16,
+          "role": "anchor"
+        }
+      ]
+    },
+    {
+      "id": "H1-04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Metaclass synthesises __init__/sign from a declarative class attribute.",
+      "asset": {
+        "name": "ECDSA-P-384-SHA-384",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "curve": "P-384",
+        "hash": "SHA-384",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "metaclass",
+      "visibility": "string literals in a class attribute; names resolved with getattr",
+      "locations": [
+        {
+          "file": "meta.py",
+          "line": 14,
+          "role": "def"
+        },
+        {
+          "file": "meta.py",
+          "line": 18,
+          "role": "keygen"
+        },
+        {
+          "file": "meta.py",
+          "line": 21,
+          "role": "op"
+        },
+        {
+          "file": "meta.py",
+          "line": 29,
+          "role": "def"
+        }
+      ]
+    },
+    {
+      "id": "H1-05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Implementation located with importlib/getattr from a name assembled from fragments.",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "dynamic import",
+      "visibility": "fragmented string",
+      "locations": [
+        {
+          "file": "dynload.py",
+          "line": 5,
+          "role": "def"
+        },
+        {
+          "file": "dynload.py",
+          "line": 10,
+          "role": "def"
+        },
+        {
+          "file": "dynload.py",
+          "line": 11,
+          "role": "keygen"
+        },
+        {
+          "file": "dynload.py",
+          "line": 12,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H1-06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Base64-encoded source executed at run time.",
+      "asset": {
+        "name": "ChaCha20-Poly1305",
+        "family": "ChaCha20-Poly1305",
+        "primitive": "ae",
+        "key_bits": 256,
+        "quantum": "quantum-resistant",
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "technique": "encoded payload",
+      "visibility": "none (encoded)",
+      "locations": [
+        {
+          "file": "payload.py",
+          "line": 5,
+          "role": "def"
+        },
+        {
+          "file": "payload.py",
+          "line": 10,
+          "role": "def"
+        },
+        {
+          "file": "payload.py",
+          "line": 11,
+          "role": "anchor"
+        }
+      ]
+    }
+  ]
+}

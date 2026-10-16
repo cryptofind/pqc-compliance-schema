@@ -1,0 +1,5 @@
+[key_transport]
+scheme = "RSA"
+key_bits = 3072
+padding = "OAEP"
+digest = "SHA256"

@@ -1,0 +1,55 @@
+# CNSA2-LIKE reference policy for cryptobom-forge cryptocheck:  cryptobom generate RESULTS.sarif --cryptocheck -r cnsa2_like.yml
+# Allowed: AES-256, SHA-384, SHA-512 (ML-KEM-1024, ML-DSA-87, LMS and XMSS cannot be named by cryptobom-forge).
+- name: CNSA2-LIKE quantum-vulnerable public-key algorithm
+  detection:
+    type: error
+    severity: 9.0
+    description: Shor-vulnerable public-key algorithm (CNSA2-LIKE rule C2).
+  patterns:
+    - ('algo', 'r', '^(RSA|DSA|DH|DIFFIEHELLMAN|ECDSA|ECDH|EDDSA|ED25519|ED448|X25519|X448|PSS|SECP[0-9]+[RK]1|SECT[0-9]+[RK][0-9]|BRAINPOOLP[0-9]+R1)$')
+- name: CNSA2-LIKE broken or legacy primitive
+  detection:
+    type: error
+    severity: 8.0
+    description: Classically broken or legacy primitive (CNSA2-LIKE rule C2).
+  patterns:
+    - ('algo', 'r', '^(MD5|SHA1|DES|3DES|DES3|DESEDE|TRIPLEDES|ARC4|RC4|BLOWFISH|IDEA|CAST5|SEED)$')
+- name: CNSA2-LIKE AES key shorter than 256 bits
+  detection:
+    type: error
+    severity: 7.0
+    description: AES must use 256-bit keys (CNSA2-LIKE rule C2).
+  patterns:
+    - ('algo', 'eq', 'AES')
+    - ('keylen', 'lt', 256)
+- name: CNSA2-LIKE AES key length unknown
+  detection:
+    type: warning
+    severity: 3.0
+    description: AES reported without a key length, so the suite requirement cannot be checked (CNSA2-LIKE rule C4).
+  patterns:
+    - ('algo', 'eq', 'AES')
+    - ('keylen', 'neq', 128)
+    - ('keylen', 'neq', 192)
+    - ('keylen', 'neq', 256)
+- name: CNSA2-LIKE symmetric cipher outside the suite
+  detection:
+    type: error
+    severity: 6.0
+    description: Symmetric cipher not in the CNSA 2.0-like suite (CNSA2-LIKE rule C2).
+  patterns:
+    - ('algo', 'r', '^(CHACHA20|CHACHA20POLY1305|CAMELLIA|SM4|SEED|IDEA|CAST5|BLOWFISH)$')
+- name: CNSA2-LIKE hash outside the suite
+  detection:
+    type: error
+    severity: 6.0
+    description: Hash function other than SHA-384 or SHA-512 (CNSA2-LIKE rule C2).
+  patterns:
+    - ('algo', 'r', '^(SHA224|SHA256|SHA3224|SHA3256|SHA3384|SHA3512|SHA512224|SHA512256|BLAKE2B|BLAKE2S|SM3|SHAKE[0-9]*)$')
+- name: CNSA2-LIKE underlying hash not verifiable
+  detection:
+    type: warning
+    severity: 3.0
+    description: KDF or MAC reported without its hash, so the suite requirement cannot be checked (CNSA2-LIKE rule C4).
+  patterns:
+    - ('algo', 'r', '^(HKDF|HKDFEXPAND|PBKDF2HMAC|CONCATKDFHASH|CONCATKDFHMAC|KBKDFHMAC|KBKDFCMAC|X963KDF)$')

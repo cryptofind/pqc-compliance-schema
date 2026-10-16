@@ -1,0 +1,24 @@
+# QR-HYBRID reference policy for cryptobom-forge cryptocheck:  cryptobom generate RESULTS.sarif --cryptocheck -r qr_hybrid.yml
+# cryptocheck judges each component on its variant (algo, keylen, mode, padding) in isolation, and cryptobom-forge has no
+# post-quantum or hybrid vocabulary, so approved post-quantum algorithms and hybrid exemptions cannot be expressed here.
+- name: QR-HYBRID quantum-vulnerable public-key algorithm
+  detection:
+    type: error
+    severity: 9.0
+    description: Shor-vulnerable public-key algorithm (QR-HYBRID rule S1/H2).
+  patterns:
+    - ('algo', 'r', '^(RSA|DSA|DH|DIFFIEHELLMAN|ECDSA|ECDH|EDDSA|ED25519|ED448|X25519|X448|PSS|SECP[0-9]+[RK]1|SECT[0-9]+[RK][0-9]|BRAINPOOLP[0-9]+R1)$')
+- name: QR-HYBRID broken or legacy primitive
+  detection:
+    type: error
+    severity: 8.0
+    description: Classically broken or legacy primitive (QR-HYBRID rule S5).
+  patterns:
+    - ('algo', 'r', '^(MD5|SHA1|DES|3DES|DES3|DESEDE|TRIPLEDES|ARC4|RC4|BLOWFISH|IDEA|CAST5|SEED)$')
+- name: QR-HYBRID hash output below 256 bits
+  detection:
+    type: error
+    severity: 6.0
+    description: Hash output shorter than 256 bits (QR-HYBRID rule S5).
+  patterns:
+    - ('algo', 'r', '^(SHA224|SHA3224|SHA512224)$')

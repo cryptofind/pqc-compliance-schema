@@ -1,0 +1,2168 @@
+{
+  "schema": "pqc-cbom-benchmark/ground-truth/1",
+  "hypothesis": "H0",
+  "target": "targets/h00_baseline",
+  "question": "Control: can the tool detect each algorithm/library pair when it is used directly with literal parameters?",
+  "notes": "Interpret H1-H9 conditionally on H0: a miss in a treatment counts as an effect of the treatment only if the tool detected the same algorithm from the same library here.  L07/L08 run only with H00_WITH_LIBOQS=1.",
+  "policies": [
+    "QR-STRICT",
+    "QR-HYBRID",
+    "CNSA2-LIKE",
+    "IR8547-2031"
+  ],
+  "items": [
+    {
+      "id": "H0-PROBE",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Positive control: direct SHA-512 digest, identical in every target.",
+      "asset": {
+        "name": "SHA-512",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "purpose": "positive control (a miss means the scan itself failed)",
+      "locations": [
+        {
+          "file": "probe.py",
+          "line": 6,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "AES-128-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 128,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 1,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 13,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "AES-192-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 192,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 17,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 21,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "AES-256-CBC-PKCS7",
+        "family": "AES",
+        "primitive": "block-cipher",
+        "key_bits": 256,
+        "mode": "CBC",
+        "padding": "PKCS7",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 25,
+          "role": "use"
+        },
+        {
+          "file": "direct_symmetric.py",
+          "line": 26,
+          "role": "padding"
+        }
+      ]
+    },
+    {
+      "id": "H0-S05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ChaCha20-Poly1305",
+        "family": "ChaCha20-Poly1305",
+        "primitive": "ae",
+        "key_bits": 256,
+        "quantum": "quantum-resistant",
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 31,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "AES-256-KW",
+        "family": "AES",
+        "primitive": "block-cipher",
+        "key_bits": 256,
+        "mode": "KW",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 35,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S08",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SM4-128-CBC",
+        "family": "SM4",
+        "primitive": "block-cipher",
+        "key_bits": 128,
+        "mode": "CBC",
+        "quantum": "quantum-resistant",
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 43,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-1",
+        "family": "SHA-1",
+        "primitive": "hash",
+        "output_bits": 160,
+        "quantum": "classically-broken"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 12,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-224",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 224,
+        "quantum": "short-output"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 18,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-256",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 256,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 24,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-384",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 384,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 30,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA3-256",
+        "family": "SHA-3",
+        "primitive": "hash",
+        "output_bits": 256,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 36,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA3-384",
+        "family": "SHA-3",
+        "primitive": "hash",
+        "output_bits": 384,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 42,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-H07",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "BLAKE2b-512",
+        "family": "BLAKE2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 48,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-M01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HMAC-SHA-256",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 54,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-M02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HMAC-SHA-384",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-384",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 60,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-M03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HMAC-SHA-1",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-1",
+        "quantum": "classically-broken"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 66,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-K01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 72,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-K02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HKDF-SHA-384",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-384",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_hash_mac_kdf.py",
+          "line": 76,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-A01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "RSA-2048-OAEP-SHA-256",
+        "family": "RSA",
+        "primitive": "pke",
+        "key_bits": 2048,
+        "padding": "OAEP",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 112
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 9,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 10,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "RSA-2048-PSS-SHA-256",
+        "family": "RSA",
+        "primitive": "signature",
+        "key_bits": 2048,
+        "padding": "PSS",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 112
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 14,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 15,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "RSA-3072-PSS-SHA-256",
+        "family": "RSA",
+        "primitive": "signature",
+        "key_bits": 3072,
+        "padding": "PSS",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 19,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 20,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "RSA-3072-OAEP-SHA-256",
+        "family": "RSA",
+        "primitive": "pke",
+        "key_bits": 3072,
+        "padding": "OAEP",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 24,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 25,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "RSA-4096",
+        "family": "RSA",
+        "primitive": "pke",
+        "key_bits": 4096,
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 152
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 29,
+          "role": "keygen"
+        }
+      ]
+    },
+    {
+      "id": "H0-A06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDSA-P-256-SHA-256",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "curve": "P-256",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 33,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 34,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A07",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDSA-P-384-SHA-384",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "curve": "P-384",
+        "hash": "SHA-384",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 38,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 39,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A08",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-P-384",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "P-384",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 43,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 44,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A09",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-P-192",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "P-192",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 96
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 48,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 49,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A10",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-P-224",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "P-224",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 112
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 53,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 54,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A11",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-P-256",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "P-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 58,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 59,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A12",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-P-521",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "P-521",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 63,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 64,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A13",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-secp256k1",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "secp256k1",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 68,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 69,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A14",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-brainpoolP256r1",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "brainpoolP256r1",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 73,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 74,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A15",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-brainpoolP384r1",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "brainpoolP384r1",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 78,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 79,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A16",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ECDH-brainpoolP512r1",
+        "family": "ECDH",
+        "primitive": "key-agree",
+        "curve": "brainpoolP512r1",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 83,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 84,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A17",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "Ed25519",
+        "family": "EdDSA",
+        "primitive": "signature",
+        "curve": "Ed25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 88,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 89,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-A18",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_asymmetric.py",
+          "line": 93,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_asymmetric.py",
+          "line": 94,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-Q01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_pqc.py",
+          "line": 8,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 9,
+          "role": "op"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 10,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-Q02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ML-KEM-1024",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "1024",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_pqc.py",
+          "line": 14,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 15,
+          "role": "op"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 16,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-Q03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ML-DSA-44",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "44",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 2,
+        "standard": "FIPS 204"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_pqc.py",
+          "line": 20,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 21,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-Q04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_pqc.py",
+          "line": 25,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 26,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-Q05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "ML-DSA-87",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "87",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "standard": "FIPS 204"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_pqc.py",
+          "line": 30,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_pqc.py",
+          "line": 31,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-S07a",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Fernet recipe: cipher component",
+      "asset": {
+        "name": "AES-128-CBC-PKCS7",
+        "family": "AES",
+        "primitive": "block-cipher",
+        "key_bits": 128,
+        "mode": "CBC",
+        "padding": "PKCS7",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 1,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "recipe": "Fernet",
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 39,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-S07b",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Fernet recipe: MAC component",
+      "asset": {
+        "name": "HMAC-SHA-256",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "recipe": "Fernet",
+      "locations": [
+        {
+          "file": "direct_symmetric.py",
+          "line": 39,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-T01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-256",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 256,
+        "quantum": "quantum-resistant"
+      },
+      "library": "Python stdlib (hashlib/hmac)",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_stdlib.py",
+          "line": 11,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-T02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "MD5",
+        "family": "MD5",
+        "primitive": "hash",
+        "output_bits": 128,
+        "quantum": "classically-broken",
+        "usage": "non-security (usedforsecurity=False)"
+      },
+      "library": "Python stdlib (hashlib/hmac)",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_stdlib.py",
+          "line": 15,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-T03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "SHA-1",
+        "family": "SHA-1",
+        "primitive": "hash",
+        "output_bits": 160,
+        "quantum": "classically-broken"
+      },
+      "library": "Python stdlib (hashlib/hmac)",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_stdlib.py",
+          "line": 19,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-T04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HMAC-SHA-256",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "Python stdlib (hashlib/hmac)",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_stdlib.py",
+          "line": 23,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-T05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Direct, literal use",
+      "asset": {
+        "name": "HMAC-SHA-1",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-1",
+        "quantum": "classically-broken"
+      },
+      "library": "Python stdlib (hashlib/hmac)",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_stdlib.py",
+          "line": 27,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "XSalsa20-Poly1305",
+        "family": "XSalsa20-Poly1305",
+        "primitive": "ae",
+        "key_bits": 256,
+        "quantum": "quantum-resistant",
+        "classical_bits": 256
+      },
+      "library": "PyNaCl",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 18,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X02a",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "PyNaCl",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 22,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_third_party.py",
+          "line": 23,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X02b",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "XSalsa20-Poly1305",
+        "family": "XSalsa20-Poly1305",
+        "primitive": "ae",
+        "key_bits": 256,
+        "quantum": "quantum-resistant",
+        "classical_bits": 256
+      },
+      "library": "PyNaCl",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 23,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "Ed25519",
+        "family": "EdDSA",
+        "primitive": "signature",
+        "curve": "Ed25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "PyNaCl",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 27,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "HMAC-SHA-256",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "PyJWT (algorithm='HS256')",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 31,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "ECDSA-P-384-SHA-384",
+        "family": "ECDSA",
+        "primitive": "signature",
+        "curve": "P-384",
+        "hash": "SHA-384",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 192
+      },
+      "library": "PyJWT (algorithm='ES384') + pyca key",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 35,
+          "role": "keygen"
+        },
+        {
+          "file": "direct_third_party.py",
+          "line": 36,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X06a",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "HMAC-SHA-1",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-1",
+        "quantum": "classically-broken"
+      },
+      "library": "itsdangerous (explicit digest_method)",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 40,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X06b",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "SHA-1",
+        "family": "SHA-1",
+        "primitive": "hash",
+        "output_bits": 160,
+        "quantum": "classically-broken",
+        "usage": "key derivation"
+      },
+      "library": "itsdangerous",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 40,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-X07",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Third-party library with the algorithm spelled out where the API allows",
+      "asset": {
+        "name": "HMAC-SHA-1",
+        "family": "HMAC",
+        "primitive": "mac",
+        "hash": "SHA-1",
+        "quantum": "classically-broken"
+      },
+      "library": "pyotp (explicit digest)",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "non-compliant"
+      },
+      "locations": [
+        {
+          "file": "direct_third_party.py",
+          "line": 44,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H0-L01",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-KEM-512",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "512",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 1,
+        "standard": "FIPS 203"
+      },
+      "library": "pqcrypto",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 9,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 10,
+          "role": "op"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 11,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L02",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pqcrypto",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 15,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 16,
+          "role": "op"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 17,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L03",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "pqcrypto",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 21,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 22,
+          "role": "op"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 23,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L04",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "SLH-DSA-SHA2-128s",
+        "family": "SLH-DSA",
+        "primitive": "signature",
+        "parameter_set": "SHA2-128s",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 1,
+        "standard": "FIPS 205"
+      },
+      "library": "pqcrypto",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 28,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 29,
+          "role": "op"
+        },
+        {
+          "file": "alt_pqcrypto.py",
+          "line": 30,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L05",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "kyber-py",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pure_python.py",
+          "line": 9,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pure_python.py",
+          "line": 10,
+          "role": "op"
+        },
+        {
+          "file": "alt_pure_python.py",
+          "line": 11,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L06",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "dilithium-py",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_pure_python.py",
+          "line": 15,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_pure_python.py",
+          "line": 16,
+          "role": "op"
+        },
+        {
+          "file": "alt_pure_python.py",
+          "line": 17,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L07",
+      "status": "active",
+      "runtime": "conditional",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "liboqs-python",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_liboqs.py",
+          "line": 8,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 9,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 10,
+          "role": "op"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 11,
+          "role": "op"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 12,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H0-L08",
+      "status": "active",
+      "runtime": "conditional",
+      "scenario": "Alternative post-quantum library (library-coverage probe)",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "liboqs-python",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "locations": [
+        {
+          "file": "alt_liboqs.py",
+          "line": 16,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 17,
+          "role": "keygen"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 18,
+          "role": "op"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 19,
+          "role": "op"
+        },
+        {
+          "file": "alt_liboqs.py",
+          "line": 20,
+          "role": "op"
+        }
+      ]
+    }
+  ]
+}

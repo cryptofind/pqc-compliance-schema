@@ -1,0 +1,4 @@
+signing:
+  scheme: ECDSA
+  curve: SECP384R1
+  digest: SHA384

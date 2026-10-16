@@ -1,0 +1,47 @@
+# IR8547-2031 reference policy for cryptobom-forge cryptocheck:  cryptobom generate RESULTS.sarif --cryptocheck -r ir8547_2031.yml
+# Snapshot of the NIST IR 8547 (initial public draft) schedule in 2031: 112-bit classical strength is deprecated.
+# 'warning' encodes "deprecated"; 'error' encodes "non-compliant".
+- name: IR8547-2031 RSA key below 2048 bits
+  detection:
+    type: error
+    severity: 9.0
+    description: RSA key shorter than 2048 bits (IR8547-2031 rule N1).
+  patterns:
+    - ('algo', 'eq', 'RSA')
+    - ('keylen', 'lt', 2048)
+- name: IR8547-2031 RSA-2048 deprecated after 2030
+  detection:
+    type: warning
+    severity: 5.0
+    description: 112-bit RSA is deprecated after 2030 and disallowed after 2035 (IR8547-2031 rule N2).
+  patterns:
+    - ('algo', 'eq', 'RSA')
+    - ('keylen', 'eq', 2048)
+- name: IR8547-2031 curve below 112-bit strength
+  detection:
+    type: error
+    severity: 9.0
+    description: Elliptic curve below 112-bit classical strength (IR8547-2031 rule N1).
+  patterns:
+    - ('algo', 'r', '^(SECP192R1|SECT163K1|SECT163R2)$')
+- name: IR8547-2031 112-bit curve deprecated after 2030
+  detection:
+    type: warning
+    severity: 5.0
+    description: 112-bit elliptic curve, deprecated after 2030 (IR8547-2031 rule N2).
+  patterns:
+    - ('algo', 'r', '^(SECP224R1|SECT233K1|SECT233R1)$')
+- name: IR8547-2031 broken or legacy primitive
+  detection:
+    type: error
+    severity: 8.0
+    description: Classically broken or legacy primitive (IR8547-2031 rule N5).
+  patterns:
+    - ('algo', 'r', '^(MD5|SHA1|DES|3DES|DES3|DESEDE|TRIPLEDES|ARC4|RC4|BLOWFISH|IDEA|CAST5|SEED)$')
+- name: IR8547-2031 hash output below 256 bits
+  detection:
+    type: error
+    severity: 6.0
+    description: Hash output shorter than 256 bits (IR8547-2031 rule N5).
+  patterns:
+    - ('algo', 'r', '^(SHA224|SHA3224|SHA512224)$')

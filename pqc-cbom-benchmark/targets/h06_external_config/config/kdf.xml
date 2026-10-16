@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crypto>
+  <kdf name="HKDF" digest="SHA256" length="32" info="h06"/>
+</crypto>

@@ -1,0 +1,2 @@
+cryptography==50.0.2
+pqcrypto==1.0.0

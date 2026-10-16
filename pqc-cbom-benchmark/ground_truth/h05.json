@@ -1,0 +1,930 @@
+{
+  "schema": "pqc-cbom-benchmark/ground-truth/1",
+  "hypothesis": "H5",
+  "target": "targets/h05_misleading_names",
+  "question": "What if a wrapper encapsulates quantum-resistant cryptography under a name that suggests a quantum-vulnerable algorithm?",
+  "notes": "rsa_compat.py/pq_ready.py and their neutral twins envelope.py/exchange.py have identical bodies, so a difference between a tool's findings for a pair is attributable to identifiers alone.  Any finding on a decoy line is a false positive.",
+  "policies": [
+    "QR-STRICT",
+    "QR-HYBRID",
+    "CNSA2-LIKE",
+    "IR8547-2031"
+  ],
+  "items": [
+    {
+      "id": "H5-PROBE",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Positive control: direct SHA-512 digest, identical in every target.",
+      "asset": {
+        "name": "SHA-512",
+        "family": "SHA-2",
+        "primitive": "hash",
+        "output_bits": 512,
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "purpose": "positive control (a miss means the scan itself failed)",
+      "locations": [
+        {
+          "file": "probe.py",
+          "line": 6,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-A1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 13,
+          "role": "keygen"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 17,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-A2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 18,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-A3",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 20,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-B1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 24,
+          "role": "keygen"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 28,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-C1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "ML-KEM-1024",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "1024",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 33,
+          "role": "keygen"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 36,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-C2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 38,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-D1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: misleading name (alias RSA_OAEP_SHA256)",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "misleading name (alias RSA_OAEP_SHA256)",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 9,
+          "role": "def"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 42,
+          "role": "keygen"
+        }
+      ]
+    },
+    {
+      "id": "H5-N1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "ML-KEM-768",
+        "family": "ML-KEM",
+        "primitive": "kem",
+        "parameter_set": "768",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 203"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "envelope.py",
+          "line": 11,
+          "role": "keygen"
+        },
+        {
+          "file": "envelope.py",
+          "line": 15,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-N2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "envelope.py",
+          "line": 16,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-N3",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "AES-256-GCM",
+        "family": "AES",
+        "primitive": "ae",
+        "key_bits": 256,
+        "mode": "GCM",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 5,
+        "classical_bits": 256
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "envelope.py",
+          "line": 18,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-N4",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "ML-DSA-65",
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "parameter_set": "65",
+        "quantum": "quantum-resistant",
+        "nist_qsl": 3,
+        "standard": "FIPS 204"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "envelope.py",
+          "line": 22,
+          "role": "keygen"
+        },
+        {
+          "file": "envelope.py",
+          "line": 26,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-F1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: inverse (name suggests post-quantum)",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "inverse (name suggests post-quantum)",
+      "locations": [
+        {
+          "file": "pq_ready.py",
+          "line": 8,
+          "role": "keygen"
+        },
+        {
+          "file": "pq_ready.py",
+          "line": 12,
+          "role": "keygen"
+        },
+        {
+          "file": "pq_ready.py",
+          "line": 13,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-F2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: inverse (name suggests post-quantum)",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "inverse (name suggests post-quantum)",
+      "locations": [
+        {
+          "file": "pq_ready.py",
+          "line": 14,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-G1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: inverse (name suggests post-quantum)",
+      "asset": {
+        "name": "RSA-2048-PSS-SHA-256",
+        "family": "RSA",
+        "primitive": "signature",
+        "key_bits": 2048,
+        "padding": "PSS",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 112
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      },
+      "naming": "inverse (name suggests post-quantum)",
+      "locations": [
+        {
+          "file": "pq_ready.py",
+          "line": 20,
+          "role": "keygen"
+        },
+        {
+          "file": "pq_ready.py",
+          "line": 23,
+          "role": "padding"
+        },
+        {
+          "file": "pq_ready.py",
+          "line": 24,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-M1",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "X25519",
+        "family": "X25519",
+        "primitive": "key-agree",
+        "curve": "Curve25519",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 128
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "exchange.py",
+          "line": 8,
+          "role": "keygen"
+        },
+        {
+          "file": "exchange.py",
+          "line": 12,
+          "role": "keygen"
+        },
+        {
+          "file": "exchange.py",
+          "line": 13,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-M2",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "HKDF-SHA-256",
+        "family": "HKDF",
+        "primitive": "kdf",
+        "hash": "SHA-256",
+        "quantum": "quantum-resistant"
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "exchange.py",
+          "line": 14,
+          "role": "use"
+        }
+      ]
+    },
+    {
+      "id": "H5-M3",
+      "status": "active",
+      "runtime": "executed",
+      "scenario": "Naming condition: neutral twin",
+      "asset": {
+        "name": "RSA-2048-PSS-SHA-256",
+        "family": "RSA",
+        "primitive": "signature",
+        "key_bits": 2048,
+        "padding": "PSS",
+        "hash": "SHA-256",
+        "quantum": "shor-vulnerable",
+        "nist_qsl": 0,
+        "classical_bits": 112
+      },
+      "library": "pyca/cryptography",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      },
+      "naming": "neutral twin",
+      "locations": [
+        {
+          "file": "exchange.py",
+          "line": 20,
+          "role": "keygen"
+        },
+        {
+          "file": "exchange.py",
+          "line": 23,
+          "role": "padding"
+        },
+        {
+          "file": "exchange.py",
+          "line": 24,
+          "role": "op"
+        }
+      ]
+    },
+    {
+      "id": "H5-XA",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: rsa_compat / generate_rsa_keypair / rsa_encrypt: no RSA is present",
+      "locations": [
+        {
+          "file": "main.py",
+          "line": 6,
+          "role": "decoy"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 12,
+          "role": "decoy"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 16,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XB",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: generate_ecdsa_key(curve='P-256') / ecdsa_sign: no ECDSA is present",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 23,
+          "role": "decoy"
+        },
+        {
+          "file": "rsa_compat.py",
+          "line": 27,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XC",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: class LegacyRSAWrapper: no RSA is present",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 31,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XD",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: alias RSA_OAEP_SHA256 is bound to the ML-KEM-768 key class",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 9,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XE",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: protocol label {'alg': 'RSA-OAEP-256'}: no RSA is present",
+      "locations": [
+        {
+          "file": "rsa_compat.py",
+          "line": 46,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XF",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: kyber_keypair / mlkem_encapsulate: the implementation is X25519",
+      "locations": [
+        {
+          "file": "pq_ready.py",
+          "line": 7,
+          "role": "decoy"
+        },
+        {
+          "file": "pq_ready.py",
+          "line": 11,
+          "role": "decoy"
+        }
+      ]
+    },
+    {
+      "id": "H5-XG",
+      "status": "decoy",
+      "runtime": "n/a",
+      "scenario": "Decoy: class DilithiumSigner: the implementation is RSA-2048-PSS",
+      "locations": [
+        {
+          "file": "pq_ready.py",
+          "line": 18,
+          "role": "decoy"
+        }
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "H5-U-A",
+      "function": "rsa_compat.rsa_encrypt",
+      "members": [
+        "H5-A1",
+        "H5-A2",
+        "H5-A3"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-B",
+      "function": "rsa_compat.ecdsa_sign",
+      "members": [
+        "H5-B1"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-C",
+      "function": "rsa_compat.LegacyRSAWrapper",
+      "members": [
+        "H5-C1",
+        "H5-C2"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-D",
+      "function": "rsa_compat.legacy_keypair",
+      "members": [
+        "H5-D1"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-N1",
+      "function": "envelope.seal_for",
+      "members": [
+        "H5-N1",
+        "H5-N2",
+        "H5-N3"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-N4",
+      "function": "envelope.sign_blob",
+      "members": [
+        "H5-N4"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "compliant",
+        "QR-HYBRID": "compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-F",
+      "function": "pq_ready.mlkem_encapsulate",
+      "members": [
+        "H5-F1",
+        "H5-F2"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-G",
+      "function": "pq_ready.DilithiumSigner",
+      "members": [
+        "H5-G1"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      }
+    },
+    {
+      "id": "H5-U-M1",
+      "function": "exchange.agree",
+      "members": [
+        "H5-M1",
+        "H5-M2"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "compliant"
+      }
+    },
+    {
+      "id": "H5-U-M3",
+      "function": "exchange.StampSigner",
+      "members": [
+        "H5-M3"
+      ],
+      "rationale": "Verdict follows the implementation, not the name.",
+      "verdicts": {
+        "QR-STRICT": "non-compliant",
+        "QR-HYBRID": "non-compliant",
+        "CNSA2-LIKE": "non-compliant",
+        "IR8547-2031": "deprecated"
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "A",
+      "misleading": [
+        "H5-A1",
+        "H5-A2",
+        "H5-A3"
+      ],
+      "neutral": [
+        "H5-N1",
+        "H5-N2",
+        "H5-N3"
+      ],
+      "decoy": "H5-XA"
+    },
+    {
+      "pair": "B",
+      "misleading": [
+        "H5-B1"
+      ],
+      "neutral": [
+        "H5-N4"
+      ],
+      "decoy": "H5-XB"
+    },
+    {
+      "pair": "F",
+      "misleading": [
+        "H5-F1",
+        "H5-F2"
+      ],
+      "neutral": [
+        "H5-M1",
+        "H5-M2"
+      ],
+      "decoy": "H5-XF"
+    },
+    {
+      "pair": "G",
+      "misleading": [
+        "H5-G1"
+      ],
+      "neutral": [
+        "H5-M3"
+      ],
+      "decoy": "H5-XG"
+    }
+  ]
+}
