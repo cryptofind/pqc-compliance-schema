@@ -20,7 +20,7 @@ tools/                     build_ground_truth.py, runtime_witness.py, check_hygi
 
 H0's liboqs probe runs only with `H00_WITH_LIBOQS=1` and an installed liboqs shared library.
 `cd targets/h06_external_config && APP_KEX=X25519 python main.py # APP_KEX emulates deploy/docker-compose`
-
+ 
 ```bash
 python tools/build_ground_truth.py # regenerate ground_truth/ after editing any target
 python tools/runtime_witness.py targets/h04_mixed_classical_pqc --check ground_truth/h04.json
