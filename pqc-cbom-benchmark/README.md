@@ -1,5 +1,4 @@
 # SAST PQC benchmark 
-
 ## Directory Layout
 ```text
 targets/                   scan each folder on its own.
@@ -21,14 +20,9 @@ tools/                     build_ground_truth.py, runtime_witness.py, check_hygi
 H0's liboqs probe runs only with `H00_WITH_LIBOQS=1` and an installed liboqs shared library.
 `cd targets/h06_external_config && APP_KEX=X25519 python main.py # APP_KEX emulates deploy/docker-compose`
 
-
 CBOMkit covers pyca/cryptography only; no support for `hashlib`/`hmac` and pyca's `mlkem`/`mldsa`.
 CryptobomForge covers `hashlib`, `hmac` and pyca/cryptography; no support for It has no ML-KEM or ML-DSA.
 cdxgen supports ML-KEM, ML-DSA and SLH-DSA.
-
-
-
-
  
 ```bash
 python tools/build_ground_truth.py # regenerate ground_truth/ after editing any target
@@ -36,26 +30,6 @@ python tools/runtime_witness.py targets/h04_mixed_classical_pqc --check ground_t
 python tools/check_hygiene.py # algorithm names must not leak outside marked lines
 python tools/policy_selftest.py --opa /path/to/opa  # Rego and cryptocheck encodings vs. ground-truth verdicts
 ```
-
-At packaging time all ten targets passed the runtime check: every item marked `executed` was witnessed, no
-cryptographic call site lacked a marker, and no decoy line called into a cryptographic library. The hygiene check
-reported 0 leaks. The policy self-test reported 0 mismatches with OPA 1.21.2: 72 components were checked under all
-four policies, and 184 cryptocheck cases were checked with schema validation.
-
-## Design rules
-
-- **Control and conditioning.** H0 shows which algorithms and libraries each tool can see at all. A miss in H1–H9
-  counts as an effect of the hypothesis only if the same tool found the same algorithm from the same library in H0.
-- **Positive control.** Every target contains the same direct SHA-512 digest (`*-PROBE`). A missed probe means the
-  scan failed, not the hypothesis.
-- **Distinct assets.** Each scenario inside a target uses a different algorithm or parameter, so most findings can be
-  attributed even when a tool reports locations coarsely.
-- **Naming hygiene.** cryptobom-forge names algorithms by regex over the code snippet around each CodeQL result, and
-  cdxgen substring-matches algorithm names in data-flow code. Algorithm names therefore never appear in comments,
-  docstrings, strings or chosen identifiers, except on marked lines where they are the evidence or a deliberate decoy.
-- **Ground truth from markers.** `# GT:<id>[/<role>]` comments carry only identifiers (no algorithm names or key
-  sizes). `tools/runtime_witness.py` runs each target under `sys.monitoring` and confirms that the marked lines really
-  call into a cryptographic library.
 
 ## Hypotheses and what to measure
 
@@ -70,8 +44,3 @@ four policies, and 184 cryptocheck cases were checked with schema validation.
 | H7 | `h07_call_depth` | Tracks A and E: crypto local to the deepest function. B: key size propagated within a module. C: across modules. D: through object fields | Deepest depth reached at L1 (family) and at L2 (key size) per track |
 | H8 | `h08_policy_probe` | 23 units whose verdict vectors differ between every pair of reference policies | Default-policy fingerprint, configured verdicts, and how each tool's mechanism works (table below) |
 | H9 | `h09_confidence` | Ten items with ideal confidence 5 down to 1, plus five decoys | Whether confidence values exist; rank correlation with the ideal order; decoy false positives |
-
-
-
-
-
