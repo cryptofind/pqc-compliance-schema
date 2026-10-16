@@ -20,6 +20,15 @@ tools/                     build_ground_truth.py, runtime_witness.py, check_hygi
 
 H0's liboqs probe runs only with `H00_WITH_LIBOQS=1` and an installed liboqs shared library.
 `cd targets/h06_external_config && APP_KEX=X25519 python main.py # APP_KEX emulates deploy/docker-compose`
+
+
+CBOMkit covers pyca/cryptography only; no support for `hashlib`/`hmac` and pyca's `mlkem`/`mldsa`.
+CryptobomForge covers `hashlib`, `hmac` and pyca/cryptography; no support for It has no ML-KEM or ML-DSA.
+cdxgen supports ML-KEM, ML-DSA and SLH-DSA.
+
+
+
+
  
 ```bash
 python tools/build_ground_truth.py # regenerate ground_truth/ after editing any target
@@ -62,91 +71,7 @@ four policies, and 184 cryptocheck cases were checked with schema validation.
 | H8 | `h08_policy_probe` | 23 units whose verdict vectors differ between every pair of reference policies | Default-policy fingerprint, configured verdicts, and how each tool's mechanism works (table below) |
 | H9 | `h09_confidence` | Ten items with ideal confidence 5 down to 1, plus five decoys | Whether confidence values exist; rank correlation with the ideal order; decoy false positives |
 
-H4's answer depends on the policy. These are the unit verdicts in `ground_truth/h04.json`:
 
-| Unit | Construction | QR-STRICT | QR-HYBRID | CNSA2-LIKE | IR8547-2031 |
-|---|---|---|---|---|---|
-| U1 | X25519 + ML-KEM-768 combined in one HKDF-SHA-256 | non-compliant | compliant | non-compliant | compliant |
-| U2 | ML-DSA-65 + Ed25519 composite signature | non-compliant | compliant | non-compliant | compliant |
-| U3 | ML-KEM-768 key exchange, ECDSA P-256 authentication | non-compliant | non-compliant | non-compliant | compliant |
-| U4 | RSA-2048-OAEP wraps an AES-256-GCM key | non-compliant | non-compliant | non-compliant | deprecated |
-| U5 | ML-KEM-1024 with an RSA-3072 fallback | non-compliant | non-compliant | non-compliant | compliant |
-| U6 | ML-KEM-1024 + HKDF-SHA-384 + AES-256-GCM (control) | compliant | compliant | compliant | compliant |
-| U7 | ECDH P-384 + ML-KEM-1024 in one HKDF-SHA-384 | non-compliant | compliant | compliant | compliant |
 
-A correctly combined hybrid is compliant only under a policy that permits hybrids. Classical authentication or a
-reachable fallback makes the function non-compliant even under that policy.
 
-## Scanning
 
-Scan each `targets/hNN_*` folder separately. Each one has its own `requirements.txt` for dependency resolution.
-
-**CBOMKit.** Start the service as described in the PQCA/cbomkit README and push this repository to a Git host that
-CBOMKit can reach. Then scan one target at a time, either through the UI (repository URL, with the subfolder set to
-`targets/hNN_...`) or through the API:
-`POST /api/v1/scan` with `{"scanUrl": "<repo>", "branch": "main", "subfolder": "targets/h01_metaprogramming"}`.
-For H8, first record the verdicts of the built-in quantum-safe check. Then run
-`policies/cbomkit_opa/upload_policies.sh http://<opa>:8181`, set `CBOMKIT_OPA_API_BASE` for the backend, and call
-`POST /api/v1/compliance/check?policyIdentifier=qr_strict` (or `qr_hybrid`, `cnsa2_like`, `ir8547_2031`) with a
-CBOM as the body. That endpoint accepts CBOMs from the other tools too.
-
-**cdxgen.** Install with `npm install -g @cyclonedx/cdxgen`. Python CBOMs need Java 21 or later for atom, or you can
-use the container image. Then run:
-`cbom -t python -o results/cdxgen/h01.json targets/h01_metaprogramming`
-This is equivalent to `cdxgen -t python --include-crypto --evidence --deep`.
-
-**cryptobom-forge (over CodeQL).**
-```bash
-codeql pack download codeql/python-queries
-codeql database create db/h01 --language=python --source-root targets/h01_metaprogramming
-codeql database analyze db/h01 codeql/python-queries:experimental/cryptography/inventory/new_models \
-    --format=sarif-latest --sarif-add-snippets --output=results/cbf/h01.sarif
-cryptobom generate results/cbf/h01.sarif -n h01 -o results/cbf/h01.cbom.json
-cryptobom generate results/cbf/h01.sarif -n h01 -o /dev/null --cryptocheck \
-    -r policies/cryptobom_forge/qr_strict.yml --cryptocheck-output-file results/cbf/h01.qr_strict.sarif
-```
-cryptobom-forge reads `contextRegion.snippet`, which is why the analysis requests snippets. Running `--cryptocheck`
-without `-r` applies its default rules, which you need for the H8 default-policy fingerprint.
-
-**Policy applied after the fact, to any tool's CBOM:**
-`opa eval -d policies/cbomkit_opa -i results/cdxgen/h08.json 'data.policies.qr_strict.findings'`
-
-## Policy mechanisms (H8)
-
-| Tool | Mechanism | How the policy reaches the tool | Expressiveness |
-|---|---|---|---|
-| CBOMKit | Built-in quantum-safe check by default; OPA when `CBOMKIT_OPA_API_BASE` is set | Rego modules uploaded to OPA; the policy is selected per request with `policyIdentifier`; Rego returns `findings` (`bom-ref`, `result`, `rule`) | Per component; results are quantum-safe, quantum-vulnerable, unknown or NA; a hybrid is recognisable only if the CBOM names it as one component (for example `X25519MLKEM768`); no notion of dates (IR8547-2031 "deprecated" is reported as quantum-vulnerable with the rule name preserved) |
-| cryptobom-forge | `cryptocheck` YAML rules, with a shipped default set | `--cryptocheck -r rules.yml`; output is SARIF plus vulnerabilities added to the CBOM | Per component; patterns only on algo, key length, mode and padding; no post-quantum or hybrid vocabulary |
-| cdxgen | No compliance mechanism found | Apply afterwards with OPA or CBOMKit's compliance API | — |
-
-The reference policies are defined in `policies/reference_policies.yaml`:
-- **QR-STRICT:** no quantum-vulnerable public-key cryptography in any form.
-- **QR-HYBRID:** QR-STRICT, but the classical half of a correctly combined hybrid is permitted.
-- **CNSA2-LIKE:** ML-KEM-1024, ML-DSA-87, LMS/XMSS, AES-256, SHA-384/512.
-- **IR8547-2031:** the NIST IR 8547 draft schedule as it would apply in 2031.
-
-## Tool facts that shape interpretation (checked October 2026; re-check your versions)
-
-- **CBOMKit Python rules** (sonar-cryptography / CBOMkit-hyperion @58eea48) cover pyca/cryptography only. There are
-  no rules for `hashlib`/`hmac` and none for pyca's `mlkem`/`mldsa` modules.
-- **CodeQL's Python experimental cryptography model** (github/codeql @cb5048b) covers `hashlib`, `hmac` and
-  pyca/cryptography. It has no ML-KEM or ML-DSA.
-- **cryptobom-forge** (@21dd233):
-  - Its regex vocabulary lacks ML-KEM, ML-DSA, X25519 and Ed25519.
-  - It only recognises key lengths of 128, 196, 256, 512, 1024, 2048, 3072 and 4096.
-  - It emits IBM CBOM 1.4 (`bomFormat: "CBOM"`), not CycloneDX 1.6.
-- **cdxgen 13.5.0** names Python crypto from atom reachable slices by substring matching. Its name list includes
-  ML-KEM, ML-DSA and SLH-DSA.
-- **pyca/cryptography 50.0.2** offers ML-KEM-768/1024 and ML-DSA-44/65/87. H0 and H8 use `pqcrypto` for ML-KEM-512
-  and SLH-DSA.
-
-As a result, post-quantum cells may be invisible to CBOMKit and cryptobom-forge whatever the hypothesis. This
-affects H0-Q*, the PQC halves in H4 and H5, H7 track E, and H8-P11 to P16. Always read those cells against H0.
-
-## Limitations
-
-- Python has no textual macros, so H1 uses the closest equivalents.
-- Verdicts come from research reference policies, not official standards, and IR8547-2031 rests on a draft.
-- Line-level matching favours tools that report precise locations. Record location granularity separately from
-  detection.
-- Running the targets requires Python 3.12 or later (`tomllib`, and `sys.monitoring` for the witness).
