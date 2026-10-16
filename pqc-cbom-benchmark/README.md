@@ -18,24 +18,13 @@ policies/                  reference_policies.yaml, cbomkit_opa/*.rego, cryptobo
 tools/                     build_ground_truth.py, runtime_witness.py, check_hygiene.py, policy_selftest.py, gen_h07.py
 ```
 
-
-
-## Running the programs
-```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -r targets/h00_baseline/requirements.txt PyYAML jsonschema   # superset of all targets' requirements
-cd targets/h04_mixed_classical_pqc && python main.py                      # every target prints "[hNN] done"
-cd targets/h06_external_config && APP_KEX=X25519 python main.py          # APP_KEX emulates deploy/docker-compose.yml
-```
-
 H0's liboqs probe runs only with `H00_WITH_LIBOQS=1` and an installed liboqs shared library.
-
-Maintenance tools:
+`cd targets/h06_external_config && APP_KEX=X25519 python main.py # APP_KEX emulates deploy/docker-compose`
 
 ```bash
-python tools/build_ground_truth.py                  # regenerate ground_truth/ after editing any target
+python tools/build_ground_truth.py # regenerate ground_truth/ after editing any target
 python tools/runtime_witness.py targets/h04_mixed_classical_pqc --check ground_truth/h04.json
-python tools/check_hygiene.py                       # algorithm names must not leak outside marked lines
+python tools/check_hygiene.py # algorithm names must not leak outside marked lines
 python tools/policy_selftest.py --opa /path/to/opa  # Rego and cryptocheck encodings vs. ground-truth verdicts
 ```
 
