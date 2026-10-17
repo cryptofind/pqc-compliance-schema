@@ -1,0 +1,61 @@
+{
+  "schema": "pqc-cbom-benchmark/cdxgen-case-result/1",
+  "case_id": "H1",
+  "target": "targets/h01_metaprogramming",
+  "language": "python",
+  "scenario": "What if macros (metaprogramming) are used to inject cryptographic elements into source code?",
+  "run_timestamp_utc": "2026-10-17T18:11:32.815590+00:00",
+  "cdxgen_version": "CycloneDX Generator 12.8.4\nRuntime: Node.js, Version: 24.19.0",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\pqc-cbom-benchmark\\results\\cdxgen\\20261017T181130Z\\h1\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\pqc-cbom-benchmark\\targets\\h01_metaprogramming"
+  ],
+  "command_display": "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD --include-crypto -o C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\pqc-cbom-benchmark\\results\\cdxgen\\20261017T181130Z\\h1\\bom.json C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\pqc-cbom-benchmark\\targets\\h01_metaprogramming",
+  "exit_code": 0,
+  "runtime_seconds": 30.962989,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": false,
+  "all_expected_algorithms_detected": false,
+  "scan_error": null,
+  "bom_error": null,
+  "log_diagnostics": [
+    "Notice: Running python command without '-S' argument. Only run cdxgen in trusted directories to prevent auto-executing local scripts.",
+    "Notice: pip/uv install invoked without '--only-binary'. This allows executing untrusted setup.py scripts. Only run cdxgen in trusted directories.",
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "bom_path": "h1\\bom.json",
+  "log_path": "h1\\cdxgen.log",
+  "result_path": "h1\\result.json",
+  "expected_algorithms": [
+    "SHA-512",
+    "AES-256-GCM",
+    "ML-KEM-768",
+    "HKDF-SHA-384",
+    "ECDSA-P-384-SHA-384",
+    "X25519",
+    "ChaCha20-Poly1305"
+  ],
+  "detected_algorithms": [],
+  "true_positives": [],
+  "registry_overapproximation_algorithms": [],
+  "false_positives": [],
+  "missed_algorithms": [
+    "AES-256-GCM",
+    "ChaCha20-Poly1305",
+    "ECDSA-P-384-SHA-384",
+    "HKDF-SHA-384",
+    "ML-KEM-768",
+    "SHA-512",
+    "X25519"
+  ],
+  "tp": 0,
+  "fp": 0,
+  "missed": 7,
+  "recall": 0.0,
+  "precision": null,
+  "cryptographic_asset_component_count": 0,
+  "unlabeled_crypto_asset_component_count": 0
+}

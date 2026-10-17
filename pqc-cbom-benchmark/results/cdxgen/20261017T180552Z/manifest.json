@@ -1,0 +1,247 @@
+{
+  "schema": "pqc-cbom-benchmark/cdxgen-manifest/1",
+  "generated_from": "ground_truth/h01.json through ground_truth/h09.json",
+  "expected_algorithm_rule": "Unique asset.name values from ground truth items with status active, unreachable, or dead-branch. Conditional runtime items remain expected because cdxgen scans source. Registry and unresolved items are listed separately and excluded from primary scores.",
+  "normalization": "casefold, then remove all non-ASCII-alphanumeric characters",
+  "cases": [
+    {
+      "case_id": "H1",
+      "target": "targets/h01_metaprogramming",
+      "language": "python",
+      "scenario": "What if macros (metaprogramming) are used to inject cryptographic elements into source code?",
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "ML-KEM-768",
+        "HKDF-SHA-384",
+        "ECDSA-P-384-SHA-384",
+        "X25519",
+        "ChaCha20-Poly1305"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h01.json"
+    },
+    {
+      "case_id": "H2",
+      "target": "targets/h02_abstraction",
+      "language": "python",
+      "scenario": "What if cryptographic elements are abstracted behind function calls, making them less visible to static analyzers?",
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-128-GCM",
+        "ChaCha20-Poly1305",
+        "Ed25519",
+        "HMAC-SHA-256",
+        "RSA-3072-PSS-SHA-256",
+        "SHA3-384",
+        "AES-256-CBC-PKCS7",
+        "HKDF-SHA-256"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h02.json"
+    },
+    {
+      "case_id": "H3",
+      "target": "targets/h03_dependencies",
+      "language": "python",
+      "scenario": "What if cryptographic elements are encapsulated within third-party dependencies?",
+      "expected_algorithms": [
+        "SHA-512",
+        "XSalsa20-Poly1305",
+        "X25519",
+        "Ed25519",
+        "HMAC-SHA-256",
+        "ECDSA-P-384-SHA-384",
+        "HMAC-SHA-1",
+        "SHA-1",
+        "AES-128-CBC-PKCS7",
+        "AES-256-KW"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h03.json"
+    },
+    {
+      "case_id": "H4",
+      "target": "targets/h04_mixed_classical_pqc",
+      "language": "python",
+      "scenario": "What if a function contains both quantum-resistant and quantum-vulnerable elements? Compliant or not?",
+      "expected_algorithms": [
+        "SHA-512",
+        "X25519",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "ML-DSA-65",
+        "Ed25519",
+        "ECDSA-P-256-SHA-256",
+        "RSA-2048-OAEP-SHA-256",
+        "AES-256-GCM",
+        "ML-KEM-1024",
+        "RSA-3072-OAEP-SHA-256",
+        "HKDF-SHA-384",
+        "ECDH-P-384"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h04.json"
+    },
+    {
+      "case_id": "H5",
+      "target": "targets/h05_misleading_names",
+      "language": "python",
+      "scenario": "What if a wrapper encapsulates quantum-resistant cryptography under a name that suggests a quantum-vulnerable algorithm?",
+      "expected_algorithms": [
+        "SHA-512",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM",
+        "ML-DSA-65",
+        "ML-KEM-1024",
+        "X25519",
+        "RSA-2048-PSS-SHA-256"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h05.json"
+    },
+    {
+      "case_id": "H6",
+      "target": "targets/h06_external_config",
+      "language": "python",
+      "scenario": "What if algorithm selection is driven by configuration files (JSON/YAML/XML/TOML/INI) and environment variables?",
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "ECDSA-P-384-SHA-384",
+        "HKDF-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "HMAC-SHA-384",
+        "SHA-224",
+        "ML-KEM-1024",
+        "X25519"
+      ],
+      "excluded_ground_truth": [
+        {
+          "algorithm": "unresolved AEAD",
+          "ground_truth_id": "H6-09",
+          "status": "unresolved",
+          "reason": "identity/status is not part of the primary expected set"
+        },
+        {
+          "algorithm": "AES-SIV",
+          "ground_truth_id": "H6-I01",
+          "status": "registry",
+          "reason": "reported separately as registry over-approximation"
+        },
+        {
+          "algorithm": "ChaCha20-Poly1305",
+          "ground_truth_id": "H6-I02",
+          "status": "registry",
+          "reason": "reported separately as registry over-approximation"
+        },
+        {
+          "algorithm": "ML-KEM-768",
+          "ground_truth_id": "H6-I03",
+          "status": "registry",
+          "reason": "reported separately as registry over-approximation"
+        },
+        {
+          "algorithm": "X448",
+          "ground_truth_id": "H6-I04",
+          "status": "registry",
+          "reason": "reported separately as registry over-approximation"
+        },
+        {
+          "algorithm": "Ed25519",
+          "ground_truth_id": "H6-I05",
+          "status": "registry",
+          "reason": "reported separately as registry over-approximation"
+        }
+      ],
+      "ground_truth_file": "ground_truth/h06.json"
+    },
+    {
+      "case_id": "H7",
+      "target": "targets/h07_call_depth",
+      "language": "python",
+      "scenario": "How deeply can a static analyzer traverse nested call hierarchies to identify cryptographic elements and evaluate PQC compliance?",
+      "expected_algorithms": [
+        "SHA-512",
+        "ECDH-P-256",
+        "ECDH-P-384",
+        "ECDH-P-521",
+        "ECDH-P-224",
+        "ECDH-secp256k1",
+        "ECDH-brainpoolP256r1",
+        "ECDH-brainpoolP384r1",
+        "ECDH-brainpoolP512r1",
+        "ECDH-P-192",
+        "RSA-2048",
+        "RSA-3072",
+        "RSA-4096",
+        "ML-KEM-768"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h07.json"
+    },
+    {
+      "case_id": "H8",
+      "target": "targets/h08_policy_probe",
+      "language": "python",
+      "scenario": "How is the PQC compliance policy defined, configured, and communicated to the scanner, if such a mechanism exists?",
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-128-GCM",
+        "AES-256-GCM",
+        "ChaCha20-Poly1305",
+        "SHA-256",
+        "SHA-384",
+        "SHA3-256",
+        "SHA-1",
+        "SHA-224",
+        "HMAC-SHA-256",
+        "HMAC-SHA-384",
+        "ML-KEM-512",
+        "ML-KEM-768",
+        "ML-KEM-1024",
+        "ML-DSA-44",
+        "ML-DSA-87",
+        "SLH-DSA-SHA2-128s",
+        "RSA-2048-PSS-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "ECDSA-P-384-SHA-384",
+        "Ed25519",
+        "X25519",
+        "HKDF-SHA-256",
+        "ECDH-P-384",
+        "HKDF-SHA-384"
+      ],
+      "excluded_ground_truth": [],
+      "ground_truth_file": "ground_truth/h08.json"
+    },
+    {
+      "case_id": "H9",
+      "target": "targets/h09_confidence",
+      "language": "python",
+      "scenario": "Are confidence scores assigned to detected cryptographic assets and PQC compliance findings?",
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "AES-192-GCM",
+        "RSA-3072",
+        "SHA-384",
+        "SHA3-256",
+        "BLAKE2b-512",
+        "EC-secp256k1",
+        "SM4-128-CBC",
+        "MD5"
+      ],
+      "excluded_ground_truth": [
+        {
+          "algorithm": "ECDSA-unknown-curve-SHA-256",
+          "ground_truth_id": "H9-C6",
+          "status": "unresolved",
+          "reason": "identity/status is not part of the primary expected set"
+        }
+      ],
+      "ground_truth_file": "ground_truth/h09.json"
+    }
+  ]
+}
