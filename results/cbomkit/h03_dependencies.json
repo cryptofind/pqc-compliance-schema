@@ -1,0 +1,66 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e148f9da-a528-4a9d-b0ed-6ac834901ea7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-17T19:45:37Z",
+    "tools": {
+      "services": [
+        {
+          "provider": {
+            "name": "PQCA"
+          },
+          "name": "CBOMkit"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "gitUrl",
+        "value": "https://github.com/cryptofind/pqc-compliance-schema"
+      },
+      {
+        "name": "revision",
+        "value": "main"
+      },
+      {
+        "name": "commit",
+        "value": "0cd23c4"
+      },
+      {
+        "name": "subfolder",
+        "value": "pqc-cbom-benchmark/targets/h03_dependencies"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "aba534d1-6137-4a9e-91bd-bbe6f2f12bee",
+      "name": "AES-128",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h03_dependencies/third_party/sealkit/core.py",
+            "line": 6,
+            "offset": 11,
+            "additionalContext": "aes_key_wrap"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "other",
+          "parameterSetIdentifier": "128",
+          "cryptoFunctions": [
+            "encapsulate"
+          ]
+        },
+        "oid": "2.16.840.1.101.3.4.1"
+      }
+    }
+  ],
+  "dependencies": []
+}

@@ -1,0 +1,410 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:a55cb4f9-e447-4621-af64-a9c7944fa163",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-17T19:42:08Z",
+    "tools": {
+      "services": [
+        {
+          "provider": {
+            "name": "PQCA"
+          },
+          "name": "CBOMkit"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "gitUrl",
+        "value": "https://github.com/cryptofind/pqc-compliance-schema"
+      },
+      {
+        "name": "revision",
+        "value": "main"
+      },
+      {
+        "name": "commit",
+        "value": "0cd23c4"
+      },
+      {
+        "name": "subfolder",
+        "value": "pqc-cbom-benchmark/targets/h01_metaprogramming"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "2e153610-54ad-4d53-827d-b6dad7dab911",
+      "name": "private-key@2e153610-54ad-4d53-827d-b6dad7dab911",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "1c5aac78-8cab-4a2c-ab15-221cf5709c0f",
+      "name": "Ed448",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "curve": "Edwards448",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.113"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "fda3fe4e-951b-43af-8879-dc753f0ca7dc",
+      "name": "SHAKE256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "xof",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "52c209a8-6dca-4c4d-a553-628c581c1f28",
+      "name": "FFDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/meta.py",
+            "line": 18,
+            "offset": 28,
+            "additionalContext": "generate_private_key"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.2.840.113549.1.3.1"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "3be6a1a4-386d-4d6a-a21b-269d3d42cd7d",
+      "name": "private-key@3be6a1a4-386d-4d6a-a21b-269d3d42cd7d",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "42b5f00e-8dcf-4bc0-b0a4-f258ae94a9f3",
+      "name": "x448",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "curve": "Curve448",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.111"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "1f75e36c-4440-4588-a7f6-98e6e1c8bc56",
+      "name": "Ed25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "curve": "Edwards25519",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.112"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "9596f90c-c636-4169-b9e7-6f1f17156525",
+      "name": "private-key@9596f90c-c636-4169-b9e7-6f1f17156525",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "c2a9882a-bf03-49bf-a783-598f20998833",
+      "name": "x25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "curve": "Curve25519",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.110"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "134b01d9-0921-45d0-9e77-f2849c5f8d3e",
+      "name": "SHA-512",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/probe.py",
+            "line": 6,
+            "offset": 10,
+            "additionalContext": "Hash"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 36,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "512",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        },
+        "oid": "2.16.840.1.101.3.4.2.3"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "a30d3b7b-1014-44a3-95ea-8e05676006e1",
+      "name": "private-key@a30d3b7b-1014-44a3-95ea-8e05676006e1",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/dynload.py",
+            "line": 11,
+            "offset": 19,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "938e90d0-b8ab-4d9e-8962-2394ccde2a3c",
+      "name": "private-key@938e90d0-b8ab-4d9e-8962-2394ccde2a3c",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h01_metaprogramming/meta.py",
+            "line": 18,
+            "offset": 28,
+            "additionalContext": "generate_private_key"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1c5aac78-8cab-4a2c-ab15-221cf5709c0f",
+      "dependsOn": [
+        "fda3fe4e-951b-43af-8879-dc753f0ca7dc"
+      ]
+    },
+    {
+      "ref": "3be6a1a4-386d-4d6a-a21b-269d3d42cd7d",
+      "dependsOn": [
+        "1f75e36c-4440-4588-a7f6-98e6e1c8bc56"
+      ]
+    },
+    {
+      "ref": "2e153610-54ad-4d53-827d-b6dad7dab911",
+      "dependsOn": [
+        "1f75e36c-4440-4588-a7f6-98e6e1c8bc56"
+      ]
+    },
+    {
+      "ref": "1f75e36c-4440-4588-a7f6-98e6e1c8bc56",
+      "dependsOn": [
+        "134b01d9-0921-45d0-9e77-f2849c5f8d3e"
+      ]
+    },
+    {
+      "ref": "938e90d0-b8ab-4d9e-8962-2394ccde2a3c",
+      "dependsOn": [
+        "52c209a8-6dca-4c4d-a553-628c581c1f28"
+      ]
+    },
+    {
+      "ref": "9596f90c-c636-4169-b9e7-6f1f17156525",
+      "dependsOn": [
+        "1c5aac78-8cab-4a2c-ab15-221cf5709c0f"
+      ]
+    },
+    {
+      "ref": "a30d3b7b-1014-44a3-95ea-8e05676006e1",
+      "dependsOn": [
+        "1c5aac78-8cab-4a2c-ab15-221cf5709c0f"
+      ]
+    }
+  ]
+}

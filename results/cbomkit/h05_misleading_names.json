@@ -1,0 +1,473 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:88b22bac-9dc6-4e70-84e4-d8599da5fb40",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-17T19:47:26Z",
+    "tools": {
+      "services": [
+        {
+          "provider": {
+            "name": "PQCA"
+          },
+          "name": "CBOMkit"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "gitUrl",
+        "value": "https://github.com/cryptofind/pqc-compliance-schema"
+      },
+      {
+        "name": "revision",
+        "value": "main"
+      },
+      {
+        "name": "commit",
+        "value": "0cd23c4"
+      },
+      {
+        "name": "subfolder",
+        "value": "pqc-cbom-benchmark/targets/h05_misleading_names"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "ee795015-5a6e-4a52-925b-7a818f460417",
+      "name": "private-key@ee795015-5a6e-4a52-925b-7a818f460417",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "76d6efe9-99cc-4093-85f8-aae199bb295e",
+      "name": "Ed448",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "curve": "Edwards448",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.113"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "9e729afb-df73-4e36-aec9-e6cb47a089d8",
+      "name": "SHAKE256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "xof",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "056fba1f-8650-4d86-befb-5031b54d56ad",
+      "name": "HKDF-SHA-256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 14,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 14,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/envelope.py",
+            "line": 16,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 18,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kdf",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "keyderive"
+          ]
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "276566fa-6ae8-42f9-9f36-8bcd9c0bde65",
+      "name": "RSA-2048",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 20,
+            "offset": 20,
+            "additionalContext": "generate_private_key"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 20,
+            "offset": 20,
+            "additionalContext": "generate_private_key"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "parameterSetIdentifier": "2048",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.2.840.113549.1.1.1"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "9f60d6ba-1b26-406f-8c82-8a4938d871da",
+      "name": "private-key@9f60d6ba-1b26-406f-8c82-8a4938d871da",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 20,
+            "offset": 20,
+            "additionalContext": "generate_private_key"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 2048
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "13dae63e-e77c-43ab-a005-4d58b636d117",
+      "name": "private-key@13dae63e-e77c-43ab-a005-4d58b636d117",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 20,
+            "offset": 20,
+            "additionalContext": "generate_private_key"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 2048
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "94817202-e6b0-440d-8d98-6ec498aa1777",
+      "name": "x448",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "curve": "Curve448",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.111"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "2276a02c-d988-463c-a866-298239dac4d7",
+      "name": "Ed25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "curve": "Edwards25519",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.112"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "ed4c13b9-9595-4cc2-a382-c3729eccdea3",
+      "name": "SHA-256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 14,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 14,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/envelope.py",
+            "line": 16,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 18,
+            "offset": 10,
+            "additionalContext": "HKDF"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        },
+        "oid": "2.16.840.1.101.3.4.2.1"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "f8e5a5c4-6720-4611-bdbc-995c819f138c",
+      "name": "x25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 8,
+            "offset": 11,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/pq_ready.py",
+            "line": 12,
+            "offset": 16,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 8,
+            "offset": 11,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/exchange.py",
+            "line": 12,
+            "offset": 16,
+            "additionalContext": "generate"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "curve": "Curve25519",
+          "cryptoFunctions": [
+            "keygen"
+          ]
+        },
+        "oid": "1.3.101.110"
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "10628a2a-616e-40fd-82db-dfa848e5884e",
+      "name": "private-key@10628a2a-616e-40fd-82db-dfa848e5884e",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "b927d731-974c-4795-b933-9be2244c9c7c",
+      "name": "SHA-512",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/probe.py",
+            "line": 6,
+            "offset": 10,
+            "additionalContext": "Hash"
+          },
+          {
+            "location": "pqc-cbom-benchmark/targets/h05_misleading_names/rsa_compat.py",
+            "line": 42,
+            "offset": 11,
+            "additionalContext": "generate"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "512",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        },
+        "oid": "2.16.840.1.101.3.4.2.3"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "9f60d6ba-1b26-406f-8c82-8a4938d871da",
+      "dependsOn": [
+        "276566fa-6ae8-42f9-9f36-8bcd9c0bde65"
+      ]
+    },
+    {
+      "ref": "13dae63e-e77c-43ab-a005-4d58b636d117",
+      "dependsOn": [
+        "276566fa-6ae8-42f9-9f36-8bcd9c0bde65"
+      ]
+    },
+    {
+      "ref": "ee795015-5a6e-4a52-925b-7a818f460417",
+      "dependsOn": [
+        "76d6efe9-99cc-4093-85f8-aae199bb295e"
+      ]
+    },
+    {
+      "ref": "76d6efe9-99cc-4093-85f8-aae199bb295e",
+      "dependsOn": [
+        "9e729afb-df73-4e36-aec9-e6cb47a089d8"
+      ]
+    },
+    {
+      "ref": "10628a2a-616e-40fd-82db-dfa848e5884e",
+      "dependsOn": [
+        "2276a02c-d988-463c-a866-298239dac4d7"
+      ]
+    },
+    {
+      "ref": "056fba1f-8650-4d86-befb-5031b54d56ad",
+      "dependsOn": [
+        "ed4c13b9-9595-4cc2-a382-c3729eccdea3"
+      ]
+    },
+    {
+      "ref": "2276a02c-d988-463c-a866-298239dac4d7",
+      "dependsOn": [
+        "b927d731-974c-4795-b933-9be2244c9c7c"
+      ]
+    }
+  ]
+}
