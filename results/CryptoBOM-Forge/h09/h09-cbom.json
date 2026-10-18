@@ -1,0 +1,405 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:private_key:388d825e-c94e-4101-8e95-2d81ea377584",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _issue(bits: int):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H9-C3",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "388d825e-c94e-4101-8e95-2d81ea377584",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:323cb30e-e84a-4e5d-b5d2-ec9cf434342d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "gcm",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-GCM"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives.asymmetric import ec, rsa\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            7,
+                            8,
+                            9
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-GCM",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:5c4d5daa-3649-41a1-a6d8-87bc7762be55",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "BLAKE2B"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c5_string_resolved(data: bytes) -> bytes:\n    ctx = hashes.Hash(getattr(hashes, \"BLAKE2b\")(64))  # GT:H9-C5",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            37,
+                            38,
+                            39
+                        ]
+                    }
+                ]
+            },
+            "name": "BLAKE2B",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:469fe8da-9276-41ef-95fe-78d813fafa83",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "MD5"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c9_non_security(data: bytes) -> str:\n    return hashlib.md5(data, usedforsecurity=False).hexdigest()  # GT:H9-C9",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            62,
+                            63,
+                            64
+                        ]
+                    }
+                ]
+            },
+            "name": "MD5",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e2a650b9-3d88-4dc3-92b5-05ad023dcfd6",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _issue(bits: int):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H9-C3",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24
+                        ]
+                    },
+                    {
+                        "additionalContext": "\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import ec, rsa",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            5,
+                            6,
+                            7
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e3547a16-307a-4046-b26d-ce54850065b2",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256K1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _retired_rotation():\n    return ec.generate_private_key(ec.SECP256K1())  # GT:H9-C7",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            51,
+                            52,
+                            53
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256K1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:de8cc8fd-79a2-4553-850e-f5ec62ebd603",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "        return None\n    key = ec.generate_private_key(getattr(ec, name)())  # GT:H9-C6/keygen\n    return key.sign(data, ec.ECDSA(hashes.SHA256()))  # GT:H9-C6/op",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            47,
+                            48,
+                            49
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:a93daf1c-c04c-4443-894f-aa45502abcf2",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA384"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c4_path_dependent(data: bytes) -> bytes:\n    algorithm = hashes.SHA384() if len(sys.argv) > 1 else hashes.SHA3_256()  # GT:H9-C4a GT:H9-C4b",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            30,
+                            31,
+                            32
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA384",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:9da32fd1-6eab-4cd0-bf0d-ea41b508ccf1",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:9d72eb5e-0823-4d62-9aed-a4999cf1ba77",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt"
+                    ],
+                    "mode": "cbc",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "SM4-CBC"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def c8_dead_branch(data: bytes):\n    if LEGACY_MODE:\n        enc = Cipher(algorithms.SM4(os.urandom(16)), modes.CBC(os.urandom(16))).encryptor()  # GT:H9-C8",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            56,
+                            57,
+                            58
+                        ]
+                    }
+                ]
+            },
+            "name": "SM4-CBC",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:4c96135c-1ff1-4ba0-8a21-e9d8c2557f71",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "unknown",
+                    "variant": "UNKNOWN"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    if not name:\n        return None\n    key = ec.generate_private_key(getattr(ec, name)())  # GT:H9-C6/keygen",
+                        "filePath": "evidence_ladder.py",
+                        "lineNumbers": [
+                            46,
+                            47,
+                            48
+                        ]
+                    }
+                ]
+            },
+            "name": "UNKNOWN",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "dependsOn": [
+                "cryptography:algorithm:323cb30e-e84a-4e5d-b5d2-ec9cf434342d",
+                "cryptography:algorithm:469fe8da-9276-41ef-95fe-78d813fafa83",
+                "cryptography:algorithm:4c96135c-1ff1-4ba0-8a21-e9d8c2557f71",
+                "cryptography:algorithm:5c4d5daa-3649-41a1-a6d8-87bc7762be55",
+                "cryptography:algorithm:9d72eb5e-0823-4d62-9aed-a4999cf1ba77",
+                "cryptography:algorithm:9da32fd1-6eab-4cd0-bf0d-ea41b508ccf1",
+                "cryptography:algorithm:a93daf1c-c04c-4443-894f-aa45502abcf2",
+                "cryptography:algorithm:de8cc8fd-79a2-4553-850e-f5ec62ebd603",
+                "cryptography:algorithm:e2a650b9-3d88-4dc3-92b5-05ad023dcfd6",
+                "cryptography:algorithm:e3547a16-307a-4046-b26d-ce54850065b2"
+            ],
+            "ref": "9b9b88fe-01ac-4cd3-87e7-8360a8d9a258"
+        },
+        {
+            "ref": "cryptography:algorithm:323cb30e-e84a-4e5d-b5d2-ec9cf434342d"
+        },
+        {
+            "ref": "cryptography:algorithm:469fe8da-9276-41ef-95fe-78d813fafa83"
+        },
+        {
+            "ref": "cryptography:algorithm:4c96135c-1ff1-4ba0-8a21-e9d8c2557f71"
+        },
+        {
+            "ref": "cryptography:algorithm:5c4d5daa-3649-41a1-a6d8-87bc7762be55"
+        },
+        {
+            "ref": "cryptography:algorithm:9d72eb5e-0823-4d62-9aed-a4999cf1ba77"
+        },
+        {
+            "ref": "cryptography:algorithm:9da32fd1-6eab-4cd0-bf0d-ea41b508ccf1"
+        },
+        {
+            "ref": "cryptography:algorithm:a93daf1c-c04c-4443-894f-aa45502abcf2"
+        },
+        {
+            "ref": "cryptography:algorithm:de8cc8fd-79a2-4553-850e-f5ec62ebd603"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:388d825e-c94e-4101-8e95-2d81ea377584"
+            ],
+            "ref": "cryptography:algorithm:e2a650b9-3d88-4dc3-92b5-05ad023dcfd6"
+        },
+        {
+            "ref": "cryptography:algorithm:e3547a16-307a-4046-b26d-ce54850065b2"
+        },
+        {
+            "ref": "cryptography:private_key:388d825e-c94e-4101-8e95-2d81ea377584"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "9b9b88fe-01ac-4cd3-87e7-8360a8d9a258",
+            "name": "h09_confidence",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:38:15.193921+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:4aa3b52c-1867-4947-a48a-f99436d5f222",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}

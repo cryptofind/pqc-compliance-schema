@@ -1,0 +1,3671 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeQL",
+          "organization": "GitHub",
+          "semanticVersion": "2.27.2",
+          "notifications": [
+            {
+              "id": "py/baseline/expected-extracted-files",
+              "name": "py/baseline/expected-extracted-files",
+              "shortDescription": {
+                "text": "Expected extracted files"
+              },
+              "fullDescription": {
+                "text": "Files appearing in the source archive that are expected to be extracted."
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              },
+              "properties": {
+                "tags": [
+                  "expected-extracted-files",
+                  "telemetry"
+                ]
+              }
+            },
+            {
+              "id": "cli/file-coverage-baseline",
+              "name": "cli/file-coverage-baseline",
+              "shortDescription": {
+                "text": "File coverage baseline telemetry"
+              },
+              "fullDescription": {
+                "text": "File coverage baseline telemetry"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "cli/platform",
+              "name": "cli/platform",
+              "shortDescription": {
+                "text": "Platform"
+              },
+              "fullDescription": {
+                "text": "Platform"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "py/extractor/summary",
+              "name": "py/extractor/summary",
+              "shortDescription": {
+                "text": "Python extractor telemetry"
+              },
+              "fullDescription": {
+                "text": "Python extractor telemetry"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "py/extractor/parser-statistics",
+              "name": "py/extractor/parser-statistics",
+              "shortDescription": {
+                "text": "Python parser statistics"
+              },
+              "fullDescription": {
+                "text": "Python parser statistics"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            }
+          ],
+          "rules": [
+            {
+              "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+              "name": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+              "shortDescription": {
+                "text": "All Cryptographic Algorithms"
+              },
+              "fullDescription": {
+                "text": "Finds all potential usage of cryptographic algorithms usage using the supported libraries."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "cbom",
+                  "cryptography"
+                ],
+                "description": "Finds all potential usage of cryptographic algorithms usage using the supported libraries.",
+                "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+                "kind": "problem",
+                "name": "All Cryptographic Algorithms",
+                "problem.severity": "error"
+              }
+            }
+          ]
+        },
+        "extensions": [
+          {
+            "name": "codeql/python-queries",
+            "semanticVersion": "1.8.12+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "codeql/python-all",
+            "semanticVersion": "7.2.7+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/python-all/7.2.7/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/python-all/7.2.7/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "codeql/threat-models",
+            "semanticVersion": "1.0.59+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/threat-models/1.0.59/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/threat-models/1.0.59/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "invocations": [
+        {
+          "toolExecutionNotifications": [
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "probe.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 5
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "alt_pqcrypto.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 6
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_third_party.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 4
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "alt_pure_python.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 7
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_symmetric.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 3
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_stdlib.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 2
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "alt_liboqs.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 8
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "main.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 9
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_asymmetric.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 0
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_pqc.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 10
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "direct_hash_mac_kdf.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 1
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "timeUtc": "2026-10-18T02:54:09.010763900Z",
+              "descriptor": {
+                "id": "cli/file-coverage-baseline",
+                "index": 1
+              },
+              "properties": {
+                "attributes": {
+                  "durationMilliseconds": 1672
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "timeUtc": "2026-10-18T02:54:09.013031300Z",
+              "descriptor": {
+                "id": "cli/platform",
+                "index": 2
+              },
+              "properties": {
+                "attributes": {
+                  "arch": "amd64",
+                  "name": "Windows 11",
+                  "version": "10.0"
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.631531Z",
+              "descriptor": {
+                "id": "py/extractor/summary",
+                "index": 3
+              },
+              "properties": {
+                "attributes": {
+                  "extractor_flags": "default",
+                  "extractor_version": "7.1.11",
+                  "python_analysis_version": "3.12",
+                  "python_runtime_version": "3.14.2"
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.870394Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.798008Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.799360Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.793402Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 2,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.798498Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.795944Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.795277Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 3,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T02:54:11.795596Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            }
+          ],
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "direct_asymmetric.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 0
+          }
+        },
+        {
+          "location": {
+            "uri": "direct_hash_mac_kdf.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 1
+          }
+        },
+        {
+          "location": {
+            "uri": "direct_stdlib.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 2
+          }
+        },
+        {
+          "location": {
+            "uri": "direct_symmetric.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 3
+          }
+        },
+        {
+          "location": {
+            "uri": "direct_third_party.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 4
+          }
+        },
+        {
+          "location": {
+            "uri": "probe.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 5
+          }
+        },
+        {
+          "location": {
+            "uri": "alt_pqcrypto.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 6
+          }
+        },
+        {
+          "location": {
+            "uri": "alt_pure_python.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 7
+          }
+        },
+        {
+          "location": {
+            "uri": "alt_liboqs.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 8
+          }
+        },
+        {
+          "location": {
+            "uri": "main.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 9
+          }
+        },
+        {
+          "location": {
+            "uri": "direct_pqc.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 10
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 11,
+                  "endColumn": 35
+                },
+                "contextRegion": {
+                  "startLine": 7,
+                  "endLine": 9,
+                  "snippet": {
+                    "text": "\ndef a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "1962a6a5b626c24c:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 11,
+                  "endColumn": 73
+                },
+                "contextRegion": {
+                  "startLine": 7,
+                  "endLine": 9,
+                  "snippet": {
+                    "text": "\ndef a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "1962a6a5b626c24c:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 73,
+                  "endColumn": 86
+                },
+                "contextRegion": {
+                  "startLine": 8,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "def a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A01/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:1",
+            "primaryLocationStartColumnFingerprint": "68"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 101,
+                  "endColumn": 114
+                },
+                "contextRegion": {
+                  "startLine": 8,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "def a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A01/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:1",
+            "primaryLocationStartColumnFingerprint": "96"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm OAEP"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 43,
+                  "endColumn": 129
+                },
+                "contextRegion": {
+                  "startLine": 8,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "def a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A01/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:1",
+            "primaryLocationStartColumnFingerprint": "38"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 11,
+                  "endColumn": 35
+                },
+                "contextRegion": {
+                  "startLine": 12,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "\ndef a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "73f35d82a722762d:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 11,
+                  "endColumn": 73
+                },
+                "contextRegion": {
+                  "startLine": 12,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "\ndef a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "73f35d82a722762d:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 56,
+                  "endColumn": 69
+                },
+                "contextRegion": {
+                  "startLine": 13,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "def a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A02/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:1",
+            "primaryLocationStartColumnFingerprint": "51"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm PSS"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 27,
+                  "endColumn": 109
+                },
+                "contextRegion": {
+                  "startLine": 13,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "def a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A02/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:1",
+            "primaryLocationStartColumnFingerprint": "22"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 111,
+                  "endColumn": 124
+                },
+                "contextRegion": {
+                  "startLine": 13,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "def a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A02/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:1",
+            "primaryLocationStartColumnFingerprint": "106"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 11,
+                  "endColumn": 35
+                },
+                "contextRegion": {
+                  "startLine": 17,
+                  "endLine": 19,
+                  "snippet": {
+                    "text": "\ndef a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "9cb0fc04dbb9be58:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 11,
+                  "endColumn": 73
+                },
+                "contextRegion": {
+                  "startLine": 17,
+                  "endLine": 19,
+                  "snippet": {
+                    "text": "\ndef a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "9cb0fc04dbb9be58:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 56,
+                  "endColumn": 69
+                },
+                "contextRegion": {
+                  "startLine": 18,
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "def a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A03/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:2",
+            "primaryLocationStartColumnFingerprint": "51"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm PSS"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 27,
+                  "endColumn": 109
+                },
+                "contextRegion": {
+                  "startLine": 18,
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "def a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A03/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:2",
+            "primaryLocationStartColumnFingerprint": "22"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 111,
+                  "endColumn": 124
+                },
+                "contextRegion": {
+                  "startLine": 18,
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "def a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A03/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8a6df24ca1ef52a7:2",
+            "primaryLocationStartColumnFingerprint": "106"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 11,
+                  "endColumn": 35
+                },
+                "contextRegion": {
+                  "startLine": 22,
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "\ndef a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f741b2de99366101:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 11,
+                  "endColumn": 73
+                },
+                "contextRegion": {
+                  "startLine": 22,
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "\ndef a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f741b2de99366101:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 73,
+                  "endColumn": 86
+                },
+                "contextRegion": {
+                  "startLine": 23,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "def a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A04/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:2",
+            "primaryLocationStartColumnFingerprint": "68"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 101,
+                  "endColumn": 114
+                },
+                "contextRegion": {
+                  "startLine": 23,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "def a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A04/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:2",
+            "primaryLocationStartColumnFingerprint": "96"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm OAEP"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 43,
+                  "endColumn": 129
+                },
+                "contextRegion": {
+                  "startLine": 23,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "def a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A04/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c23589cfa5641be0:2",
+            "primaryLocationStartColumnFingerprint": "38"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 12,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 27,
+                  "endLine": 29,
+                  "snippet": {
+                    "text": "\ndef a05():\n    return rsa.generate_private_key(public_exponent=65537, key_size=4096)  # GT:H0-A05/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8b98826159c9b8ba:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 12,
+                  "endColumn": 74
+                },
+                "contextRegion": {
+                  "startLine": 27,
+                  "endLine": 29,
+                  "snippet": {
+                    "text": "\ndef a05():\n    return rsa.generate_private_key(public_exponent=65537, key_size=4096)  # GT:H0-A05/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8b98826159c9b8ba:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP256R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 35,
+                  "endColumn": 49
+                },
+                "contextRegion": {
+                  "startLine": 31,
+                  "endLine": 33,
+                  "snippet": {
+                    "text": "\ndef a06():\n    key = ec.generate_private_key(ec.SECP256R1())  # GT:H0-A06/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "33569342a920ed5e:1",
+            "primaryLocationStartColumnFingerprint": "30"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 36,
+                  "endColumn": 49
+                },
+                "contextRegion": {
+                  "startLine": 32,
+                  "endLine": 34,
+                  "snippet": {
+                    "text": "def a06():\n    key = ec.generate_private_key(ec.SECP256R1())  # GT:H0-A06/keygen\n    return key.sign(DATA, ec.ECDSA(hashes.SHA256()))  # GT:H0-A06/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "d784026f5a120017:1",
+            "primaryLocationStartColumnFingerprint": "31"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 35,
+                  "endColumn": 49
+                },
+                "contextRegion": {
+                  "startLine": 36,
+                  "endLine": 38,
+                  "snippet": {
+                    "text": "\ndef a07():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-A07/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "52af90aa3a498481:1",
+            "primaryLocationStartColumnFingerprint": "30"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 36,
+                  "endColumn": 49
+                },
+                "contextRegion": {
+                  "startLine": 37,
+                  "endLine": 39,
+                  "snippet": {
+                    "text": "def a07():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-A07/keygen\n    return key.sign(DATA, ec.ECDSA(hashes.SHA384()))  # GT:H0-A07/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "2331cc5e8826148e:1",
+            "primaryLocationStartColumnFingerprint": "31"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 41,
+                  "endLine": 43,
+                  "snippet": {
+                    "text": "\ndef a08():\n    mine, peer = ec.generate_private_key(ec.SECP384R1()), ec.generate_private_key(ec.SECP384R1())  # GT:H0-A08/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c1c700bc1705534f:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 41,
+                  "endLine": 43,
+                  "snippet": {
+                    "text": "\ndef a08():\n    mine, peer = ec.generate_private_key(ec.SECP384R1()), ec.generate_private_key(ec.SECP384R1())  # GT:H0-A08/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c1c700bc1705534f:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP192R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 46,
+                  "endLine": 48,
+                  "snippet": {
+                    "text": "\ndef a09():\n    mine, peer = ec.generate_private_key(ec.SECP192R1()), ec.generate_private_key(ec.SECP192R1())  # GT:H0-A09/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "6a6107a94e897236:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP192R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 46,
+                  "endLine": 48,
+                  "snippet": {
+                    "text": "\ndef a09():\n    mine, peer = ec.generate_private_key(ec.SECP192R1()), ec.generate_private_key(ec.SECP192R1())  # GT:H0-A09/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "6a6107a94e897236:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP224R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 51,
+                  "endLine": 53,
+                  "snippet": {
+                    "text": "\ndef a10():\n    mine, peer = ec.generate_private_key(ec.SECP224R1()), ec.generate_private_key(ec.SECP224R1())  # GT:H0-A10/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e94164476ed1a3f2:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP224R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 51,
+                  "endLine": 53,
+                  "snippet": {
+                    "text": "\ndef a10():\n    mine, peer = ec.generate_private_key(ec.SECP224R1()), ec.generate_private_key(ec.SECP224R1())  # GT:H0-A10/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e94164476ed1a3f2:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP256R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 56,
+                  "endLine": 58,
+                  "snippet": {
+                    "text": "\ndef a11():\n    mine, peer = ec.generate_private_key(ec.SECP256R1()), ec.generate_private_key(ec.SECP256R1())  # GT:H0-A11/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f7fd7c6cae6a78d9:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP256R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 56,
+                  "endLine": 58,
+                  "snippet": {
+                    "text": "\ndef a11():\n    mine, peer = ec.generate_private_key(ec.SECP256R1()), ec.generate_private_key(ec.SECP256R1())  # GT:H0-A11/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f7fd7c6cae6a78d9:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP521R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 61,
+                  "endLine": 63,
+                  "snippet": {
+                    "text": "\ndef a12():\n    mine, peer = ec.generate_private_key(ec.SECP521R1()), ec.generate_private_key(ec.SECP521R1())  # GT:H0-A12/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "24a5f33117afd34c:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP521R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 61,
+                  "endLine": 63,
+                  "snippet": {
+                    "text": "\ndef a12():\n    mine, peer = ec.generate_private_key(ec.SECP521R1()), ec.generate_private_key(ec.SECP521R1())  # GT:H0-A12/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "24a5f33117afd34c:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP256K1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 42,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 66,
+                  "endLine": 68,
+                  "snippet": {
+                    "text": "\ndef a13():\n    mine, peer = ec.generate_private_key(ec.SECP256K1()), ec.generate_private_key(ec.SECP256K1())  # GT:H0-A13/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e48e48e3e4cdb70d:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP256K1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 83,
+                  "endColumn": 97
+                },
+                "contextRegion": {
+                  "startLine": 66,
+                  "endLine": 68,
+                  "snippet": {
+                    "text": "\ndef a13():\n    mine, peer = ec.generate_private_key(ec.SECP256K1()), ec.generate_private_key(ec.SECP256K1())  # GT:H0-A13/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e48e48e3e4cdb70d:1",
+            "primaryLocationStartColumnFingerprint": "78"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP256R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 42,
+                  "endColumn": 62
+                },
+                "contextRegion": {
+                  "startLine": 71,
+                  "endLine": 73,
+                  "snippet": {
+                    "text": "\ndef a14():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP256R1()), ec.generate_private_key(ec.BrainpoolP256R1())  # GT:H0-A14/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "dd17bf203e9dd5f7:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP256R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 89,
+                  "endColumn": 109
+                },
+                "contextRegion": {
+                  "startLine": 71,
+                  "endLine": 73,
+                  "snippet": {
+                    "text": "\ndef a14():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP256R1()), ec.generate_private_key(ec.BrainpoolP256R1())  # GT:H0-A14/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "dd17bf203e9dd5f7:1",
+            "primaryLocationStartColumnFingerprint": "84"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 42,
+                  "endColumn": 62
+                },
+                "contextRegion": {
+                  "startLine": 76,
+                  "endLine": 78,
+                  "snippet": {
+                    "text": "\ndef a15():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP384R1()), ec.generate_private_key(ec.BrainpoolP384R1())  # GT:H0-A15/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "80c0938ad1dc8b3:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 89,
+                  "endColumn": 109
+                },
+                "contextRegion": {
+                  "startLine": 76,
+                  "endLine": 78,
+                  "snippet": {
+                    "text": "\ndef a15():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP384R1()), ec.generate_private_key(ec.BrainpoolP384R1())  # GT:H0-A15/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "80c0938ad1dc8b3:1",
+            "primaryLocationStartColumnFingerprint": "84"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP512R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 42,
+                  "endColumn": 62
+                },
+                "contextRegion": {
+                  "startLine": 81,
+                  "endLine": 83,
+                  "snippet": {
+                    "text": "\ndef a16():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP512R1()), ec.generate_private_key(ec.BrainpoolP512R1())  # GT:H0-A16/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "91da71ffeecaa4f5:1",
+            "primaryLocationStartColumnFingerprint": "37"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BRAINPOOLP512R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 89,
+                  "endColumn": 109
+                },
+                "contextRegion": {
+                  "startLine": 81,
+                  "endLine": 83,
+                  "snippet": {
+                    "text": "\ndef a16():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP512R1()), ec.generate_private_key(ec.BrainpoolP512R1())  # GT:H0-A16/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "91da71ffeecaa4f5:1",
+            "primaryLocationStartColumnFingerprint": "84"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_asymmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 77,
+                  "endColumn": 80
+                },
+                "contextRegion": {
+                  "startLine": 1,
+                  "endLine": 3,
+                  "snippet": {
+                    "text": "\"\"\"H0 control: direct, literal use of classical public-key primitives (one asset per function).\"\"\"\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import ec, ed25519, padding, rsa, x25519"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "9e9bf7b34f7d4928:1",
+            "primaryLocationStartColumnFingerprint": "76"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endColumn": 34
+                },
+                "contextRegion": {
+                  "startLine": 10,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "\ndef h01():\n    ctx = hashes.Hash(hashes.SHA1())  # GT:H0-H01"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "9237d740d212fdb1:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA224"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 16,
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "\ndef h02():\n    ctx = hashes.Hash(hashes.SHA224())  # GT:H0-H02"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "5c6237d12fdafc6d:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 23,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 22,
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "\ndef h03():\n    ctx = hashes.Hash(hashes.SHA256())  # GT:H0-H03"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "9a043d5ea26753e0:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 23,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 28,
+                  "endLine": 30,
+                  "snippet": {
+                    "text": "\ndef h04():\n    ctx = hashes.Hash(hashes.SHA384())  # GT:H0-H04"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "34661b95d343a8a4:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA3256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 23,
+                  "endColumn": 38
+                },
+                "contextRegion": {
+                  "startLine": 34,
+                  "endLine": 36,
+                  "snippet": {
+                    "text": "\ndef h05():\n    ctx = hashes.Hash(hashes.SHA3_256())  # GT:H0-H05"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "121299d9e4fa01b2:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA3384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 23,
+                  "endColumn": 38
+                },
+                "contextRegion": {
+                  "startLine": 40,
+                  "endLine": 42,
+                  "snippet": {
+                    "text": "\ndef h06():\n    ctx = hashes.Hash(hashes.SHA3_384())  # GT:H0-H06"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "fb2f487b80387016:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm BLAKE2B"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 23,
+                  "endColumn": 37
+                },
+                "contextRegion": {
+                  "startLine": 46,
+                  "endLine": 48,
+                  "snippet": {
+                    "text": "\ndef h07():\n    ctx = hashes.Hash(hashes.BLAKE2b(64))  # GT:H0-H07"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "22a78cc0f1b6dac0:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 26,
+                  "endColumn": 39
+                },
+                "contextRegion": {
+                  "startLine": 52,
+                  "endLine": 54,
+                  "snippet": {
+                    "text": "\ndef m01():\n    mac = hmac.HMAC(KEY, hashes.SHA256())  # GT:H0-M01"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "ebb4faa73080ebb9:1",
+            "primaryLocationStartColumnFingerprint": "21"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 26,
+                  "endColumn": 39
+                },
+                "contextRegion": {
+                  "startLine": 58,
+                  "endLine": 60,
+                  "snippet": {
+                    "text": "\ndef m02():\n    mac = hmac.HMAC(KEY, hashes.SHA384())  # GT:H0-M02"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "d4d1a948cbbf5a1d:1",
+            "primaryLocationStartColumnFingerprint": "21"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 26,
+                  "endColumn": 37
+                },
+                "contextRegion": {
+                  "startLine": 64,
+                  "endLine": 66,
+                  "snippet": {
+                    "text": "\ndef m03():\n    mac = hmac.HMAC(KEY, hashes.SHA1())  # GT:H0-M03"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "947552b341f7b916:1",
+            "primaryLocationStartColumnFingerprint": "21"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 27,
+                  "endColumn": 40
+                },
+                "contextRegion": {
+                  "startLine": 70,
+                  "endLine": 72,
+                  "snippet": {
+                    "text": "\ndef k01():\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"h00\").derive(KEY)  # GT:H0-K01"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e04c8491f8b1735c:1",
+            "primaryLocationStartColumnFingerprint": "22"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 27,
+                  "endColumn": 40
+                },
+                "contextRegion": {
+                  "startLine": 74,
+                  "endLine": 76,
+                  "snippet": {
+                    "text": "\ndef k02():\n    return HKDF(algorithm=hashes.SHA384(), length=32, salt=None, info=b\"h00\").derive(KEY)  # GT:H0-K02"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "a17f7e76937d175b:1",
+            "primaryLocationStartColumnFingerprint": "22"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm HKDF"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_hash_mac_kdf.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 53,
+                  "endColumn": 57
+                },
+                "contextRegion": {
+                  "startLine": 3,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "\nfrom cryptography.hazmat.primitives import hashes, hmac\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8060469961881491:1",
+            "primaryLocationStartColumnFingerprint": "52"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_stdlib.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 12,
+                  "endColumn": 26
+                },
+                "contextRegion": {
+                  "startLine": 9,
+                  "endLine": 11,
+                  "snippet": {
+                    "text": "\ndef t01():\n    return hashlib.sha256(DATA).digest()  # GT:H0-T01"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "b9216d8813a0ffab:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm MD5"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_stdlib.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 12,
+                  "endColumn": 23
+                },
+                "contextRegion": {
+                  "startLine": 13,
+                  "endLine": 15,
+                  "snippet": {
+                    "text": "\ndef t02():\n    return hashlib.md5(DATA, usedforsecurity=False).hexdigest()  # GT:H0-T02"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "df3d713b7bac39f8:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_stdlib.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 12,
+                  "endColumn": 24
+                },
+                "contextRegion": {
+                  "startLine": 17,
+                  "endLine": 19,
+                  "snippet": {
+                    "text": "\ndef t03():\n    return hashlib.sha1(DATA).digest()  # GT:H0-T03"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "47c99060f99ef038:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_stdlib.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 32,
+                  "endColumn": 46
+                },
+                "contextRegion": {
+                  "startLine": 21,
+                  "endLine": 23,
+                  "snippet": {
+                    "text": "\ndef t04():\n    return hmac.new(KEY, DATA, hashlib.sha256).digest()  # GT:H0-T04"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "1aaecf6778fa321e:1",
+            "primaryLocationStartColumnFingerprint": "27"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_stdlib.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 32,
+                  "endColumn": 44
+                },
+                "contextRegion": {
+                  "startLine": 25,
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "\ndef t05():\n    return hmac.new(KEY, DATA, hashlib.sha1).digest()  # GT:H0-T05"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "5b822410b6f6d84f:1",
+            "primaryLocationStartColumnFingerprint": "27"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm AES"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 18,
+                  "endColumn": 48
+                },
+                "contextRegion": {
+                  "startLine": 23,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "\ndef s04():\n    enc = Cipher(algorithms.AES(os.urandom(32)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S04"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "b0c3709d28cb4451:1",
+            "primaryLocationStartColumnFingerprint": "13"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CBC"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 50,
+                  "endColumn": 75
+                },
+                "contextRegion": {
+                  "startLine": 23,
+                  "endLine": 25,
+                  "snippet": {
+                    "text": "\ndef s04():\n    enc = Cipher(algorithms.AES(os.urandom(32)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S04"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "b0c3709d28cb4451:1",
+            "primaryLocationStartColumnFingerprint": "45"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm AES\nUse of algorithm ECB"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 12,
+                  "endColumn": 64
+                },
+                "contextRegion": {
+                  "startLine": 33,
+                  "endLine": 35,
+                  "snippet": {
+                    "text": "\ndef s06():\n    return keywrap.aes_key_wrap(os.urandom(32), os.urandom(32))  # GT:H0-S06"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "cd6da7abac8324:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CBC\nUse of algorithm PKCS7\nUse of algorithm AES128"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 12,
+                  "endColumn": 41
+                },
+                "contextRegion": {
+                  "startLine": 37,
+                  "endLine": 39,
+                  "snippet": {
+                    "text": "\ndef s07():\n    return Fernet(Fernet.generate_key()).encrypt(DATA)  # GT:H0-S07a GT:H0-S07b"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "3ace93441d88b5fc:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SM4"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 18,
+                  "endColumn": 48
+                },
+                "contextRegion": {
+                  "startLine": 41,
+                  "endLine": 43,
+                  "snippet": {
+                    "text": "\ndef s08():\n    enc = Cipher(algorithms.SM4(os.urandom(16)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S08"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "2f9db666411dd814:1",
+            "primaryLocationStartColumnFingerprint": "13"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CBC"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 50,
+                  "endColumn": 75
+                },
+                "contextRegion": {
+                  "startLine": 41,
+                  "endLine": 43,
+                  "snippet": {
+                    "text": "\ndef s08():\n    enc = Cipher(algorithms.SM4(os.urandom(16)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S08"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "2f9db666411dd814:1",
+            "primaryLocationStartColumnFingerprint": "45"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm AES\nUse of algorithm GCM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 57,
+                  "endColumn": 63
+                },
+                "contextRegion": {
+                  "startLine": 5,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "from cryptography.hazmat.primitives import keywrap, padding\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM, ChaCha20Poly1305"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f920f08e0329e960:1",
+            "primaryLocationStartColumnFingerprint": "56"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CHACHA20POLY1305"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_symmetric.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 65,
+                  "endColumn": 81
+                },
+                "contextRegion": {
+                  "startLine": 5,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "from cryptography.hazmat.primitives import keywrap, padding\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM, ChaCha20Poly1305"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "f920f08e0329e960:1",
+            "primaryLocationStartColumnFingerprint": "64"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SECP384R1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_third_party.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 35,
+                  "endColumn": 49
+                },
+                "contextRegion": {
+                  "startLine": 33,
+                  "endLine": 35,
+                  "snippet": {
+                    "text": "\ndef x05():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-X05/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "6cb1bc9bb247f5b5:1",
+            "primaryLocationStartColumnFingerprint": "30"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_third_party.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 94,
+                  "endColumn": 106
+                },
+                "contextRegion": {
+                  "startLine": 38,
+                  "endLine": 40,
+                  "snippet": {
+                    "text": "\ndef x06():\n    return URLSafeTimedSerializer(secrets.token_urlsafe(32), signer_kwargs={\"digest_method\": hashlib.sha1}).dumps({\"sub\": \"h00\"})  # GT:H0-X06a GT:H0-X06b"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "c6a7bc9e76eeda0e:1",
+            "primaryLocationStartColumnFingerprint": "89"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "direct_third_party.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 53,
+                  "endColumn": 65
+                },
+                "contextRegion": {
+                  "startLine": 42,
+                  "endLine": 44,
+                  "snippet": {
+                    "text": "\ndef x07():\n    return pyotp.TOTP(pyotp.random_base32(), digest=hashlib.sha1).now()  # GT:H0-X07"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "ed159e2afd63b6b1:1",
+            "primaryLocationStartColumnFingerprint": "48"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA512"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "probe.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 5
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 4,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "21abb204c970d54e:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        }
+      ],
+      "columnKind": "unicodeCodePoints",
+      "properties": {
+        "semmle.formatSpecifier": "sarif-latest"
+      }
+    }
+  ]
+}

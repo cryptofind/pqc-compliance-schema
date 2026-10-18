@@ -1,0 +1,304 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:algorithm:99da70f4-eec0-4e70-96b4-b2f271005758",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "gcm",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-GCM"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\nAEADS = {\n    (\"AES\", \"GCM\"): aead.AESGCM,  # GT:H6-01/def\n    (\"AES\", \"SIV\"): aead.AESSIV,  # GT:H6-I01/registry",
+                        "filePath": "crypto_factory.py",
+                        "lineNumbers": [
+                            8,
+                            9,
+                            10,
+                            11
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-GCM",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:298b1de8-7cf4-410f-83f7-64a2b856a457",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "streamcipher",
+                    "variant": "CHACHA20"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    (\"AES\", \"GCM\"): aead.AESGCM,  # GT:H6-01/def\n    (\"AES\", \"SIV\"): aead.AESSIV,  # GT:H6-I01/registry\n    (\"CHACHA20\", \"POLY1305\"): aead.ChaCha20Poly1305,  # GT:H6-I02/registry",
+                        "filePath": "crypto_factory.py",
+                        "lineNumbers": [
+                            10,
+                            11,
+                            12
+                        ]
+                    }
+                ]
+            },
+            "name": "CHACHA20",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:ba5ec9e3-4bd6-4f93-b757-cd513725d747",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "kdf",
+                    "variant": "HKDF"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives.asymmetric import ec, ed25519, mlkem, x25519, x448\nfrom cryptography.hazmat.primitives.ciphers import aead\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF",
+                        "filePath": "crypto_factory.py",
+                        "lineNumbers": [
+                            5,
+                            6,
+                            7
+                        ]
+                    }
+                ]
+            },
+            "name": "HKDF",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:72323c99-a0e1-4de8-9f09-9fff240e408b",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import padding, rsa",
+                        "filePath": "services.py",
+                        "lineNumbers": [
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:8d243f38-1fb5-4b65-a83a-d54a911a723f",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "oaep",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    if spec[\"scheme\"].upper() != \"RSA\" or spec[\"padding\"].upper() != \"OAEP\":        raise ValueError(\"unsupported key transport configuration\")\n    key = rsa.generate_private_key(public_exponent=65537, key_size=int(spec[\"key_bits\"]))  # GT:H6-04/keygen\n    scheme = padding.OAEP(mgf=padding.MGF1(algorithm=crypto_factory.digest(spec[\"digest\"])), algorithm=crypto_factory.digest(spec[\"digest\"]), label=None)  # GT:H6-04/padding",
+                        "filePath": "services.py",
+                        "lineNumbers": [
+                            30,
+                            31,
+                            32,
+                            33
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-OAEP",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:5f619a13-2fb0-4aad-9d59-6503d3680124",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:5799ea25-0f2c-4a17-b00d-673887f7ac2c",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "unknown",
+                    "variant": "UNKNOWN"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    family = SIGNATURE_FAMILIES[scheme.upper()]\n    if family is ec:\n        key = ec.generate_private_key(getattr(ec, curve.upper())())  # GT:H6-02/keygen",
+                        "filePath": "crypto_factory.py",
+                        "lineNumbers": [
+                            40,
+                            41,
+                            42
+                        ]
+                    }
+                ]
+            },
+            "name": "UNKNOWN",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:b611a923-5cd4-4147-8fe6-61edf3dba190",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    if spec[\"scheme\"].upper() != \"RSA\" or spec[\"padding\"].upper() != \"OAEP\":        raise ValueError(\"unsupported key transport configuration\")\n    key = rsa.generate_private_key(public_exponent=65537, key_size=int(spec[\"key_bits\"]))  # GT:H6-04/keygen\n    scheme = padding.OAEP(mgf=padding.MGF1(algorithm=crypto_factory.digest(spec[\"digest\"])), algorithm=crypto_factory.digest(spec[\"digest\"]), label=None)  # GT:H6-04/padding",
+                        "filePath": "services.py",
+                        "lineNumbers": [
+                            30,
+                            31,
+                            32,
+                            33
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "b611a923-5cd4-4147-8fe6-61edf3dba190",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "cryptography:algorithm:298b1de8-7cf4-410f-83f7-64a2b856a457"
+        },
+        {
+            "ref": "cryptography:algorithm:5799ea25-0f2c-4a17-b00d-673887f7ac2c"
+        },
+        {
+            "ref": "cryptography:algorithm:5f619a13-2fb0-4aad-9d59-6503d3680124"
+        },
+        {
+            "ref": "cryptography:algorithm:72323c99-a0e1-4de8-9f09-9fff240e408b"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:b611a923-5cd4-4147-8fe6-61edf3dba190"
+            ],
+            "ref": "cryptography:algorithm:8d243f38-1fb5-4b65-a83a-d54a911a723f"
+        },
+        {
+            "ref": "cryptography:algorithm:99da70f4-eec0-4e70-96b4-b2f271005758"
+        },
+        {
+            "ref": "cryptography:algorithm:ba5ec9e3-4bd6-4f93-b757-cd513725d747"
+        },
+        {
+            "ref": "cryptography:private_key:b611a923-5cd4-4147-8fe6-61edf3dba190"
+        },
+        {
+            "dependsOn": [
+                "cryptography:algorithm:298b1de8-7cf4-410f-83f7-64a2b856a457",
+                "cryptography:algorithm:5799ea25-0f2c-4a17-b00d-673887f7ac2c",
+                "cryptography:algorithm:5f619a13-2fb0-4aad-9d59-6503d3680124",
+                "cryptography:algorithm:72323c99-a0e1-4de8-9f09-9fff240e408b",
+                "cryptography:algorithm:8d243f38-1fb5-4b65-a83a-d54a911a723f",
+                "cryptography:algorithm:99da70f4-eec0-4e70-96b4-b2f271005758",
+                "cryptography:algorithm:ba5ec9e3-4bd6-4f93-b757-cd513725d747"
+            ],
+            "ref": "f83a6312-637a-4a05-9881-5b153880cd21"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "f83a6312-637a-4a05-9881-5b153880cd21",
+            "name": "h06_external_config",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:33:13.939289+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:cbbf500f-4bf2-43ab-a756-e1268e83d43c",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}

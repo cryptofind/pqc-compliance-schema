@@ -1,0 +1,1069 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:private_key:07522dd8-d0ff-44a6-94a1-71c262cb275d",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d12_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d12",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            240,
+                            241,
+                            242
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "07522dd8-d0ff-44a6-94a1-71c262cb275d",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:17e700cb-0298-4cce-94e4-f84deef9da0e",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c_d04(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d04",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            12,
+                            13,
+                            14
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "17e700cb-0298-4cce-94e4-f84deef9da0e",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:230bbc42-dc06-4800-9dee-5b683259dc0f",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d01_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d01",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            216,
+                            217,
+                            218
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "230bbc42-dc06-4800-9dee-5b683259dc0f",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:2a6e6792-b082-4063-a165-760ffa9bd12f",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d06_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d06",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            232,
+                            233,
+                            234
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "2a6e6792-b082-4063-a165-760ffa9bd12f",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:2d07bf04-8f5b-418a-bacf-f01869f5d4cd",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d16_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d16",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            244,
+                            245,
+                            246
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "2d07bf04-8f5b-418a-bacf-f01869f5d4cd",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:36cc6cc7-4c37-4259-96f9-8f57fa039364",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d04_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d04",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            228,
+                            229,
+                            230
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "36cc6cc7-4c37-4259-96f9-8f57fa039364",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:3dcbcafa-c1b9-47d0-90cd-a996d0463ebb",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c_d02(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d02",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            8,
+                            9,
+                            10
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "3dcbcafa-c1b9-47d0-90cd-a996d0463ebb",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:45520fd8-85b3-4a0b-96eb-726679d8b55f",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d02_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d02",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            220,
+                            221,
+                            222
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "45520fd8-85b3-4a0b-96eb-726679d8b55f",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:50acb3ef-4c91-4889-98a5-19a4cd2899c0",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d02",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            36,
+                            37,
+                            38
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "50acb3ef-4c91-4889-98a5-19a4cd2899c0",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:5eff615d-cd3e-4f58-bbf4-9e5171f6b6ca",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\"\"\"H7 track D: the key size is stored on objects and read back after d object hops.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            1,
+                            2
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "5eff615d-cd3e-4f58-bbf4-9e5171f6b6ca",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:69314a66-5787-4147-ba8e-c5c396002c90",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef b_entry_d00():\n    return rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H7-B-d00",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 2048
+                }
+            },
+            "name": "69314a66-5787-4147-ba8e-c5c396002c90",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:78d2fbe0-cd88-4768-a147-23ca48748f5f",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d03_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d03",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            224,
+                            225,
+                            226
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "78d2fbe0-cd88-4768-a147-23ca48748f5f",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:7ea136bd-2752-4f2c-89e2-94b0e408fd92",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d08_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d08",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            236,
+                            237,
+                            238
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "7ea136bd-2752-4f2c-89e2-94b0e408fd92",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:04d9cce6-1ad1-4ca0-9689-58d0f5a17a58",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP256R1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d06_sink():\n    mine = ec.generate_private_key(ec.BrainpoolP256R1())  # GT:H7-A-d06/keygen\n    peer = ec.generate_private_key(ec.BrainpoolP256R1())  # GT:H7-A-d06/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            242,
+                            243,
+                            244,
+                            245
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP256R1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:f6cbf193-4799-4950-9147-db2f30c33195",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d08_sink():\n    mine = ec.generate_private_key(ec.BrainpoolP384R1())  # GT:H7-A-d08/keygen\n    peer = ec.generate_private_key(ec.BrainpoolP384R1())  # GT:H7-A-d08/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            248,
+                            249,
+                            250,
+                            251
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:6a65d5f0-162e-451b-b685-18b0003fe28e",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP512R1-512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d12_sink():\n    mine = ec.generate_private_key(ec.BrainpoolP512R1())  # GT:H7-A-d12/keygen\n    peer = ec.generate_private_key(ec.BrainpoolP512R1())  # GT:H7-A-d12/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            254,
+                            255,
+                            256,
+                            257
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP512R1-512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:cd050a88-9313-4656-8909-765b7ad585ad",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _b_d01_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d01",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            216,
+                            217,
+                            218
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d02_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d02",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            220,
+                            221,
+                            222
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d03_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d03",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            224,
+                            225,
+                            226
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d04_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d04",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            228,
+                            229,
+                            230
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d06_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d06",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            232,
+                            233,
+                            234
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d08_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d08",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            236,
+                            237,
+                            238
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d12_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d12",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            240,
+                            241,
+                            242
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef _b_d16_sink(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-B-d16",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            244,
+                            245,
+                            246
+                        ]
+                    },
+                    {
+                        "additionalContext": "\"\"\"H7 track B: a key-size literal travels through d calls before it reaches the API call.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            1,
+                            2
+                        ]
+                    },
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d01",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            20,
+                            21,
+                            22
+                        ]
+                    },
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d02",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            36,
+                            37,
+                            38
+                        ]
+                    },
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d04",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            68,
+                            69,
+                            70
+                        ]
+                    },
+                    {
+                        "additionalContext": "\"\"\"H7 track D: the key size is stored on objects and read back after d object hops.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            1,
+                            2
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef c_d01(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d01",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef c_d02(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d02",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            8,
+                            9,
+                            10
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef c_d04(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d04",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            12,
+                            13,
+                            14
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef c_d08(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d08",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            16,
+                            17,
+                            18
+                        ]
+                    },
+                    {
+                        "additionalContext": "\"\"\"H7 track C sinks.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            1,
+                            2
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:6ed1e7fe-d92a-4f0d-81f9-9ed02e957b1c",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-2048"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef b_entry_d00():\n    return rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H7-B-d00",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-2048",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e9ac53ce-bb0e-468a-b723-02bdcc91fefc",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP192R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d16_sink():\n    mine = ec.generate_private_key(ec.SECP192R1())  # GT:H7-A-d16/keygen\n    peer = ec.generate_private_key(ec.SECP192R1())  # GT:H7-A-d16/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            260,
+                            261,
+                            262,
+                            263
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP192R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:b56672ca-d6c4-48fd-9c4a-f87d017d319e",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP224R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d03_sink():\n    mine = ec.generate_private_key(ec.SECP224R1())  # GT:H7-A-d03/keygen\n    peer = ec.generate_private_key(ec.SECP224R1())  # GT:H7-A-d03/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            230,
+                            231,
+                            232,
+                            233
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP224R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:f98ccf0c-15b0-48a6-a160-a0d1e4cc72ec",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256K1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d04_sink():\n    mine = ec.generate_private_key(ec.SECP256K1())  # GT:H7-A-d04/keygen\n    peer = ec.generate_private_key(ec.SECP256K1())  # GT:H7-A-d04/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            236,
+                            237,
+                            238,
+                            239
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256K1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:34449149-0da9-43dd-a14b-46752136e0af",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256R1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a_entry_d00():\n    mine = ec.generate_private_key(ec.SECP256R1())  # GT:H7-A-d00/keygen\n    peer = ec.generate_private_key(ec.SECP256R1())  # GT:H7-A-d00/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6,
+                            7
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256R1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:7b2ed983-c2fe-4cb7-9f29-e3098fe22163",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d01_sink():\n    mine = ec.generate_private_key(ec.SECP384R1())  # GT:H7-A-d01/keygen\n    peer = ec.generate_private_key(ec.SECP384R1())  # GT:H7-A-d01/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            218,
+                            219,
+                            220,
+                            221
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:f997378e-f6ad-4425-b997-373cf5779261",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP521R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef _a_d02_sink():\n    mine = ec.generate_private_key(ec.SECP521R1())  # GT:H7-A-d02/keygen\n    peer = ec.generate_private_key(ec.SECP521R1())  # GT:H7-A-d02/keygen",
+                        "filePath": "track_a.py",
+                        "lineNumbers": [
+                            224,
+                            225,
+                            226,
+                            227
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP521R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:60fb7173-ed06-4bc9-882b-7fe4e86583cf",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:ae406521-bd37-4cee-a4df-7c7adf766bac",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d04",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            68,
+                            69,
+                            70
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "ae406521-bd37-4cee-a4df-7c7adf766bac",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:afac04d8-e17d-4a8b-b766-b5677b33cca6",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c_d08(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d08",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            16,
+                            17,
+                            18
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "afac04d8-e17d-4a8b-b766-b5677b33cca6",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:c195cd5c-583d-4a8c-bc5e-1be21508ebdd",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef c_d01(bits):\n    return rsa.generate_private_key(public_exponent=65537, key_size=bits)  # GT:H7-C-d01",
+                        "filePath": "xmod/sinks.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "c195cd5c-583d-4a8c-bc5e-1be21508ebdd",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:d61edb2d-0334-46ef-a5a9-0194864de6c8",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\n    def run(self):\n        return rsa.generate_private_key(public_exponent=65537, key_size=self.bits)  # GT:H7-D-d01",
+                        "filePath": "track_d.py",
+                        "lineNumbers": [
+                            20,
+                            21,
+                            22
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "d61edb2d-0334-46ef-a5a9-0194864de6c8",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:fda272cf-bbab-4ae9-845f-c2855b67b464",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\"\"\"H7 track B: a key-size literal travels through d calls before it reaches the API call.\"\"\"\nfrom cryptography.hazmat.primitives.asymmetric import rsa",
+                        "filePath": "track_b.py",
+                        "lineNumbers": [
+                            1,
+                            2
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "fda272cf-bbab-4ae9-845f-c2855b67b464",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "dependsOn": [
+                "cryptography:algorithm:04d9cce6-1ad1-4ca0-9689-58d0f5a17a58",
+                "cryptography:algorithm:34449149-0da9-43dd-a14b-46752136e0af",
+                "cryptography:algorithm:60fb7173-ed06-4bc9-882b-7fe4e86583cf",
+                "cryptography:algorithm:6a65d5f0-162e-451b-b685-18b0003fe28e",
+                "cryptography:algorithm:6ed1e7fe-d92a-4f0d-81f9-9ed02e957b1c",
+                "cryptography:algorithm:7b2ed983-c2fe-4cb7-9f29-e3098fe22163",
+                "cryptography:algorithm:b56672ca-d6c4-48fd-9c4a-f87d017d319e",
+                "cryptography:algorithm:cd050a88-9313-4656-8909-765b7ad585ad",
+                "cryptography:algorithm:e9ac53ce-bb0e-468a-b723-02bdcc91fefc",
+                "cryptography:algorithm:f6cbf193-4799-4950-9147-db2f30c33195",
+                "cryptography:algorithm:f98ccf0c-15b0-48a6-a160-a0d1e4cc72ec",
+                "cryptography:algorithm:f997378e-f6ad-4425-b997-373cf5779261"
+            ],
+            "ref": "70f81eb4-83c4-4df9-8728-308b17a32148"
+        },
+        {
+            "ref": "cryptography:algorithm:04d9cce6-1ad1-4ca0-9689-58d0f5a17a58"
+        },
+        {
+            "ref": "cryptography:algorithm:34449149-0da9-43dd-a14b-46752136e0af"
+        },
+        {
+            "ref": "cryptography:algorithm:60fb7173-ed06-4bc9-882b-7fe4e86583cf"
+        },
+        {
+            "ref": "cryptography:algorithm:6a65d5f0-162e-451b-b685-18b0003fe28e"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:69314a66-5787-4147-ba8e-c5c396002c90"
+            ],
+            "ref": "cryptography:algorithm:6ed1e7fe-d92a-4f0d-81f9-9ed02e957b1c"
+        },
+        {
+            "ref": "cryptography:algorithm:7b2ed983-c2fe-4cb7-9f29-e3098fe22163"
+        },
+        {
+            "ref": "cryptography:algorithm:b56672ca-d6c4-48fd-9c4a-f87d017d319e"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:07522dd8-d0ff-44a6-94a1-71c262cb275d",
+                "cryptography:private_key:17e700cb-0298-4cce-94e4-f84deef9da0e",
+                "cryptography:private_key:230bbc42-dc06-4800-9dee-5b683259dc0f",
+                "cryptography:private_key:2a6e6792-b082-4063-a165-760ffa9bd12f",
+                "cryptography:private_key:2d07bf04-8f5b-418a-bacf-f01869f5d4cd",
+                "cryptography:private_key:36cc6cc7-4c37-4259-96f9-8f57fa039364",
+                "cryptography:private_key:3dcbcafa-c1b9-47d0-90cd-a996d0463ebb",
+                "cryptography:private_key:45520fd8-85b3-4a0b-96eb-726679d8b55f",
+                "cryptography:private_key:50acb3ef-4c91-4889-98a5-19a4cd2899c0",
+                "cryptography:private_key:5eff615d-cd3e-4f58-bbf4-9e5171f6b6ca",
+                "cryptography:private_key:78d2fbe0-cd88-4768-a147-23ca48748f5f",
+                "cryptography:private_key:7ea136bd-2752-4f2c-89e2-94b0e408fd92",
+                "cryptography:private_key:ae406521-bd37-4cee-a4df-7c7adf766bac",
+                "cryptography:private_key:afac04d8-e17d-4a8b-b766-b5677b33cca6",
+                "cryptography:private_key:c195cd5c-583d-4a8c-bc5e-1be21508ebdd",
+                "cryptography:private_key:d61edb2d-0334-46ef-a5a9-0194864de6c8",
+                "cryptography:private_key:fda272cf-bbab-4ae9-845f-c2855b67b464"
+            ],
+            "ref": "cryptography:algorithm:cd050a88-9313-4656-8909-765b7ad585ad"
+        },
+        {
+            "ref": "cryptography:algorithm:e9ac53ce-bb0e-468a-b723-02bdcc91fefc"
+        },
+        {
+            "ref": "cryptography:algorithm:f6cbf193-4799-4950-9147-db2f30c33195"
+        },
+        {
+            "ref": "cryptography:algorithm:f98ccf0c-15b0-48a6-a160-a0d1e4cc72ec"
+        },
+        {
+            "ref": "cryptography:algorithm:f997378e-f6ad-4425-b997-373cf5779261"
+        },
+        {
+            "ref": "cryptography:private_key:07522dd8-d0ff-44a6-94a1-71c262cb275d"
+        },
+        {
+            "ref": "cryptography:private_key:17e700cb-0298-4cce-94e4-f84deef9da0e"
+        },
+        {
+            "ref": "cryptography:private_key:230bbc42-dc06-4800-9dee-5b683259dc0f"
+        },
+        {
+            "ref": "cryptography:private_key:2a6e6792-b082-4063-a165-760ffa9bd12f"
+        },
+        {
+            "ref": "cryptography:private_key:2d07bf04-8f5b-418a-bacf-f01869f5d4cd"
+        },
+        {
+            "ref": "cryptography:private_key:36cc6cc7-4c37-4259-96f9-8f57fa039364"
+        },
+        {
+            "ref": "cryptography:private_key:3dcbcafa-c1b9-47d0-90cd-a996d0463ebb"
+        },
+        {
+            "ref": "cryptography:private_key:45520fd8-85b3-4a0b-96eb-726679d8b55f"
+        },
+        {
+            "ref": "cryptography:private_key:50acb3ef-4c91-4889-98a5-19a4cd2899c0"
+        },
+        {
+            "ref": "cryptography:private_key:5eff615d-cd3e-4f58-bbf4-9e5171f6b6ca"
+        },
+        {
+            "ref": "cryptography:private_key:69314a66-5787-4147-ba8e-c5c396002c90"
+        },
+        {
+            "ref": "cryptography:private_key:78d2fbe0-cd88-4768-a147-23ca48748f5f"
+        },
+        {
+            "ref": "cryptography:private_key:7ea136bd-2752-4f2c-89e2-94b0e408fd92"
+        },
+        {
+            "ref": "cryptography:private_key:ae406521-bd37-4cee-a4df-7c7adf766bac"
+        },
+        {
+            "ref": "cryptography:private_key:afac04d8-e17d-4a8b-b766-b5677b33cca6"
+        },
+        {
+            "ref": "cryptography:private_key:c195cd5c-583d-4a8c-bc5e-1be21508ebdd"
+        },
+        {
+            "ref": "cryptography:private_key:d61edb2d-0334-46ef-a5a9-0194864de6c8"
+        },
+        {
+            "ref": "cryptography:private_key:fda272cf-bbab-4ae9-845f-c2855b67b464"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "70f81eb4-83c4-4df9-8728-308b17a32148",
+            "name": "h07_call_depth",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:35:09.313471+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:c6449e1c-5c7c-4024-9444-43b8b8e17b72",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}

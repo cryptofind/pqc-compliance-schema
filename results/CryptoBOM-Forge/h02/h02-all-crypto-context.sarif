@@ -1,0 +1,1446 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeQL",
+          "organization": "GitHub",
+          "semanticVersion": "2.27.2",
+          "notifications": [
+            {
+              "id": "py/baseline/expected-extracted-files",
+              "name": "py/baseline/expected-extracted-files",
+              "shortDescription": {
+                "text": "Expected extracted files"
+              },
+              "fullDescription": {
+                "text": "Files appearing in the source archive that are expected to be extracted."
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              },
+              "properties": {
+                "tags": [
+                  "expected-extracted-files",
+                  "telemetry"
+                ]
+              }
+            },
+            {
+              "id": "cli/file-coverage-baseline",
+              "name": "cli/file-coverage-baseline",
+              "shortDescription": {
+                "text": "File coverage baseline telemetry"
+              },
+              "fullDescription": {
+                "text": "File coverage baseline telemetry"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "cli/platform",
+              "name": "cli/platform",
+              "shortDescription": {
+                "text": "Platform"
+              },
+              "fullDescription": {
+                "text": "Platform"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "py/extractor/summary",
+              "name": "py/extractor/summary",
+              "shortDescription": {
+                "text": "Python extractor telemetry"
+              },
+              "fullDescription": {
+                "text": "Python extractor telemetry"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            },
+            {
+              "id": "py/extractor/parser-statistics",
+              "name": "py/extractor/parser-statistics",
+              "shortDescription": {
+                "text": "Python parser statistics"
+              },
+              "fullDescription": {
+                "text": "Python parser statistics"
+              },
+              "defaultConfiguration": {
+                "enabled": true
+              }
+            }
+          ],
+          "rules": [
+            {
+              "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+              "name": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+              "shortDescription": {
+                "text": "All Cryptographic Algorithms"
+              },
+              "fullDescription": {
+                "text": "Finds all potential usage of cryptographic algorithms usage using the supported libraries."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "cbom",
+                  "cryptography"
+                ],
+                "description": "Finds all potential usage of cryptographic algorithms usage using the supported libraries.",
+                "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+                "kind": "problem",
+                "name": "All Cryptographic Algorithms",
+                "problem.severity": "error"
+              }
+            }
+          ]
+        },
+        "extensions": [
+          {
+            "name": "codeql/python-queries",
+            "semanticVersion": "1.8.12+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "codeql/python-all",
+            "semanticVersion": "7.2.7+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/python-all/7.2.7/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/python-all/7.2.7/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "codeql/threat-models",
+            "semanticVersion": "1.0.59+a7057b836bf29767461026718b14d20790b9085f",
+            "locations": [
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/threat-models/1.0.59/",
+                "description": {
+                  "text": "The QL pack root directory."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackRoot"
+                  ]
+                }
+              },
+              {
+                "uri": "file:///C:/Users/saads/.codeql/packages/codeql/python-queries/1.8.12/.codeql/libraries/codeql/threat-models/1.0.59/qlpack.yml",
+                "description": {
+                  "text": "The QL pack definition file."
+                },
+                "properties": {
+                  "tags": [
+                    "CodeQL/LocalPackDefinitionFile"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "invocations": [
+        {
+          "toolExecutionNotifications": [
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "probe.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 5
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "archive.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 8
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "vault/_backend.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 0
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "streams.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 7
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "documents.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 3
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "signers.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 9
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "vault/__init__.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 10
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "dispatch.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 2
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "main.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 11
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "pipeline.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 4
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "sessions.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 6
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "boxes.py",
+                      "uriBaseId": "%SRCROOT%",
+                      "index": 1
+                    }
+                  }
+                }
+              ],
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "descriptor": {
+                "id": "py/baseline/expected-extracted-files",
+                "index": 0
+              },
+              "properties": {
+                "formattedMessage": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "timeUtc": "2026-10-18T03:21:38.552638100Z",
+              "descriptor": {
+                "id": "cli/file-coverage-baseline",
+                "index": 1
+              },
+              "properties": {
+                "attributes": {
+                  "durationMilliseconds": 166
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": ""
+              },
+              "level": "none",
+              "timeUtc": "2026-10-18T03:21:38.556817500Z",
+              "descriptor": {
+                "id": "cli/platform",
+                "index": 2
+              },
+              "properties": {
+                "attributes": {
+                  "arch": "amd64",
+                  "name": "Windows 11",
+                  "version": "10.0"
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:40.892397Z",
+              "descriptor": {
+                "id": "py/extractor/summary",
+                "index": 3
+              },
+              "properties": {
+                "attributes": {
+                  "extractor_flags": "default",
+                  "extractor_version": "7.1.11",
+                  "python_analysis_version": "3.12",
+                  "python_runtime_version": "3.14.2"
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.161164Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.060439Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.059079Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.061171Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.058623Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 2,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.087527Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.057375Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 2,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.059724Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 1,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            },
+            {
+              "message": {
+                "text": "Internal parser telemetry for the Python extractor.\n\nNo action needed.",
+                "markdown": "Internal parser telemetry for the Python extractor.\n\nNo action needed."
+              },
+              "level": "note",
+              "timeUtc": "2026-10-18T03:21:41.059564Z",
+              "descriptor": {
+                "id": "py/extractor/parser-statistics",
+                "index": 4
+              },
+              "properties": {
+                "attributes": {
+                  "old_parser_file_count": 2,
+                  "tree_sitter_parser_file_count": 0
+                },
+                "visibility": {
+                  "statusPage": false,
+                  "telemetry": true
+                }
+              }
+            }
+          ],
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "vault/_backend.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 0
+          }
+        },
+        {
+          "location": {
+            "uri": "boxes.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 1
+          }
+        },
+        {
+          "location": {
+            "uri": "dispatch.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 2
+          }
+        },
+        {
+          "location": {
+            "uri": "documents.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 3
+          }
+        },
+        {
+          "location": {
+            "uri": "pipeline.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 4
+          }
+        },
+        {
+          "location": {
+            "uri": "probe.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 5
+          }
+        },
+        {
+          "location": {
+            "uri": "sessions.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 6
+          }
+        },
+        {
+          "location": {
+            "uri": "streams.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 7
+          }
+        },
+        {
+          "location": {
+            "uri": "archive.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 8
+          }
+        },
+        {
+          "location": {
+            "uri": "signers.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 9
+          }
+        },
+        {
+          "location": {
+            "uri": "vault/__init__.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 10
+          }
+        },
+        {
+          "location": {
+            "uri": "main.py",
+            "uriBaseId": "%SRCROOT%",
+            "index": 11
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CHACHA20POLY1305"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "vault/_backend.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 57,
+                  "endColumn": 83
+                },
+                "contextRegion": {
+                  "startLine": 1,
+                  "endLine": 2,
+                  "snippet": {
+                    "text": "\"\"\"Backend selection for the vault package.\"\"\"\nfrom cryptography.hazmat.primitives.ciphers.aead import ChaCha20Poly1305 as Engine  # GT:H2-02/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "24789f24d39162d3:1",
+            "primaryLocationStartColumnFingerprint": "56"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm AES\nUse of algorithm GCM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "boxes.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 57,
+                  "endColumn": 70
+                },
+                "contextRegion": {
+                  "startLine": 2,
+                  "endLine": 4,
+                  "snippet": {
+                    "text": "import os\n\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM as Box  # GT:H2-01/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "25bbbe6438a9bfd5:1",
+            "primaryLocationStartColumnFingerprint": "56"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA3384"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dispatch.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 29,
+                  "endColumn": 44
+                },
+                "contextRegion": {
+                  "startLine": 2,
+                  "endLine": 4,
+                  "snippet": {
+                    "text": "from cryptography.hazmat.primitives import hashes\n\n_PURPOSES = {\"fingerprint\": hashes.SHA3_384}  # GT:H2-06/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "6c4e35558bcecea5:1",
+            "primaryLocationStartColumnFingerprint": "28"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 11,
+                  "endColumn": 35
+                },
+                "contextRegion": {
+                  "startLine": 7,
+                  "endLine": 9,
+                  "snippet": {
+                    "text": "\ndef approver():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H2-05/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e15392fb5a1f2257:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 11,
+                  "endColumn": 73
+                },
+                "contextRegion": {
+                  "startLine": 7,
+                  "endLine": 9,
+                  "snippet": {
+                    "text": "\ndef approver():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H2-05/keygen"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e15392fb5a1f2257:1",
+            "primaryLocationStartColumnFingerprint": "6"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 43,
+                  "endColumn": 56
+                },
+                "contextRegion": {
+                  "startLine": 8,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "def approver():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H2-05/keygen\n    scheme = padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH)  # GT:H2-05/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "7f14c37d9ee5f344:1",
+            "primaryLocationStartColumnFingerprint": "38"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm PSS"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 14,
+                  "endColumn": 96
+                },
+                "contextRegion": {
+                  "startLine": 8,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "def approver():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H2-05/keygen\n    scheme = padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH)  # GT:H2-05/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "7f14c37d9ee5f344:1",
+            "primaryLocationStartColumnFingerprint": "9"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 56,
+                  "endColumn": 69
+                },
+                "contextRegion": {
+                  "startLine": 9,
+                  "endLine": 11,
+                  "snippet": {
+                    "text": "    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H2-05/keygen\n    scheme = padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH)  # GT:H2-05/def\n    return partial(key.sign, padding=scheme, algorithm=hashes.SHA256())  # GT:H2-05/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "4a793a006253a20c:1",
+            "primaryLocationStartColumnFingerprint": "51"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm RSA"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "documents.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 64,
+                  "endColumn": 67
+                },
+                "contextRegion": {
+                  "startLine": 3,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import padding, rsa"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "bf2434bff8812a15:1",
+            "primaryLocationStartColumnFingerprint": "63"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pipeline.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 38,
+                  "endColumn": 51
+                },
+                "contextRegion": {
+                  "startLine": 20,
+                  "endLine": 22,
+                  "snippet": {
+                    "text": "\ndef default_steps(key: bytes):\n    return [bytes.strip, tagger(key, hashes.SHA256()), base64.b64encode]  # GT:H2-04/def"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "794c4b4fd297312a:1",
+            "primaryLocationStartColumnFingerprint": "33"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA512"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "probe.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 5
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endColumn": 36
+                },
+                "contextRegion": {
+                  "startLine": 4,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "21abb204c970d54e:1",
+            "primaryLocationStartColumnFingerprint": "18"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm SHA256"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "sessions.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 31,
+                  "endColumn": 44
+                },
+                "contextRegion": {
+                  "startLine": 12,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "    @cached_property\n    def traffic_key(self) -> bytes:\n        return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"traffic\").derive(self._secret)  # GT:H2-08"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "e4d97361dae13272:1",
+            "primaryLocationStartColumnFingerprint": "22"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm HKDF"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "sessions.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 53,
+                  "endColumn": 57
+                },
+                "contextRegion": {
+                  "startLine": 3,
+                  "endLine": 5,
+                  "snippet": {
+                    "text": "\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "dbd0e1e853cf7bfc:1",
+            "primaryLocationStartColumnFingerprint": "52"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm AES"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "streams.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 7
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 18,
+                  "endColumn": 37
+                },
+                "contextRegion": {
+                  "startLine": 10,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "def protected_writer(sink: list, key: bytes):\n    iv = os.urandom(16)\n    enc = Cipher(algorithms.AES(key), modes.CBC(iv)).encryptor()  # GT:H2-07/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "77a206a602696fb0:1",
+            "primaryLocationStartColumnFingerprint": "13"
+          }
+        },
+        {
+          "ruleId": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+          "ruleIndex": 0,
+          "rule": {
+            "id": "py/quantum-readiness/cbom/all-cryptographic-algorithms",
+            "index": 0
+          },
+          "message": {
+            "text": "Use of algorithm CBC"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "streams.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 7
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 39,
+                  "endColumn": 52
+                },
+                "contextRegion": {
+                  "startLine": 10,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "def protected_writer(sink: list, key: bytes):\n    iv = os.urandom(16)\n    enc = Cipher(algorithms.AES(key), modes.CBC(iv)).encryptor()  # GT:H2-07/op"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "77a206a602696fb0:1",
+            "primaryLocationStartColumnFingerprint": "34"
+          }
+        }
+      ],
+      "columnKind": "unicodeCodePoints",
+      "properties": {
+        "semmle.formatSpecifier": "sarif-latest"
+      }
+    }
+  ]
+}

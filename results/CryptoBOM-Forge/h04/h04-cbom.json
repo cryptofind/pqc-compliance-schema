@@ -1,0 +1,536 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:private_key:6288eb41-1421-4470-b706-352f68f199fe",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def wrapped_envelope(data: bytes):\n    \"\"\"Unit U4: classical key transport protecting a symmetric data key.\"\"\"\n    recipient = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H4-U4-C/keygen",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            10,
+                            11,
+                            12
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 2048
+                }
+            },
+            "name": "6288eb41-1421-4470-b706-352f68f199fe",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:56886003-caa3-4657-b124-558152d426c9",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "gcm",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-GCM"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import mlkem, padding, rsa\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-GCM",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:661ac1ba-b6ee-4128-a99c-ee76045232fb",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "kdf",
+                    "variant": "HKDF"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives.asymmetric import mlkem, padding, rsa\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            5,
+                            6,
+                            7
+                        ]
+                    },
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives import hashes, serialization\nfrom cryptography.hazmat.primitives.asymmetric import ec, mlkem, x25519\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            2,
+                            3,
+                            4
+                        ]
+                    }
+                ]
+            },
+            "name": "HKDF",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:46dbc2b8-74f1-4690-930d-5fa5d1fa15c6",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import mlkem, padding, rsa",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e09a05bc-5f71-4998-aece-2d73aed94d9a",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-2048"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def wrapped_envelope(data: bytes):\n    \"\"\"Unit U4: classical key transport protecting a symmetric data key.\"\"\"\n    recipient = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H4-U4-C/keygen",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            10,
+                            11,
+                            12
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-2048",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:a38f291c-f0fd-4fc2-8409-4d8f320e6755",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encapsulate",
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-3072"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "        secret, encapsulated = receiver.public_key().encapsulate()  # GT:H4-U5-Q/op\n    else:\n        legacy = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H4-U5-C/keygen",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            25,
+                            26,
+                            27
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-3072",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:27d3f74c-265d-49fc-b5f9-e691c4572c4d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256R1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def authenticated_channel() -> bytes:\n    \"\"\"Unit U3: post-quantum key establishment, classical authentication of the transcript.\"\"\"\n    identity = ec.generate_private_key(ec.SECP256R1())  # GT:H4-U3-A/keygen",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            19,
+                            20,
+                            21
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256R1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:8712fdf1-0baf-4c92-bbfe-19a20520f8ae",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def combined_secret_high() -> bytes:\n    \"\"\"Unit U7: as U1, with larger parameter sets throughout.\"\"\"\n    party_a = ec.generate_private_key(ec.SECP384R1())  # GT:H4-U7-C/keygen\n    party_b = ec.generate_private_key(ec.SECP384R1())  # GT:H4-U7-C/keygen",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            30,
+                            31,
+                            32,
+                            33
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:42eea55c-7bfb-407a-bde2-38ff7f0be7f6",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "decapsulate",
+                        "encapsulate",
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    assert receiver.decapsulate(encapsulated) == post_quantum\n    transcript = encapsulated + party_b.public_key().public_bytes_raw()\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=transcript).derive(post_quantum + classical)  # GT:H4-U1-K",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            14,
+                            15,
+                            16
+                        ]
+                    },
+                    {
+                        "additionalContext": "    receiver = mlkem.MLKEM768PrivateKey.gener    shared, encapsulated = receiver.public_key().encapsulate()  # GT:H4-U3-Q/op\n    proof = identity.sign(    identity.public_key().verify(proof, encapsulated, ec.ECDSA(hashes.SHA256()))  # GT:H4-U3-A/op\n    assert receiver.decapsulate(encapsulated) == shared\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"u3\").derive(shared)  # GT:H4-U3-K",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24,
+                            25,
+                            26,
+                            27
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:8108097c-ec26-45d0-bede-e7ffd6aafed8",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt",
+                        "generate"
+                    ],
+                    "padding": "oaep",
+                    "primitive": "hash",
+                    "variant": "SHA256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    nonce = os.urandom(12)\n    body = AESGCM(data_key).encrypt(nonce, data, None)  # GT:H4-U4-S/op\n    scheme = padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)  # GT:H4-U4-C/padding",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            14,
+                            15,
+                            16
+                        ]
+                    },
+                    {
+                        "additionalContext": "        legacy = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H4-U5-C/keygen\n        secret = os.urandom(32)\n        scheme = padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)  # GT:H4-U5-C/padding",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            27,
+                            28,
+                            29
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA256-OAEP",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:cd636f96-8a8c-44ae-87f6-83cb2372156d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "decapsulate",
+                        "encapsulate",
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA384"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "    receiver = mlkem.MLKEM1024PrivateKey.generate()  # GT:H4-U6-Q/keygen\n    secret, encapsulated = receiver.public_key().encapsulate()  # GT:H4-U6-Q/op\n    key = HKDF(algorithm=hashes.SHA384(), length=32, salt=None, info=b\"u6\").derive(secret)  # GT:H4-U6-K",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            38,
+                            39,
+                            40
+                        ]
+                    },
+                    {
+                        "additionalContext": "    assert receiver.decapsulate(encapsulated) == post_quantum\n    point = party_b.public_key().public_bytes(serialization.Encoding.X962, serialization.PublicFormat.UncompressedPoint)\n    return HKDF(algorithm=hashes.SHA384(), length=32, salt=None, info=encapsulated + point).derive(post_quantum + classical)  # GT:H4-U7-K",
+                        "filePath": "key_establishment.py",
+                        "lineNumbers": [
+                            37,
+                            38,
+                            39
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA384",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:6aba7fdf-5183-4739-9943-4940136e1244",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt"
+                    ],
+                    "padding": "oaep",
+                    "primitive": "hash",
+                    "variant": "SHA384"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "        scheme = padding.OAEP(mgf=padding.MGF1(algorithm=hashes.SHA256()), algorithm=hashes.SHA256(), label=None)  # GT:H4-U5-C/padding\n        encapsulated = legacy.public_key().encrypt(secret, scheme)  # GT:H4-U5-C/op\n    key = HKDF(algorithm=hashes.SHA384(), length=32, salt=None, info=b\"u5\").derive(secret)  # GT:H4-U5-K",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            29,
+                            30,
+                            31
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA384-OAEP",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:c3e9ee97-50ea-476e-a3a6-4653552c72f5",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:c8ebf695-7395-4270-be8c-ffcf8e8b0342",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "        secret, encapsulated = receiver.public_key().encapsulate()  # GT:H4-U5-Q/op\n    else:\n        legacy = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H4-U5-C/keygen",
+                        "filePath": "envelopes.py",
+                        "lineNumbers": [
+                            25,
+                            26,
+                            27
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 3072
+                }
+            },
+            "name": "c8ebf695-7395-4270-be8c-ffcf8e8b0342",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "dependsOn": [
+                "cryptography:algorithm:27d3f74c-265d-49fc-b5f9-e691c4572c4d",
+                "cryptography:algorithm:42eea55c-7bfb-407a-bde2-38ff7f0be7f6",
+                "cryptography:algorithm:46dbc2b8-74f1-4690-930d-5fa5d1fa15c6",
+                "cryptography:algorithm:56886003-caa3-4657-b124-558152d426c9",
+                "cryptography:algorithm:661ac1ba-b6ee-4128-a99c-ee76045232fb",
+                "cryptography:algorithm:6aba7fdf-5183-4739-9943-4940136e1244",
+                "cryptography:algorithm:8108097c-ec26-45d0-bede-e7ffd6aafed8",
+                "cryptography:algorithm:8712fdf1-0baf-4c92-bbfe-19a20520f8ae",
+                "cryptography:algorithm:a38f291c-f0fd-4fc2-8409-4d8f320e6755",
+                "cryptography:algorithm:c3e9ee97-50ea-476e-a3a6-4653552c72f5",
+                "cryptography:algorithm:cd636f96-8a8c-44ae-87f6-83cb2372156d",
+                "cryptography:algorithm:e09a05bc-5f71-4998-aece-2d73aed94d9a"
+            ],
+            "ref": "b9563418-a437-4f64-8f11-4f6c8c4e0026"
+        },
+        {
+            "ref": "cryptography:algorithm:27d3f74c-265d-49fc-b5f9-e691c4572c4d"
+        },
+        {
+            "ref": "cryptography:algorithm:42eea55c-7bfb-407a-bde2-38ff7f0be7f6"
+        },
+        {
+            "ref": "cryptography:algorithm:46dbc2b8-74f1-4690-930d-5fa5d1fa15c6"
+        },
+        {
+            "ref": "cryptography:algorithm:56886003-caa3-4657-b124-558152d426c9"
+        },
+        {
+            "ref": "cryptography:algorithm:661ac1ba-b6ee-4128-a99c-ee76045232fb"
+        },
+        {
+            "ref": "cryptography:algorithm:6aba7fdf-5183-4739-9943-4940136e1244"
+        },
+        {
+            "ref": "cryptography:algorithm:8108097c-ec26-45d0-bede-e7ffd6aafed8"
+        },
+        {
+            "ref": "cryptography:algorithm:8712fdf1-0baf-4c92-bbfe-19a20520f8ae"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:c8ebf695-7395-4270-be8c-ffcf8e8b0342"
+            ],
+            "ref": "cryptography:algorithm:a38f291c-f0fd-4fc2-8409-4d8f320e6755"
+        },
+        {
+            "ref": "cryptography:algorithm:c3e9ee97-50ea-476e-a3a6-4653552c72f5"
+        },
+        {
+            "ref": "cryptography:algorithm:cd636f96-8a8c-44ae-87f6-83cb2372156d"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:6288eb41-1421-4470-b706-352f68f199fe"
+            ],
+            "ref": "cryptography:algorithm:e09a05bc-5f71-4998-aece-2d73aed94d9a"
+        },
+        {
+            "ref": "cryptography:private_key:6288eb41-1421-4470-b706-352f68f199fe"
+        },
+        {
+            "ref": "cryptography:private_key:c8ebf695-7395-4270-be8c-ffcf8e8b0342"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "b9563418-a437-4f64-8f11-4f6c8c4e0026",
+            "name": "h04_mixed_classical_pqc",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:29:26.729343+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:12deac34-ad0b-42f3-8681-d64d6d4a82fc",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}

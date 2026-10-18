@@ -1,0 +1,200 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:algorithm:0f68036b-a968-4685-810c-df6d952bc76d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "unknown",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef wrap_key(kek: bytes, key: bytes) -> bytes:\n    return keywrap.aes_key_wrap(kek, key)  # GT:H3-09/vendored",
+                        "filePath": "third_party/sealkit/core.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef unwrap_key(kek: bytes, wrapped: bytes) -> bytes:\n    return keywrap.aes_key_unwrap(kek, wrapped)  # GT:H3-09/vendored",
+                        "filePath": "third_party/sealkit/core.py",
+                        "lineNumbers": [
+                            8,
+                            9,
+                            10
+                        ]
+                    }
+                ]
+            },
+            "name": "AES",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:c7adecf4-a47e-43d3-9037-107fccd7af93",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt",
+                        "generate"
+                    ],
+                    "mode": "cbc",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-128-CBC"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef protect_blob(blob: bytes) -> bytes:\n    return Fernet(Fernet.generate_key()).encrypt(blob)  # GT:H3-08a GT:H3-08b",
+                        "filePath": "storage.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-128-CBC",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:81bf3aa0-8ebf-4b92-96d5-5239d90df145",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef issuer_key():\n    return ec.generate_private_key(ec.SECP384R1())  # GT:H3-05/keygen",
+                        "filePath": "keys.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:47bf6ad7-7079-4c22-83e4-4e0cb16eb5ab",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "dependsOn": [
+                "cryptography:algorithm:0f68036b-a968-4685-810c-df6d952bc76d",
+                "cryptography:algorithm:47bf6ad7-7079-4c22-83e4-4e0cb16eb5ab",
+                "cryptography:algorithm:81bf3aa0-8ebf-4b92-96d5-5239d90df145",
+                "cryptography:algorithm:c7adecf4-a47e-43d3-9037-107fccd7af93"
+            ],
+            "ref": "1e77302a-15a4-4cb9-b0d7-7b551710aecd"
+        },
+        {
+            "ref": "cryptography:algorithm:0f68036b-a968-4685-810c-df6d952bc76d"
+        },
+        {
+            "ref": "cryptography:algorithm:47bf6ad7-7079-4c22-83e4-4e0cb16eb5ab"
+        },
+        {
+            "ref": "cryptography:algorithm:81bf3aa0-8ebf-4b92-96d5-5239d90df145"
+        },
+        {
+            "ref": "cryptography:algorithm:c7adecf4-a47e-43d3-9037-107fccd7af93"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "1e77302a-15a4-4cb9-b0d7-7b551710aecd",
+            "name": "h03_dependencies",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:25:02.603365+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:f65fe407-a66c-4600-90fe-32bc40ddcf78",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}

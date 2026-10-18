@@ -1,0 +1,1380 @@
+{
+    "components": [
+        {
+            "bom-ref": "cryptography:private_key:01483ea1-30ba-45ff-9308-cebddddad334",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\"\"\"H0 control: direct, literal use of classical public-key primitives (one asset per function).\"\"\"\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import ec, ed25519, padding, rsa, x25519",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            1,
+                            2,
+                            3
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey"
+                }
+            },
+            "name": "01483ea1-30ba-45ff-9308-cebddddad334",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:098252f6-3d2b-4bf5-83f4-247244a1cfe1",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            12,
+                            13,
+                            14
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 2048
+                }
+            },
+            "name": "098252f6-3d2b-4bf5-83f4-247244a1cfe1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:22bbd7fd-e285-4570-b610-d4567df09a86",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a05():\n    return rsa.generate_private_key(public_exponent=65537, key_size=4096)  # GT:H0-A05/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            27,
+                            28,
+                            29
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 4096
+                }
+            },
+            "name": "22bbd7fd-e285-4570-b610-d4567df09a86",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:4d33d7a9-642d-421b-9fe2-b5f138ca8e08",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            7,
+                            8,
+                            9
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 2048
+                }
+            },
+            "name": "4d33d7a9-642d-421b-9fe2-b5f138ca8e08",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:5b5ce93c-0094-4b05-8f1a-c0370f2e2115",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            17,
+                            18,
+                            19
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 3072
+                }
+            },
+            "name": "5b5ce93c-0094-4b05-8f1a-c0370f2e2115",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:1416f35e-0d0a-404d-beea-47b4468e48dc",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "unknown",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef s06():\n    return keywrap.aes_key_wrap(os.urandom(32), os.urandom(32))  # GT:H0-S06",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            33,
+                            34,
+                            35
+                        ]
+                    }
+                ]
+            },
+            "name": "AES",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e2e82031-bea2-4337-b954-ebcbc7bf9bd9",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt",
+                        "generate"
+                    ],
+                    "mode": "cbc",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-128-CBC"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef s07():\n    return Fernet(Fernet.generate_key()).encrypt(DATA)  # GT:H0-S07a GT:H0-S07b",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            37,
+                            38,
+                            39
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-128-CBC",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:4ba0db36-53e5-40e9-a10a-dd27ba83a251",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt"
+                    ],
+                    "mode": "cbc",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-CBC"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef s04():\n    enc = Cipher(algorithms.AES(os.urandom(32)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S04",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            23,
+                            24,
+                            25
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-CBC",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:5dd5329a-7b4d-4a87-abe5-18c2907eaf20",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "mode": "gcm",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "AES-GCM"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives import keywrap, padding\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM, ChaCha20Poly1305",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            5,
+                            6,
+                            7
+                        ]
+                    }
+                ]
+            },
+            "name": "AES-GCM",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:b20cfb3a-67e5-4663-844a-fc2cc8498be0",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "BLAKE2B"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef h07():\n    ctx = hashes.Hash(hashes.BLAKE2b(64))  # GT:H0-H07",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            46,
+                            47,
+                            48
+                        ]
+                    }
+                ]
+            },
+            "name": "BLAKE2B",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:6231bfc7-fc73-49ed-b38b-ae960a10b10e",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP256R1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a14():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP256R1()), ec.generate_private_key(ec.BrainpoolP256R1())  # GT:H0-A14/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            71,
+                            72,
+                            73
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP256R1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:2442e435-e838-4268-bc99-8272de0d00ea",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a15():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP384R1()), ec.generate_private_key(ec.BrainpoolP384R1())  # GT:H0-A15/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            76,
+                            77,
+                            78
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:064559b8-e7f6-4990-8e10-188b3e1024f7",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "BRAINPOOLP512R1-512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a16():\n    mine, peer = ec.generate_private_key(ec.BrainpoolP512R1()), ec.generate_private_key(ec.BrainpoolP512R1())  # GT:H0-A16/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            81,
+                            82,
+                            83
+                        ]
+                    }
+                ]
+            },
+            "name": "BRAINPOOLP512R1-512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:fedb2350-5cad-4fcc-902c-4f2a998689e1",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "streamcipher",
+                    "variant": "CHACHA20"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "from cryptography.hazmat.primitives import keywrap, padding\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives.ciphers.aead import AESGCM, ChaCha20Poly1305",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            5,
+                            6,
+                            7
+                        ]
+                    }
+                ]
+            },
+            "name": "CHACHA20",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:8aa3a6a9-c79f-4eed-8289-36937a84a144",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "kdf",
+                    "variant": "HKDF"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\nfrom cryptography.hazmat.primitives import hashes, hmac\nfrom cryptography.hazmat.primitives.kdf.hkdf import HKDF",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            "name": "HKDF",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:16972aba-c3c2-42f4-9c33-5cb7d8e769e0",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "MD5"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef t02():\n    return hashlib.md5(DATA, usedforsecurity=False).hexdigest()  # GT:H0-T02",
+                        "filePath": "direct_stdlib.py",
+                        "lineNumbers": [
+                            13,
+                            14,
+                            15
+                        ]
+                    }
+                ]
+            },
+            "name": "MD5",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:91091b91-6bec-4c7b-9875-fac4d376e25b",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "signature",
+                    "variant": "PSS-2048"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A02/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            13,
+                            14,
+                            15
+                        ]
+                    }
+                ]
+            },
+            "name": "PSS-2048",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:09a19171-0f71-4308-8210-56558eb706e9",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "signature",
+                    "variant": "PSS-3072"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A03/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            18,
+                            19,
+                            20
+                        ]
+                    }
+                ]
+            },
+            "name": "PSS-3072",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:fbc161e1-c7fb-4eb4-a536-d78e1a6a316f",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\"\"\"H0 control: direct, literal use of classical public-key primitives (one asset per function).\"\"\"\nfrom cryptography.hazmat.primitives import hashes\nfrom cryptography.hazmat.primitives.asymmetric import ec, ed25519, padding, rsa, x25519",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            1,
+                            2,
+                            3
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:81a34d13-9f58-48d3-b3b1-33c03944caca",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-2048"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            7,
+                            8,
+                            9
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            12,
+                            13,
+                            14
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-2048",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:074c4a26-9e60-4621-bb4d-a0f4a7883226",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-3072"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            17,
+                            18,
+                            19
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-3072",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:df89404f-fcc1-4a83-8508-523566080e4d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "pke",
+                    "variant": "RSA-4096"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a05():\n    return rsa.generate_private_key(public_exponent=65537, key_size=4096)  # GT:H0-A05/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            27,
+                            28,
+                            29
+                        ]
+                    }
+                ]
+            },
+            "name": "RSA-4096",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:ea89bdca-ae0b-4d9b-b2c8-bcbedc3e96ca",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP192R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a09():\n    mine, peer = ec.generate_private_key(ec.SECP192R1()), ec.generate_private_key(ec.SECP192R1())  # GT:H0-A09/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            46,
+                            47,
+                            48
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP192R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:94091dfb-82db-4637-80a2-bafd72349799",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP224R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a10():\n    mine, peer = ec.generate_private_key(ec.SECP224R1()), ec.generate_private_key(ec.SECP224R1())  # GT:H0-A10/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            51,
+                            52,
+                            53
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP224R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:ffc79834-2496-4c66-9874-d82b5ba13cd4",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256K1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a13():\n    mine, peer = ec.generate_private_key(ec.SECP256K1()), ec.generate_private_key(ec.SECP256K1())  # GT:H0-A13/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            66,
+                            67,
+                            68
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256K1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:94b534f8-6980-4494-8010-c4563818813c",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP256R1-256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a06():\n    key = ec.generate_private_key(ec.SECP256R1())  # GT:H0-A06/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            31,
+                            32,
+                            33
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef a11():\n    mine, peer = ec.generate_private_key(ec.SECP256R1()), ec.generate_private_key(ec.SECP256R1())  # GT:H0-A11/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            56,
+                            57,
+                            58
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP256R1-256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:3f5f3826-3085-4e36-8b34-7873cc8b17b9",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP384R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a07():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-A07/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            36,
+                            37,
+                            38
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef a08():\n    mine, peer = ec.generate_private_key(ec.SECP384R1()), ec.generate_private_key(ec.SECP384R1())  # GT:H0-A08/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            41,
+                            42,
+                            43
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef x05():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-X05/keygen",
+                        "filePath": "direct_third_party.py",
+                        "lineNumbers": [
+                            33,
+                            34,
+                            35
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP384R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:c9d1f008-faaf-4119-9413-fd028932325f",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "other",
+                    "variant": "SECP521R1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a12():\n    mine, peer = ec.generate_private_key(ec.SECP521R1()), ec.generate_private_key(ec.SECP521R1())  # GT:H0-A12/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            61,
+                            62,
+                            63
+                        ]
+                    }
+                ]
+            },
+            "name": "SECP521R1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:9eea557c-99e0-41d7-a775-a6a83e2fc23e",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "digest"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA1"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef h01():\n    ctx = hashes.Hash(hashes.SHA1())  # GT:H0-H01",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            10,
+                            11,
+                            12
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef m03():\n    mac = hmac.HMAC(KEY, hashes.SHA1())  # GT:H0-M03",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            64,
+                            65,
+                            66
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef t03():\n    return hashlib.sha1(DATA).digest()  # GT:H0-T03",
+                        "filePath": "direct_stdlib.py",
+                        "lineNumbers": [
+                            17,
+                            18,
+                            19
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef t05():\n    return hmac.new(KEY, DATA, hashlib.sha1).digest()  # GT:H0-T05",
+                        "filePath": "direct_stdlib.py",
+                        "lineNumbers": [
+                            25,
+                            26,
+                            27
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef x06():\n    return URLSafeTimedSerializer(secrets.token_urlsafe(32), signer_kwargs={\"digest_method\": hashlib.sha1}).dumps({\"sub\": \"h00\"})  # GT:H0-X06a GT:H0-X06b",
+                        "filePath": "direct_third_party.py",
+                        "lineNumbers": [
+                            38,
+                            39,
+                            40
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef x07():\n    return pyotp.TOTP(pyotp.random_base32(), digest=hashlib.sha1).now()  # GT:H0-X07",
+                        "filePath": "direct_third_party.py",
+                        "lineNumbers": [
+                            42,
+                            43,
+                            44
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA1",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:3b60a8e6-64fb-47e2-8380-1c82b119abb0",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA224"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef h02():\n    ctx = hashes.Hash(hashes.SHA224())  # GT:H0-H02",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            16,
+                            17,
+                            18
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA224",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:0b9f615a-8b5e-45b5-b65f-2aaef29e78c6",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "digest",
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def a02():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A02/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A02/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            13,
+                            14,
+                            15
+                        ]
+                    },
+                    {
+                        "additionalContext": "def a03():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A03/keygen\n    return key.sign(DATA, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH), hashes.SHA256())  # GT:H0-A03/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            18,
+                            19,
+                            20
+                        ]
+                    },
+                    {
+                        "additionalContext": "def a06():\n    key = ec.generate_private_key(ec.SECP256R1())  # GT:H0-A06/keygen\n    return key.sign(DATA, ec.ECDSA(hashes.SHA256()))  # GT:H0-A06/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            32,
+                            33,
+                            34
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef h03():\n    ctx = hashes.Hash(hashes.SHA256())  # GT:H0-H03",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef m01():\n    mac = hmac.HMAC(KEY, hashes.SHA256())  # GT:H0-M01",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            52,
+                            53,
+                            54
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef k01():\n    return HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b\"h00\").derive(KEY)  # GT:H0-K01",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            70,
+                            71,
+                            72
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef t01():\n    return hashlib.sha256(DATA).digest()  # GT:H0-T01",
+                        "filePath": "direct_stdlib.py",
+                        "lineNumbers": [
+                            9,
+                            10,
+                            11
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef t04():\n    return hmac.new(KEY, DATA, hashlib.sha256).digest()  # GT:H0-T04",
+                        "filePath": "direct_stdlib.py",
+                        "lineNumbers": [
+                            21,
+                            22,
+                            23
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA256",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:f5cfb877-118e-4de9-a5c9-16db4cf57d7f",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt",
+                        "generate"
+                    ],
+                    "padding": "oaep",
+                    "primitive": "hash",
+                    "variant": "SHA256"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def a01():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)  # GT:H0-A01/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A01/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            8,
+                            9,
+                            10
+                        ]
+                    },
+                    {
+                        "additionalContext": "def a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen\n    return key.public_key().encrypt(DATA, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))  # GT:H0-A04/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            23,
+                            24,
+                            25
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA256-OAEP",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:3941203c-4ddc-4a35-aa09-0f718e006b4f",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "generate",
+                        "sign"
+                    ],
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA384"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "def a07():\n    key = ec.generate_private_key(ec.SECP384R1())  # GT:H0-A07/keygen\n    return key.sign(DATA, ec.ECDSA(hashes.SHA384()))  # GT:H0-A07/op",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            37,
+                            38,
+                            39
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef h04():\n    ctx = hashes.Hash(hashes.SHA384())  # GT:H0-H04",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            28,
+                            29,
+                            30
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef m02():\n    mac = hmac.HMAC(KEY, hashes.SHA384())  # GT:H0-M02",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            58,
+                            59,
+                            60
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef k02():\n    return HKDF(algorithm=hashes.SHA384(), length=32, salt=None, info=b\"h00\").derive(KEY)  # GT:H0-K02",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            74,
+                            75,
+                            76
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA384",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:ff6f1603-fd64-4aef-8b9c-98e84062b4c1",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "hash",
+                    "variant": "SHA512"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef probe(data: bytes = b\"benchmark-probe\") -> bytes:\n    ctx = hashes.Hash(hashes.SHA512())  # GT:PROBE",
+                        "filePath": "probe.py",
+                        "lineNumbers": [
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                ]
+            },
+            "name": "SHA512",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:c30e8de5-1842-4fdb-9dbf-037beba6562d",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "cryptoFunctions": [
+                        "encrypt"
+                    ],
+                    "mode": "cbc",
+                    "padding": "unknown",
+                    "primitive": "blockcipher",
+                    "variant": "SM4-CBC"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef s08():\n    enc = Cipher(algorithms.SM4(os.urandom(16)), modes.CBC(os.urandom(16))).encryptor()  # GT:H0-S08",
+                        "filePath": "direct_symmetric.py",
+                        "lineNumbers": [
+                            41,
+                            42,
+                            43
+                        ]
+                    }
+                ]
+            },
+            "name": "SM4-CBC",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:algorithm:e1624f26-eb46-434a-99b0-0af0b1c0af57",
+            "cryptoProperties": {
+                "algorithmProperties": {
+                    "padding": "unknown",
+                    "primitive": "unknown",
+                    "variant": "UNKNOWN"
+                },
+                "assetType": "algorithm",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef h05():\n    ctx = hashes.Hash(hashes.SHA3_256())  # GT:H0-H05",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            34,
+                            35,
+                            36
+                        ]
+                    },
+                    {
+                        "additionalContext": "\ndef h06():\n    ctx = hashes.Hash(hashes.SHA3_384())  # GT:H0-H06",
+                        "filePath": "direct_hash_mac_kdf.py",
+                        "lineNumbers": [
+                            40,
+                            41,
+                            42
+                        ]
+                    }
+                ]
+            },
+            "name": "UNKNOWN",
+            "type": "crypto-asset"
+        },
+        {
+            "bom-ref": "cryptography:private_key:f5a97c2b-3242-4b79-98c5-818f5d1d5456",
+            "cryptoProperties": {
+                "assetType": "relatedCryptoMaterial",
+                "detectionContext": [
+                    {
+                        "additionalContext": "\ndef a04():\n    key = rsa.generate_private_key(public_exponent=65537, key_size=3072)  # GT:H0-A04/keygen",
+                        "filePath": "direct_asymmetric.py",
+                        "lineNumbers": [
+                            22,
+                            23,
+                            24
+                        ]
+                    }
+                ],
+                "relatedCryptoMaterialProperties": {
+                    "relatedCryptoMaterialType": "privateKey",
+                    "size": 3072
+                }
+            },
+            "name": "f5a97c2b-3242-4b79-98c5-818f5d1d5456",
+            "type": "crypto-asset"
+        }
+    ],
+    "dependencies": [
+        {
+            "dependsOn": [
+                "cryptography:algorithm:064559b8-e7f6-4990-8e10-188b3e1024f7",
+                "cryptography:algorithm:074c4a26-9e60-4621-bb4d-a0f4a7883226",
+                "cryptography:algorithm:09a19171-0f71-4308-8210-56558eb706e9",
+                "cryptography:algorithm:0b9f615a-8b5e-45b5-b65f-2aaef29e78c6",
+                "cryptography:algorithm:1416f35e-0d0a-404d-beea-47b4468e48dc",
+                "cryptography:algorithm:16972aba-c3c2-42f4-9c33-5cb7d8e769e0",
+                "cryptography:algorithm:2442e435-e838-4268-bc99-8272de0d00ea",
+                "cryptography:algorithm:3941203c-4ddc-4a35-aa09-0f718e006b4f",
+                "cryptography:algorithm:3b60a8e6-64fb-47e2-8380-1c82b119abb0",
+                "cryptography:algorithm:3f5f3826-3085-4e36-8b34-7873cc8b17b9",
+                "cryptography:algorithm:4ba0db36-53e5-40e9-a10a-dd27ba83a251",
+                "cryptography:algorithm:5dd5329a-7b4d-4a87-abe5-18c2907eaf20",
+                "cryptography:algorithm:6231bfc7-fc73-49ed-b38b-ae960a10b10e",
+                "cryptography:algorithm:81a34d13-9f58-48d3-b3b1-33c03944caca",
+                "cryptography:algorithm:8aa3a6a9-c79f-4eed-8289-36937a84a144",
+                "cryptography:algorithm:91091b91-6bec-4c7b-9875-fac4d376e25b",
+                "cryptography:algorithm:94091dfb-82db-4637-80a2-bafd72349799",
+                "cryptography:algorithm:94b534f8-6980-4494-8010-c4563818813c",
+                "cryptography:algorithm:9eea557c-99e0-41d7-a775-a6a83e2fc23e",
+                "cryptography:algorithm:b20cfb3a-67e5-4663-844a-fc2cc8498be0",
+                "cryptography:algorithm:c30e8de5-1842-4fdb-9dbf-037beba6562d",
+                "cryptography:algorithm:c9d1f008-faaf-4119-9413-fd028932325f",
+                "cryptography:algorithm:df89404f-fcc1-4a83-8508-523566080e4d",
+                "cryptography:algorithm:e1624f26-eb46-434a-99b0-0af0b1c0af57",
+                "cryptography:algorithm:e2e82031-bea2-4337-b954-ebcbc7bf9bd9",
+                "cryptography:algorithm:ea89bdca-ae0b-4d9b-b2c8-bcbedc3e96ca",
+                "cryptography:algorithm:f5cfb877-118e-4de9-a5c9-16db4cf57d7f",
+                "cryptography:algorithm:fbc161e1-c7fb-4eb4-a536-d78e1a6a316f",
+                "cryptography:algorithm:fedb2350-5cad-4fcc-902c-4f2a998689e1",
+                "cryptography:algorithm:ff6f1603-fd64-4aef-8b9c-98e84062b4c1",
+                "cryptography:algorithm:ffc79834-2496-4c66-9874-d82b5ba13cd4"
+            ],
+            "ref": "7c22e217-8c0b-4ba9-b2c6-7b8745e50bd4"
+        },
+        {
+            "ref": "cryptography:algorithm:064559b8-e7f6-4990-8e10-188b3e1024f7"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:5b5ce93c-0094-4b05-8f1a-c0370f2e2115",
+                "cryptography:private_key:f5a97c2b-3242-4b79-98c5-818f5d1d5456"
+            ],
+            "ref": "cryptography:algorithm:074c4a26-9e60-4621-bb4d-a0f4a7883226"
+        },
+        {
+            "ref": "cryptography:algorithm:09a19171-0f71-4308-8210-56558eb706e9"
+        },
+        {
+            "ref": "cryptography:algorithm:0b9f615a-8b5e-45b5-b65f-2aaef29e78c6"
+        },
+        {
+            "ref": "cryptography:algorithm:1416f35e-0d0a-404d-beea-47b4468e48dc"
+        },
+        {
+            "ref": "cryptography:algorithm:16972aba-c3c2-42f4-9c33-5cb7d8e769e0"
+        },
+        {
+            "ref": "cryptography:algorithm:2442e435-e838-4268-bc99-8272de0d00ea"
+        },
+        {
+            "ref": "cryptography:algorithm:3941203c-4ddc-4a35-aa09-0f718e006b4f"
+        },
+        {
+            "ref": "cryptography:algorithm:3b60a8e6-64fb-47e2-8380-1c82b119abb0"
+        },
+        {
+            "ref": "cryptography:algorithm:3f5f3826-3085-4e36-8b34-7873cc8b17b9"
+        },
+        {
+            "ref": "cryptography:algorithm:4ba0db36-53e5-40e9-a10a-dd27ba83a251"
+        },
+        {
+            "ref": "cryptography:algorithm:5dd5329a-7b4d-4a87-abe5-18c2907eaf20"
+        },
+        {
+            "ref": "cryptography:algorithm:6231bfc7-fc73-49ed-b38b-ae960a10b10e"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:098252f6-3d2b-4bf5-83f4-247244a1cfe1",
+                "cryptography:private_key:4d33d7a9-642d-421b-9fe2-b5f138ca8e08"
+            ],
+            "ref": "cryptography:algorithm:81a34d13-9f58-48d3-b3b1-33c03944caca"
+        },
+        {
+            "ref": "cryptography:algorithm:8aa3a6a9-c79f-4eed-8289-36937a84a144"
+        },
+        {
+            "ref": "cryptography:algorithm:91091b91-6bec-4c7b-9875-fac4d376e25b"
+        },
+        {
+            "ref": "cryptography:algorithm:94091dfb-82db-4637-80a2-bafd72349799"
+        },
+        {
+            "ref": "cryptography:algorithm:94b534f8-6980-4494-8010-c4563818813c"
+        },
+        {
+            "ref": "cryptography:algorithm:9eea557c-99e0-41d7-a775-a6a83e2fc23e"
+        },
+        {
+            "ref": "cryptography:algorithm:b20cfb3a-67e5-4663-844a-fc2cc8498be0"
+        },
+        {
+            "ref": "cryptography:algorithm:c30e8de5-1842-4fdb-9dbf-037beba6562d"
+        },
+        {
+            "ref": "cryptography:algorithm:c9d1f008-faaf-4119-9413-fd028932325f"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:22bbd7fd-e285-4570-b610-d4567df09a86"
+            ],
+            "ref": "cryptography:algorithm:df89404f-fcc1-4a83-8508-523566080e4d"
+        },
+        {
+            "ref": "cryptography:algorithm:e1624f26-eb46-434a-99b0-0af0b1c0af57"
+        },
+        {
+            "ref": "cryptography:algorithm:e2e82031-bea2-4337-b954-ebcbc7bf9bd9"
+        },
+        {
+            "ref": "cryptography:algorithm:ea89bdca-ae0b-4d9b-b2c8-bcbedc3e96ca"
+        },
+        {
+            "ref": "cryptography:algorithm:f5cfb877-118e-4de9-a5c9-16db4cf57d7f"
+        },
+        {
+            "dependsOn": [
+                "cryptography:private_key:01483ea1-30ba-45ff-9308-cebddddad334"
+            ],
+            "ref": "cryptography:algorithm:fbc161e1-c7fb-4eb4-a536-d78e1a6a316f"
+        },
+        {
+            "ref": "cryptography:algorithm:fedb2350-5cad-4fcc-902c-4f2a998689e1"
+        },
+        {
+            "ref": "cryptography:algorithm:ff6f1603-fd64-4aef-8b9c-98e84062b4c1"
+        },
+        {
+            "ref": "cryptography:algorithm:ffc79834-2496-4c66-9874-d82b5ba13cd4"
+        },
+        {
+            "ref": "cryptography:private_key:01483ea1-30ba-45ff-9308-cebddddad334"
+        },
+        {
+            "ref": "cryptography:private_key:098252f6-3d2b-4bf5-83f4-247244a1cfe1"
+        },
+        {
+            "ref": "cryptography:private_key:22bbd7fd-e285-4570-b610-d4567df09a86"
+        },
+        {
+            "ref": "cryptography:private_key:4d33d7a9-642d-421b-9fe2-b5f138ca8e08"
+        },
+        {
+            "ref": "cryptography:private_key:5b5ce93c-0094-4b05-8f1a-c0370f2e2115"
+        },
+        {
+            "ref": "cryptography:private_key:f5a97c2b-3242-4b79-98c5-818f5d1d5456"
+        }
+    ],
+    "metadata": {
+        "component": {
+            "bom-ref": "7c22e217-8c0b-4ba9-b2c6-7b8745e50bd4",
+            "name": "h00_baseline",
+            "type": "application"
+        },
+        "timestamp": "2026-10-18T03:01:29.567988+00:00",
+        "tools": [
+            {
+                "externalReferences": [
+                    {
+                        "type": "build-system",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+                    },
+                    {
+                        "type": "distribution",
+                        "url": "https://pypi.org/project/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "documentation",
+                        "url": "https://cyclonedx.github.io/cyclonedx-python-lib/"
+                    },
+                    {
+                        "type": "issue-tracker",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+                    },
+                    {
+                        "type": "license",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+                    },
+                    {
+                        "type": "release-notes",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+                    },
+                    {
+                        "type": "vcs",
+                        "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+                    },
+                    {
+                        "type": "website",
+                        "url": "https://cyclonedx.org"
+                    }
+                ],
+                "name": "cyclonedx-python-lib",
+                "vendor": "CycloneDX",
+                "version": "4.2.2"
+            },
+            {
+                "name": "CodeQL",
+                "vendor": "GitHub",
+                "version": "2.27.2"
+            }
+        ]
+    },
+    "serialNumber": "urn:uuid:9fe6b5a5-160f-4055-94c4-6a53dbc329ee",
+    "version": 1,
+    "$schema": "https://raw.githubusercontent.com/IBM/CBOM/main/bom-1.4-cbom-1.0.schema.json",
+    "bomFormat": "CBOM",
+    "specVersion": "1.4-cbom-1.0"
+}
