@@ -21,25 +21,7 @@ How is the PQC compliance policy defined, configured, and communicated to the sc
 ### Hypothesis Question 9
 Are confidence scores assigned to detected cryptographic assets and PQC compliance findings to indicate the reliability of the results?
 
-## Solution
-### Option 1
-The Cryptographic Intermediate Representation (CIR) abstracts away syntactic sugar, macro expansions, and wrapper layers, normalizing cryptographic operations into a unified, language-independent representation for consistent cryptographic asset discovery and PQC compliance evaluation.
-
-### Option 2
-A tool orchestration framework should provide holistic comprehension of cryptographic assets by integrating heterogeneous analysis tools into a unified analysis layer that supports output aggregation, normalization, and systemic evaluation. Because tool outputs may vary in structure, format, and semantic completeness, normalization is essential to ensure consistency and comparability across findings. Conformance profiles should define the minimum required attribute sets for each asset type, such as algorithm variants and key sizes, to establish clear acceptance criteria. Furthermore, each identified cryptographic asset should include evidence traceability metadata documenting its source location and detection method, while PQC classification should enrich the discovered assets with information about their vulnerability to quantum computing attacks, thereby supporting systematic post-quantum cryptography (PQC) compliance assessment.
-
-## Compliance States
-Not applicable
-Unknown
-Not quantum safe
-Quantum safe
-
-## Verdicts
-False Negatives
-False Positives
-Duplications
-
-Observed CBOM Properties:
+CBOM Properties Considered:
 ```text
 File artifacts, e.g., openssl.cnf.
 
