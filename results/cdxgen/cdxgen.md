@@ -1,5 +1,4 @@
 ## Repeatable cdxgen benchmark
-
 `tools/run_cdxgen_benchmark.py` runs cdxgen against the nine treatment targets H1-H9
 (H0 is the direct-use baseline and is not included in this nine-case run). It uses
 `cdxgen --include-crypto -o <output-file> <target>` for each case and writes each
@@ -9,8 +8,8 @@ never overwritten.
 Create the manifest from the ground-truth JSON once, then run the benchmark:
 
 ```bash
-python tools/run_cdxgen_benchmark.py --write-manifest
-python tools/run_cdxgen_benchmark.py
+python results/cdxgen/run_cdxgen_benchmark.py --write-manifest
+python results/cdxgen/run_cdxgen_benchmark.py
 ```
 
 The checked-in `cdxgen_manifest.json` is the case-by-case expected-algorithm source
