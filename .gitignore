@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Java build artifacts
+*.class
+
+# Generated CodeQL databases and intermediate files
+results/CryptoBOM-Forge-Java/*-db/
+results/CryptoBOM-Forge-Java/*-inventory/
