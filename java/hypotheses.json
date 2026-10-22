@@ -1,0 +1,52 @@
+[
+  {
+    "id": "H00",
+    "folder": "h00_baseline",
+    "title": "H0 \u2014 Direct-use baseline"
+  },
+  {
+    "id": "H01",
+    "folder": "h01_metaprogramming",
+    "title": "H1 \u2014 Reflection and dynamic construction"
+  },
+  {
+    "id": "H02",
+    "folder": "h02_abstraction",
+    "title": "H2 \u2014 Indirection and abstraction"
+  },
+  {
+    "id": "H03",
+    "folder": "h03_dependencies",
+    "title": "H3 \u2014 Third-party dependency use"
+  },
+  {
+    "id": "H04",
+    "folder": "h04_mixed_classical_pqc",
+    "title": "H4 \u2014 Mixed classical and post-quantum assets"
+  },
+  {
+    "id": "H05",
+    "folder": "h05_misleading_names",
+    "title": "H5 \u2014 Misleading names and decoys"
+  },
+  {
+    "id": "H06",
+    "folder": "h06_external_config",
+    "title": "H6 \u2014 External configuration"
+  },
+  {
+    "id": "H07",
+    "folder": "h07_call_depth",
+    "title": "H7 \u2014 Call-depth and propagation"
+  },
+  {
+    "id": "H08",
+    "folder": "h08_policy_probe",
+    "title": "H8 \u2014 Policy-discriminating cryptographic corpus"
+  },
+  {
+    "id": "H09",
+    "folder": "h09_confidence",
+    "title": "H9 \u2014 Evidence strength and decoys"
+  }
+]
