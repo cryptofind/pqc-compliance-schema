@@ -1,0 +1,4 @@
+algorithm = "rsa"
+key_bits = 3072
+padding = "oaep"
+hash = "sha256"

@@ -1,0 +1,70 @@
+{
+  "case_id": "H3",
+  "target": "javascript/targets/h03_dependencies",
+  "language": "javascript",
+  "scenario": "What if cryptographic elements are encapsulated within third-party dependencies?",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "--no-install-deps",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h3\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h03_dependencies"
+  ],
+  "timestamp": "2026-10-22T00:24:41.300984+00:00",
+  "exit_code": 0,
+  "runtime_seconds": 11.746242799970787,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": true,
+  "bom_path": "h3\\bom.json",
+  "log_path": "h3\\cdxgen.log",
+  "scan_error": null,
+  "log_diagnostics": [
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "expected_algorithms": [
+    "SHA-512",
+    "XSalsa20-Poly1305",
+    "X25519",
+    "Ed25519",
+    "HMAC-SHA-256",
+    "ECDSA-P-384-SHA-384",
+    "HMAC-SHA-1",
+    "SHA-1",
+    "AES-128-CBC-PKCS7",
+    "AES-256-KW"
+  ],
+  "detected_algorithms_normalized": [
+    "ed25519",
+    "sha1",
+    "sha256",
+    "sha384",
+    "sha512"
+  ],
+  "true_positives": [
+    "Ed25519",
+    "SHA-1",
+    "SHA-512"
+  ],
+  "registry_overapproximation_algorithms": [],
+  "false_positives_normalized": [
+    "sha256",
+    "sha384"
+  ],
+  "missed_algorithms": [
+    "AES-128-CBC-PKCS7",
+    "AES-256-KW",
+    "ECDSA-P-384-SHA-384",
+    "HMAC-SHA-1",
+    "HMAC-SHA-256",
+    "X25519",
+    "XSalsa20-Poly1305"
+  ],
+  "tp": 3,
+  "fp": 2,
+  "missed": 7,
+  "recall": 0.3,
+  "precision": 0.6,
+  "cryptographic_asset_component_count": 5,
+  "unlabeled_crypto_asset_component_count": 0
+}

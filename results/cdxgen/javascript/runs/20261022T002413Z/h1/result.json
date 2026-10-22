@@ -1,0 +1,60 @@
+{
+  "case_id": "H1",
+  "target": "javascript/targets/h01_metaprogramming",
+  "language": "javascript",
+  "scenario": "What if macros (metaprogramming) are used to inject cryptographic elements into source code?",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "--no-install-deps",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h1\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h01_metaprogramming"
+  ],
+  "timestamp": "2026-10-22T00:24:15.474501+00:00",
+  "exit_code": 0,
+  "runtime_seconds": 13.212184600008186,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": true,
+  "bom_path": "h1\\bom.json",
+  "log_path": "h1\\cdxgen.log",
+  "scan_error": null,
+  "log_diagnostics": [
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "expected_algorithms": [
+    "SHA-512",
+    "AES-256-GCM",
+    "ML-KEM-768",
+    "HKDF-SHA-384",
+    "ECDSA-P-384-SHA-384",
+    "X25519",
+    "ChaCha20-Poly1305"
+  ],
+  "detected_algorithms_normalized": [
+    "sha384",
+    "sha512"
+  ],
+  "true_positives": [
+    "SHA-512"
+  ],
+  "registry_overapproximation_algorithms": [],
+  "false_positives_normalized": [
+    "sha384"
+  ],
+  "missed_algorithms": [
+    "AES-256-GCM",
+    "ChaCha20-Poly1305",
+    "ECDSA-P-384-SHA-384",
+    "HKDF-SHA-384",
+    "ML-KEM-768",
+    "X25519"
+  ],
+  "tp": 1,
+  "fp": 1,
+  "missed": 6,
+  "recall": 0.14285714285714285,
+  "precision": 0.5,
+  "cryptographic_asset_component_count": 2,
+  "unlabeled_crypto_asset_component_count": 0
+}

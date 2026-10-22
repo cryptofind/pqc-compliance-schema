@@ -1,0 +1,64 @@
+{
+  "case_id": "H5",
+  "target": "javascript/targets/h05_misleading_names",
+  "language": "javascript",
+  "scenario": "What if a wrapper encapsulates quantum-resistant cryptography under a name that suggests a quantum-vulnerable algorithm?",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "--no-install-deps",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h5\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h05_misleading_names"
+  ],
+  "timestamp": "2026-10-22T00:25:04.826662+00:00",
+  "exit_code": 0,
+  "runtime_seconds": 11.744949700019788,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": true,
+  "bom_path": "h5\\bom.json",
+  "log_path": "h5\\cdxgen.log",
+  "scan_error": null,
+  "log_diagnostics": [
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "expected_algorithms": [
+    "SHA-512",
+    "ML-KEM-768",
+    "HKDF-SHA-256",
+    "AES-256-GCM",
+    "ML-DSA-65",
+    "ML-KEM-1024",
+    "X25519",
+    "RSA-2048-PSS-SHA-256"
+  ],
+  "detected_algorithms_normalized": [
+    "rsa",
+    "sha256",
+    "sha512"
+  ],
+  "true_positives": [
+    "SHA-512"
+  ],
+  "registry_overapproximation_algorithms": [],
+  "false_positives_normalized": [
+    "rsa",
+    "sha256"
+  ],
+  "missed_algorithms": [
+    "AES-256-GCM",
+    "HKDF-SHA-256",
+    "ML-DSA-65",
+    "ML-KEM-1024",
+    "ML-KEM-768",
+    "RSA-2048-PSS-SHA-256",
+    "X25519"
+  ],
+  "tp": 1,
+  "fp": 2,
+  "missed": 7,
+  "recall": 0.125,
+  "precision": 0.3333333333333333,
+  "cryptographic_asset_component_count": 3,
+  "unlabeled_crypto_asset_component_count": 0
+}

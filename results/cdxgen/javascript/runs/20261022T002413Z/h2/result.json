@@ -1,0 +1,66 @@
+{
+  "case_id": "H2",
+  "target": "javascript/targets/h02_abstraction",
+  "language": "javascript",
+  "scenario": "What if cryptographic elements are abstracted behind function calls, making them less visible to static analyzers?",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "--no-install-deps",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h2\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h02_abstraction"
+  ],
+  "timestamp": "2026-10-22T00:24:28.686233+00:00",
+  "exit_code": 0,
+  "runtime_seconds": 12.61105820001103,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": true,
+  "bom_path": "h2\\bom.json",
+  "log_path": "h2\\cdxgen.log",
+  "scan_error": null,
+  "log_diagnostics": [
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "expected_algorithms": [
+    "SHA-512",
+    "AES-128-GCM",
+    "ChaCha20-Poly1305",
+    "Ed25519",
+    "HMAC-SHA-256",
+    "RSA-3072-PSS-SHA-256",
+    "SHA3-384",
+    "AES-256-CBC-PKCS7",
+    "HKDF-SHA-256"
+  ],
+  "detected_algorithms_normalized": [
+    "ed25519",
+    "rsa",
+    "sha3384",
+    "sha512"
+  ],
+  "true_positives": [
+    "Ed25519",
+    "SHA3-384",
+    "SHA-512"
+  ],
+  "registry_overapproximation_algorithms": [],
+  "false_positives_normalized": [
+    "rsa"
+  ],
+  "missed_algorithms": [
+    "AES-128-GCM",
+    "AES-256-CBC-PKCS7",
+    "ChaCha20-Poly1305",
+    "HKDF-SHA-256",
+    "HMAC-SHA-256",
+    "RSA-3072-PSS-SHA-256"
+  ],
+  "tp": 3,
+  "fp": 1,
+  "missed": 6,
+  "recall": 0.3333333333333333,
+  "precision": 0.75,
+  "cryptographic_asset_component_count": 4,
+  "unlabeled_crypto_asset_component_count": 0
+}

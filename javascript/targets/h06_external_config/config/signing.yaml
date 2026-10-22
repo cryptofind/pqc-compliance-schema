@@ -1,0 +1,3 @@
+algorithm: ECDSA
+curve: secp384r1
+hash: sha384

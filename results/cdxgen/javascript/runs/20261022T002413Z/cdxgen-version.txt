@@ -1,0 +1,2 @@
+CycloneDX Generator 12.8.4
+Runtime: Node.js, Version: 24.19.0

@@ -1,0 +1,10 @@
+{
+  "name": "pqc-benchmark-h03-dependencies",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "jsonwebtoken": "*",
+    "otplib": "*",
+    "tweetnacl": "*"
+  }
+}

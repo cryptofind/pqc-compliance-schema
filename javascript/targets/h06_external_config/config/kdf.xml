@@ -1,0 +1,4 @@
+<kdf>
+  <algorithm>HKDF</algorithm>
+  <hash>sha256</hash>
+</kdf>

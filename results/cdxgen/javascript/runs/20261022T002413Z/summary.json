@@ -1,0 +1,669 @@
+{
+  "schema": "pqc-cbom-benchmark/cdxgen-run/1",
+  "run_id": "20261022T002413Z",
+  "language": "javascript",
+  "cdxgen_version": "CycloneDX Generator 12.8.4\nRuntime: Node.js, Version: 24.19.0",
+  "case_count": 9,
+  "successful_scan_count": 9,
+  "cases_with_algorithm_detection": 9,
+  "expected_algorithm_count": 105,
+  "cryptographic_asset_component_count": 37,
+  "totals": {
+    "tp": 24,
+    "fp": 13,
+    "missed": 81,
+    "cryptographic_asset_component_count": 37,
+    "expected": 105
+  },
+  "micro_recall": 0.22857142857142856,
+  "micro_precision": 0.6486486486486487,
+  "cases": [
+    {
+      "case_id": "H1",
+      "target": "javascript/targets/h01_metaprogramming",
+      "language": "javascript",
+      "scenario": "What if macros (metaprogramming) are used to inject cryptographic elements into source code?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h1\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h01_metaprogramming"
+      ],
+      "timestamp": "2026-10-22T00:24:15.474501+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 13.212184600008186,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h1\\bom.json",
+      "log_path": "h1\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "ML-KEM-768",
+        "HKDF-SHA-384",
+        "ECDSA-P-384-SHA-384",
+        "X25519",
+        "ChaCha20-Poly1305"
+      ],
+      "detected_algorithms_normalized": [
+        "sha384",
+        "sha512"
+      ],
+      "true_positives": [
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "sha384"
+      ],
+      "missed_algorithms": [
+        "AES-256-GCM",
+        "ChaCha20-Poly1305",
+        "ECDSA-P-384-SHA-384",
+        "HKDF-SHA-384",
+        "ML-KEM-768",
+        "X25519"
+      ],
+      "tp": 1,
+      "fp": 1,
+      "missed": 6,
+      "recall": 0.14285714285714285,
+      "precision": 0.5,
+      "cryptographic_asset_component_count": 2,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H2",
+      "target": "javascript/targets/h02_abstraction",
+      "language": "javascript",
+      "scenario": "What if cryptographic elements are abstracted behind function calls, making them less visible to static analyzers?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h2\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h02_abstraction"
+      ],
+      "timestamp": "2026-10-22T00:24:28.686233+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 12.61105820001103,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h2\\bom.json",
+      "log_path": "h2\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-128-GCM",
+        "ChaCha20-Poly1305",
+        "Ed25519",
+        "HMAC-SHA-256",
+        "RSA-3072-PSS-SHA-256",
+        "SHA3-384",
+        "AES-256-CBC-PKCS7",
+        "HKDF-SHA-256"
+      ],
+      "detected_algorithms_normalized": [
+        "ed25519",
+        "rsa",
+        "sha3384",
+        "sha512"
+      ],
+      "true_positives": [
+        "Ed25519",
+        "SHA3-384",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa"
+      ],
+      "missed_algorithms": [
+        "AES-128-GCM",
+        "AES-256-CBC-PKCS7",
+        "ChaCha20-Poly1305",
+        "HKDF-SHA-256",
+        "HMAC-SHA-256",
+        "RSA-3072-PSS-SHA-256"
+      ],
+      "tp": 3,
+      "fp": 1,
+      "missed": 6,
+      "recall": 0.3333333333333333,
+      "precision": 0.75,
+      "cryptographic_asset_component_count": 4,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H3",
+      "target": "javascript/targets/h03_dependencies",
+      "language": "javascript",
+      "scenario": "What if cryptographic elements are encapsulated within third-party dependencies?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h3\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h03_dependencies"
+      ],
+      "timestamp": "2026-10-22T00:24:41.300984+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 11.746242799970787,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h3\\bom.json",
+      "log_path": "h3\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "XSalsa20-Poly1305",
+        "X25519",
+        "Ed25519",
+        "HMAC-SHA-256",
+        "ECDSA-P-384-SHA-384",
+        "HMAC-SHA-1",
+        "SHA-1",
+        "AES-128-CBC-PKCS7",
+        "AES-256-KW"
+      ],
+      "detected_algorithms_normalized": [
+        "ed25519",
+        "sha1",
+        "sha256",
+        "sha384",
+        "sha512"
+      ],
+      "true_positives": [
+        "Ed25519",
+        "SHA-1",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "sha256",
+        "sha384"
+      ],
+      "missed_algorithms": [
+        "AES-128-CBC-PKCS7",
+        "AES-256-KW",
+        "ECDSA-P-384-SHA-384",
+        "HMAC-SHA-1",
+        "HMAC-SHA-256",
+        "X25519",
+        "XSalsa20-Poly1305"
+      ],
+      "tp": 3,
+      "fp": 2,
+      "missed": 7,
+      "recall": 0.3,
+      "precision": 0.6,
+      "cryptographic_asset_component_count": 5,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H4",
+      "target": "javascript/targets/h04_mixed_classical_pqc",
+      "language": "javascript",
+      "scenario": "What if a function contains both quantum-resistant and quantum-vulnerable elements? Compliant or not?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h4\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h04_mixed_classical_pqc"
+      ],
+      "timestamp": "2026-10-22T00:24:53.059456+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 11.762865199998487,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h4\\bom.json",
+      "log_path": "h4\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "X25519",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "ML-DSA-65",
+        "Ed25519",
+        "ECDSA-P-256-SHA-256",
+        "RSA-2048-OAEP-SHA-256",
+        "AES-256-GCM",
+        "ML-KEM-1024",
+        "RSA-3072-OAEP-SHA-256",
+        "HKDF-SHA-384",
+        "ECDH-P-384"
+      ],
+      "detected_algorithms_normalized": [
+        "ed25519",
+        "sha256",
+        "sha384",
+        "sha512"
+      ],
+      "true_positives": [
+        "Ed25519",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "sha256",
+        "sha384"
+      ],
+      "missed_algorithms": [
+        "AES-256-GCM",
+        "ECDH-P-384",
+        "ECDSA-P-256-SHA-256",
+        "HKDF-SHA-256",
+        "HKDF-SHA-384",
+        "ML-DSA-65",
+        "ML-KEM-1024",
+        "ML-KEM-768",
+        "RSA-2048-OAEP-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "X25519"
+      ],
+      "tp": 2,
+      "fp": 2,
+      "missed": 11,
+      "recall": 0.15384615384615385,
+      "precision": 0.5,
+      "cryptographic_asset_component_count": 4,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H5",
+      "target": "javascript/targets/h05_misleading_names",
+      "language": "javascript",
+      "scenario": "What if a wrapper encapsulates quantum-resistant cryptography under a name that suggests a quantum-vulnerable algorithm?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h5\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h05_misleading_names"
+      ],
+      "timestamp": "2026-10-22T00:25:04.826662+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 11.744949700019788,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h5\\bom.json",
+      "log_path": "h5\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM",
+        "ML-DSA-65",
+        "ML-KEM-1024",
+        "X25519",
+        "RSA-2048-PSS-SHA-256"
+      ],
+      "detected_algorithms_normalized": [
+        "rsa",
+        "sha256",
+        "sha512"
+      ],
+      "true_positives": [
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa",
+        "sha256"
+      ],
+      "missed_algorithms": [
+        "AES-256-GCM",
+        "HKDF-SHA-256",
+        "ML-DSA-65",
+        "ML-KEM-1024",
+        "ML-KEM-768",
+        "RSA-2048-PSS-SHA-256",
+        "X25519"
+      ],
+      "tp": 1,
+      "fp": 2,
+      "missed": 7,
+      "recall": 0.125,
+      "precision": 0.3333333333333333,
+      "cryptographic_asset_component_count": 3,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H6",
+      "target": "javascript/targets/h06_external_config",
+      "language": "javascript",
+      "scenario": "What if algorithm selection is driven by configuration files (JSON/YAML/XML/TOML/INI) and environment variables?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h6\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h06_external_config"
+      ],
+      "timestamp": "2026-10-22T00:25:16.576404+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 11.961954000056721,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h6\\bom.json",
+      "log_path": "h6\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "ECDSA-P-384-SHA-384",
+        "HKDF-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "HMAC-SHA-384",
+        "SHA-224",
+        "ML-KEM-1024",
+        "X25519"
+      ],
+      "detected_algorithms_normalized": [
+        "rsa",
+        "sha224",
+        "sha512"
+      ],
+      "true_positives": [
+        "SHA-224",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa"
+      ],
+      "missed_algorithms": [
+        "AES-256-GCM",
+        "ECDSA-P-384-SHA-384",
+        "HKDF-SHA-256",
+        "HMAC-SHA-384",
+        "ML-KEM-1024",
+        "RSA-3072-OAEP-SHA-256",
+        "X25519"
+      ],
+      "tp": 2,
+      "fp": 1,
+      "missed": 7,
+      "recall": 0.2222222222222222,
+      "precision": 0.6666666666666666,
+      "cryptographic_asset_component_count": 3,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H7",
+      "target": "javascript/targets/h07_call_depth",
+      "language": "javascript",
+      "scenario": "How deeply can a static analyzer traverse nested call hierarchies to identify cryptographic elements and evaluate PQC compliance?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h7\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h07_call_depth"
+      ],
+      "timestamp": "2026-10-22T00:25:28.543880+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 11.817877800029237,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h7\\bom.json",
+      "log_path": "h7\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "ECDH-P-256",
+        "ECDH-P-384",
+        "ECDH-P-521",
+        "ECDH-P-224",
+        "ECDH-secp256k1",
+        "ECDH-brainpoolP256r1",
+        "ECDH-brainpoolP384r1",
+        "ECDH-brainpoolP512r1",
+        "ECDH-P-192",
+        "RSA-2048",
+        "RSA-3072",
+        "RSA-4096",
+        "ML-KEM-768"
+      ],
+      "detected_algorithms_normalized": [
+        "rsa",
+        "sha512"
+      ],
+      "true_positives": [
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa"
+      ],
+      "missed_algorithms": [
+        "ECDH-brainpoolP256r1",
+        "ECDH-brainpoolP384r1",
+        "ECDH-brainpoolP512r1",
+        "ECDH-P-192",
+        "ECDH-P-224",
+        "ECDH-P-256",
+        "ECDH-P-384",
+        "ECDH-P-521",
+        "ECDH-secp256k1",
+        "ML-KEM-768",
+        "RSA-2048",
+        "RSA-3072",
+        "RSA-4096"
+      ],
+      "tp": 1,
+      "fp": 1,
+      "missed": 13,
+      "recall": 0.07142857142857142,
+      "precision": 0.5,
+      "cryptographic_asset_component_count": 2,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H8",
+      "target": "javascript/targets/h08_policy_probe",
+      "language": "javascript",
+      "scenario": "How is the PQC compliance policy defined, configured, and communicated to the scanner, if such a mechanism exists?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h8\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h08_policy_probe"
+      ],
+      "timestamp": "2026-10-22T00:25:40.366078+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 12.385634800011758,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h8\\bom.json",
+      "log_path": "h8\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-128-GCM",
+        "AES-256-GCM",
+        "ChaCha20-Poly1305",
+        "SHA-256",
+        "SHA-384",
+        "SHA3-256",
+        "SHA-1",
+        "SHA-224",
+        "HMAC-SHA-256",
+        "HMAC-SHA-384",
+        "ML-KEM-512",
+        "ML-KEM-768",
+        "ML-KEM-1024",
+        "ML-DSA-44",
+        "ML-DSA-87",
+        "SLH-DSA-SHA2-128s",
+        "RSA-2048-PSS-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "ECDSA-P-384-SHA-384",
+        "Ed25519",
+        "X25519",
+        "HKDF-SHA-256",
+        "ECDH-P-384",
+        "HKDF-SHA-384"
+      ],
+      "detected_algorithms_normalized": [
+        "ed25519",
+        "rsa",
+        "sha1",
+        "sha224",
+        "sha256",
+        "sha3256",
+        "sha384",
+        "sha512"
+      ],
+      "true_positives": [
+        "Ed25519",
+        "SHA-1",
+        "SHA-224",
+        "SHA-256",
+        "SHA3-256",
+        "SHA-384",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa"
+      ],
+      "missed_algorithms": [
+        "AES-128-GCM",
+        "AES-256-GCM",
+        "ChaCha20-Poly1305",
+        "ECDH-P-384",
+        "ECDSA-P-384-SHA-384",
+        "HKDF-SHA-256",
+        "HKDF-SHA-384",
+        "HMAC-SHA-256",
+        "HMAC-SHA-384",
+        "ML-DSA-44",
+        "ML-DSA-87",
+        "ML-KEM-1024",
+        "ML-KEM-512",
+        "ML-KEM-768",
+        "RSA-2048-PSS-SHA-256",
+        "RSA-3072-OAEP-SHA-256",
+        "SLH-DSA-SHA2-128s",
+        "X25519"
+      ],
+      "tp": 7,
+      "fp": 1,
+      "missed": 18,
+      "recall": 0.28,
+      "precision": 0.875,
+      "cryptographic_asset_component_count": 8,
+      "unlabeled_crypto_asset_component_count": 0
+    },
+    {
+      "case_id": "H9",
+      "target": "javascript/targets/h09_confidence",
+      "language": "javascript",
+      "scenario": "Are confidence scores assigned to detected cryptographic assets and PQC compliance findings?",
+      "command": [
+        "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+        "--include-crypto",
+        "--no-install-deps",
+        "-o",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h9\\bom.json",
+        "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h09_confidence"
+      ],
+      "timestamp": "2026-10-22T00:25:52.755684+00:00",
+      "exit_code": 0,
+      "runtime_seconds": 12.841349700000137,
+      "scan_succeeded": true,
+      "algorithm_detection_succeeded": true,
+      "bom_path": "h9\\bom.json",
+      "log_path": "h9\\cdxgen.log",
+      "scan_error": null,
+      "log_diagnostics": [
+        "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+      ],
+      "expected_algorithms": [
+        "SHA-512",
+        "AES-256-GCM",
+        "AES-192-GCM",
+        "RSA-3072",
+        "SHA-384",
+        "SHA3-256",
+        "BLAKE2b-512",
+        "EC-secp256k1",
+        "SM4-128-CBC",
+        "MD5"
+      ],
+      "detected_algorithms_normalized": [
+        "md5",
+        "rsa",
+        "sha256",
+        "sha3256",
+        "sha384",
+        "sha512"
+      ],
+      "true_positives": [
+        "MD5",
+        "SHA3-256",
+        "SHA-384",
+        "SHA-512"
+      ],
+      "registry_overapproximation_algorithms": [],
+      "false_positives_normalized": [
+        "rsa",
+        "sha256"
+      ],
+      "missed_algorithms": [
+        "AES-192-GCM",
+        "AES-256-GCM",
+        "BLAKE2b-512",
+        "EC-secp256k1",
+        "RSA-3072",
+        "SM4-128-CBC"
+      ],
+      "tp": 4,
+      "fp": 2,
+      "missed": 6,
+      "recall": 0.4,
+      "precision": 0.6666666666666666,
+      "cryptographic_asset_component_count": 6,
+      "unlabeled_crypto_asset_component_count": 0
+    }
+  ]
+}

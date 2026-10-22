@@ -1,0 +1,71 @@
+{
+  "case_id": "H9",
+  "target": "javascript/targets/h09_confidence",
+  "language": "javascript",
+  "scenario": "Are confidence scores assigned to detected cryptographic assets and PQC compliance findings?",
+  "command": [
+    "C:\\Users\\saket\\AppData\\Roaming\\npm\\cdxgen.CMD",
+    "--include-crypto",
+    "--no-install-deps",
+    "-o",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\results\\cdxgen\\javascript\\runs\\20261022T002413Z\\h9\\bom.json",
+    "C:\\Users\\saket\\OneDrive\\Desktop\\pqc-compliance-schema\\javascript\\targets\\h09_confidence"
+  ],
+  "timestamp": "2026-10-22T00:25:52.755684+00:00",
+  "exit_code": 0,
+  "runtime_seconds": 12.841349700000137,
+  "scan_succeeded": true,
+  "algorithm_detection_succeeded": true,
+  "bom_path": "h9\\bom.json",
+  "log_path": "h9\\cdxgen.log",
+  "scan_error": null,
+  "log_diagnostics": [
+    "Unable to identify component evidence for the input SBOM based on the slices from atom. The slices are either empty or lack appropriate tags."
+  ],
+  "expected_algorithms": [
+    "SHA-512",
+    "AES-256-GCM",
+    "AES-192-GCM",
+    "RSA-3072",
+    "SHA-384",
+    "SHA3-256",
+    "BLAKE2b-512",
+    "EC-secp256k1",
+    "SM4-128-CBC",
+    "MD5"
+  ],
+  "detected_algorithms_normalized": [
+    "md5",
+    "rsa",
+    "sha256",
+    "sha3256",
+    "sha384",
+    "sha512"
+  ],
+  "true_positives": [
+    "MD5",
+    "SHA3-256",
+    "SHA-384",
+    "SHA-512"
+  ],
+  "registry_overapproximation_algorithms": [],
+  "false_positives_normalized": [
+    "rsa",
+    "sha256"
+  ],
+  "missed_algorithms": [
+    "AES-192-GCM",
+    "AES-256-GCM",
+    "BLAKE2b-512",
+    "EC-secp256k1",
+    "RSA-3072",
+    "SM4-128-CBC"
+  ],
+  "tp": 4,
+  "fp": 2,
+  "missed": 6,
+  "recall": 0.4,
+  "precision": 0.6666666666666666,
+  "cryptographic_asset_component_count": 6,
+  "unlabeled_crypto_asset_component_count": 0
+}
